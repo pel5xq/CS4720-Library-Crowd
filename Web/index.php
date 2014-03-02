@@ -2,6 +2,11 @@
 
 require 'flight/Flight.php';
 
+//
+Flight::route('/', function() {
+    echo "<a href=\"Web_service_1_API.txt\">Library Crowd Data API</a>";
+});
+
 //Insert
 Flight::route('/insert/library/@lib/section/@sec/crowd/@crowd/noise/@noise', function($lib, $sec, $crowd, $noise) {
     $db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4720pel5xq', '2014spring', 'cs4720pel5xq');
