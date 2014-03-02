@@ -121,8 +121,6 @@ Flight::route('/library/@lib/day/@day', function($lib, $day) {
   	}
 });
 
-//(60*ABS(HOUR(Now()) - HOUR(Time)) + ABS(MINUTE(Now()) - MINUTE(Time)))
-
 //Library, Section, Timespan, and Weekly Pattern (today)
 Flight::route('/library/@lib/section/@sec/timespan/@minutes/day', function($lib, $sec, $minutes) {
     $db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4720pel5xq', '2014spring', 'cs4720pel5xq');
@@ -212,6 +210,58 @@ Flight::route('/library/@lib/timespan/@minutes/day/@day', function($lib, $minute
         and Library = ? and (60*ABS(HOUR(Now()) - HOUR(Time)) + ABS(MINUTE(Now()) - MINUTE(Time))) <= ?
         GROUP BY Library, Section")) {
           $stmt->bind_param("dsd", $day, $lib, $minutes);
+          $stmt->execute();
+          $stmt->bind_result($Crowd, $Noise);
+          $answer = array('crowd' => '0', 'noise' => '0');
+          while($stmt->fetch()) {
+            $answer = array('crowd' => $Crowd, 'noise' => $Noise);
+          }
+          echo json_encode($answer);
+      }
+      else {
+          http_response_code(500);
+      }
+    }
+});
+
+//Library, Section, and Timespan
+Flight::route('/library/@lib/section/@sec/timespan/@minutes', function($lib, $sec, $minutes) {
+    $db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4720pel5xq', '2014spring', 'cs4720pel5xq');
+    if (mysqli_connect_errno()) {
+        http_response_code(500);
+    }
+    else {
+      $stmt = $db_connection->stmt_init();
+      if($stmt->prepare("SELECT AVG(Crowd), AVG(Noise) FROM `LibraryCrowd` WHERE  
+        Library = ? and Section = ? and (60*ABS(HOUR(Now()) - HOUR(Time)) + ABS(MINUTE(Now()) - MINUTE(Time))) <= ?
+        GROUP BY Library, Section")) {
+          $stmt->bind_param("ssd", $lib, $sec, $minutes);
+          $stmt->execute();
+          $stmt->bind_result($Crowd, $Noise);
+          $answer = array('crowd' => '0', 'noise' => '0');
+          while($stmt->fetch()) {
+            $answer = array('crowd' => $Crowd, 'noise' => $Noise);
+          }
+          echo json_encode($answer);
+      }
+      else {
+          http_response_code(500);
+      }
+    }
+});
+
+//Library and Timespan
+Flight::route('/library/@lib/timespan/@minutes', function($lib, $minutes) {
+    $db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4720pel5xq', '2014spring', 'cs4720pel5xq');
+    if (mysqli_connect_errno()) {
+        http_response_code(500);
+    }
+    else {
+      $stmt = $db_connection->stmt_init();
+      if($stmt->prepare("SELECT AVG(Crowd), AVG(Noise) FROM `LibraryCrowd` WHERE
+        Library = ? and (60*ABS(HOUR(Now()) - HOUR(Time)) + ABS(MINUTE(Now()) - MINUTE(Time))) <= ?
+        GROUP BY Library, Section")) {
+          $stmt->bind_param("sd", $lib, $minutes);
           $stmt->execute();
           $stmt->bind_result($Crowd, $Noise);
           $answer = array('crowd' => '0', 'noise' => '0');
