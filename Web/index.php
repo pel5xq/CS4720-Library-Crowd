@@ -2,6 +2,25 @@
 
 require 'flight/Flight.php';
 
+//Insert
+Flight::route('/insert/library/@lib/section/@sec/crowd/@crowd/noise/@noise', function($lib, $sec, $crowd, $noise) {
+    $db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4720pel5xq', '2014spring', 'cs4720pel5xq');
+    if (mysqli_connect_errno()) {
+        http_response_code(500);
+    }
+    else {
+      $stmt = $db_connection->stmt_init();
+      if($stmt->prepare("INSERT INTO `LibraryCrowd`(`Library`, `Section`, `Crowd`, `Noise`) VALUES (?,?,?,?)")) {
+          $stmt->bind_param("ssdd", $lib, $sec, $crowd, $noise);
+          $stmt->execute();
+          http_response_code(200);
+      }
+      else {
+          http_response_code(500);
+      }
+    }
+});
+
 //Library, Section, and Weekly Pattern (today)
 Flight::route('/library/@lib/section/@sec/day', function($lib, $sec) {
   	$db_connection = new mysqli('stardock.cs.virginia.edu', 'cs4720pel5xq', '2014spring', 'cs4720pel5xq');
