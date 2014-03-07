@@ -13,14 +13,18 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-
+	
 	private final String TAG = "LIBRARYCROWD";
 
 	@Override
@@ -38,6 +42,17 @@ public class MainActivity extends Activity {
 		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
 				+ "library/Thornton/timespan/60", 
 				""+R.id.thorntonCrowd, ""+R.id.thorntonNoise);
+		
+		Log.d(TAG, "About to set button listener");
+		((Button) findViewById(R.id.makePostButton)).setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View theView) {
+				Intent intent = new Intent(MainActivity.this, PostActivity.class);
+	            startActivity(intent);
+			}
+			
+		});
 	}
 
 	@Override

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/TextViewCrowd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/clemons"
@@ -25,13 +25,13 @@
             android:id="@+id/clemonsCrowd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/defaultData" />
 
         <TextView
             android:id="@+id/clemonsNoise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/defaultData" />
 
     </TableRow>
 
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/TextViewNoise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/thornton"
@@ -51,13 +51,13 @@
             android:id="@+id/thorntonCrowd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/defaultData" />
 
         <TextView
             android:id="@+id/thorntonNoise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/defaultData" />
 
     </TableRow>
 
@@ -77,14 +77,20 @@
             android:id="@+id/aldermanCrowd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/defaultData" />
 
         <TextView
             android:id="@+id/aldermanNoise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="@string/defaultData" />
 
     </TableRow>
+
+    <Button
+        android:id="@+id/makePostButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/makePost" />
 
 </TableLayout>
