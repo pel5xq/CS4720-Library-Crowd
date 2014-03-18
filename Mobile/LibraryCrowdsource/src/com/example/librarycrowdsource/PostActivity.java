@@ -109,6 +109,8 @@ public class PostActivity extends Activity {
 							(RadioGroup)findViewById(R.id.crowdRadioGroup))
 							.getCheckedRadioButtonId())).getText().toString();
 				}
+				selectedLibrary = selectedLibrary.replace(" ", "%20");
+				selectedSection = selectedSection.replace(" ", "%20");
 				Log.d(TAG, selectedLibrary+" "+selectedSection+" "+selectedCrowd+" "+selectedNoise);
 				if (!selectedLibrary.equals("") &&
 						!selectedSection.equals("") &&
