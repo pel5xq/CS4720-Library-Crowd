@@ -24,41 +24,41 @@
                 android:id="@+id/libraryRadioAlderman"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/alderman" />
 
             <RadioButton
                 android:id="@+id/libraryRadioClark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/clark" />
 
             <RadioButton
                 android:id="@+id/libraryRadioClemons"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/clemons" />
+            
+            <RadioButton
+                android:id="@+id/libraryRadioCommerce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/commerce" />
 
             <RadioButton
                 android:id="@+id/libraryRadioRice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/rice" />
 
             <RadioButton
                 android:id="@+id/libraryRadioThornton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/thornton" />
             <RadioButton
                 android:id="@+id/libraryRadioWilsdorf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:text="@string/wilsdorf" />
 
         </RadioGroup>
@@ -75,6 +75,12 @@
             android:layout_height="wrap_content"
             android:text="@string/sectionLabel"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TableLayout
+            android:id="@+id/dynamicSectionView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
     </TableRow>
 
     <TableRow
@@ -181,7 +187,7 @@
     </TableRow>
 
     <Button
-        android:id="@+id/makePostButton"
+        android:id="@+id/submitPostButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submit" />
