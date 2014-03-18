@@ -55,7 +55,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/thornton" />
-            <RadioButton
+
+            <RadioButton
                 android:id="@+id/libraryRadioWilsdorf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

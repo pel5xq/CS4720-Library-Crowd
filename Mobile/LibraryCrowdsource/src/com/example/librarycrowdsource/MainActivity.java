@@ -21,17 +21,48 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	
 	private final String TAG = "LIBRARYCROWD";
-
+	
+	private EditText editText1;
+	//private TableLayout LibraryDatascrollView;
+	Button submit_library_button;
+	private TextView textView1;
+	private TableRow tableRow1;
+	private TableRow tableRow2;
+	private TableRow tableRow3;
+	private TextView TextViewCrowd;
+	
+	private final String clemonsArray[] = {"1", "2", "3", "4"};
+	private final String aldermanArray[] = {"WestWing", "EastWing", "McGregor", "Cafe"};
+	private final String thorntonArray[] = {"Stacks"};
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		
+	
+		textView1 = (TextView) findViewById(R.id.libraryNameTextView);
+		
+		textView1.setOnClickListener(textView1Listener);	
+		
+		tableRow1 = (TableRow) findViewById(R.id.tableRow1);
+		tableRow2 = (TableRow) findViewById(R.id.tableRow2);
+		tableRow3 = (TableRow) findViewById(R.id.tableRow3);
+		TextViewCrowd = (TextView) findViewById(R.id.TextViewCrowd);
+		
+		tableRow1.setOnClickListener(tableRow1Listener);
+		tableRow2.setOnClickListener(tableRow2Listener);
+		tableRow3.setOnClickListener(tableRow3Listener);
+			
+		
 		Log.d(TAG, "About to perform task");
 		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
 				+ "library/Clemons/timespan/60", 
@@ -42,6 +73,7 @@ public class MainActivity extends Activity {
 		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
 				+ "library/Thornton/timespan/60", 
 				""+R.id.thorntonCrowd, ""+R.id.thorntonNoise);
+	
 		
 		Log.d(TAG, "About to set button listener");
 		((Button) findViewById(R.id.makePostButton)).setOnClickListener(new OnClickListener(){
@@ -53,8 +85,73 @@ public class MainActivity extends Activity {
 			}
 			
 		});
-	}
+}
+	
+	 public OnClickListener tableRow2Listener = new OnClickListener(){
 
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			//textView1.setText("HELLO YOU");
+			
+			//textView1.setText(TextViewCrowd.getText().toString());
+			TextView TextViewNoise = (TextView) findViewById(R.id.TextViewNoise);
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("array", thorntonArray);
+			startActivity(intent);
+		}
+	
+	}; 
+	
+	public OnClickListener tableRow1Listener = new OnClickListener(){
+
+		@Override
+		public void onClick(View v) {
+			
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",TextViewCrowd.getText().toString());
+			intent.putExtra("array", clemonsArray);
+		
+			startActivity(intent);
+		}
+	
+	}; 
+	
+	public OnClickListener tableRow3Listener = new OnClickListener(){
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			//textView1.setText("HELLO YOU");
+			
+			//textView2.setText(TextViewCrowd.getText().toString());
+			TextView textView3 = (TextView) findViewById(R.id.text3);
+			
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",textView3.getText().toString());
+			intent.putExtra("array",  aldermanArray);
+			startActivity(intent);
+		}
+	
+	}; 
+	
+	public OnClickListener textView1Listener = new OnClickListener(){
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			//textView1.setText("HELLO YOU");
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",textView1.getText().toString());
+			textView1.setText(textView1.getText().toString());
+			startActivity(intent);
+		}
+	}; 
+	
+	//private void updateLibraryDatascrollView(String )
+	
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
