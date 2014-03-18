@@ -37,11 +37,13 @@ public class MainActivity extends Activity {
 	private TableRow tableRow1;
 	private TableRow tableRow2;
 	private TableRow tableRow3;
-	private TextView TextViewCrowd;
+	private TableRow tableRow4;
 	
 	private final String clemonsArray[] = {"1", "2", "3", "4"};
 	private final String aldermanArray[] = {"WestWing", "EastWing", "McGregor", "Cafe"};
 	private final String thorntonArray[] = {"Stacks"};
+	private final String clarkArray[] = {"WestWing", "EastWing", "Reading", "Stacks"};
+	//private final String 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -56,11 +58,13 @@ public class MainActivity extends Activity {
 		tableRow1 = (TableRow) findViewById(R.id.tableRow1);
 		tableRow2 = (TableRow) findViewById(R.id.tableRow2);
 		tableRow3 = (TableRow) findViewById(R.id.tableRow3);
-		TextViewCrowd = (TextView) findViewById(R.id.TextViewCrowd);
+		tableRow4 = (TableRow) findViewById(R.id.tableRow4);
 		
 		tableRow1.setOnClickListener(tableRow1Listener);
 		tableRow2.setOnClickListener(tableRow2Listener);
 		tableRow3.setOnClickListener(tableRow3Listener);
+		tableRow4.setOnClickListener(tableRow4Listener);
+
 			
 		
 		Log.d(TAG, "About to perform task");
@@ -73,6 +77,9 @@ public class MainActivity extends Activity {
 		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
 				+ "library/Thornton/timespan/60", 
 				""+R.id.thorntonCrowd, ""+R.id.thorntonNoise);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Clark/timespan/60", 
+				""+R.id.clarkCrowd, ""+R.id.clarkNoise);
 	
 		
 		Log.d(TAG, "About to set button listener");
@@ -87,32 +94,30 @@ public class MainActivity extends Activity {
 		});
 }
 	
-	 public OnClickListener tableRow2Listener = new OnClickListener(){
-
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			//textView1.setText("HELLO YOU");
-			
-			//textView1.setText(TextViewCrowd.getText().toString());
-			TextView TextViewNoise = (TextView) findViewById(R.id.TextViewNoise);
-			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",TextViewNoise.getText().toString());
-			intent.putExtra("array", thorntonArray);
-			startActivity(intent);
-		}
-	
-	}; 
-	
 	public OnClickListener tableRow1Listener = new OnClickListener(){
 
 		@Override
 		public void onClick(View v) {
 			
+			TextView TextViewNoise = (TextView) findViewById(R.id.textViewClemons);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",TextViewCrowd.getText().toString());
+			intent.putExtra("Library",TextViewNoise.getText().toString());
 			intent.putExtra("array", clemonsArray);
 		
+			startActivity(intent);
+		}
+	
+	}; 
+	
+	 public OnClickListener tableRow2Listener = new OnClickListener(){
+
+		@Override
+		public void onClick(View v) {
+		
+			TextView TextViewNoise = (TextView) findViewById(R.id.textViewThornton);
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("array", thorntonArray);
 			startActivity(intent);
 		}
 	
@@ -122,11 +127,8 @@ public class MainActivity extends Activity {
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			//textView1.setText("HELLO YOU");
 			
-			//textView2.setText(TextViewCrowd.getText().toString());
-			TextView textView3 = (TextView) findViewById(R.id.text3);
+			TextView textView3 = (TextView) findViewById(R.id.textViewAlderman);
 			
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
 			intent.putExtra("Library",textView3.getText().toString());
@@ -136,12 +138,27 @@ public class MainActivity extends Activity {
 	
 	}; 
 	
+	public OnClickListener tableRow4Listener = new OnClickListener(){
+
+		@Override
+		public void onClick(View v) {
+	
+			TextView textView4 = (TextView) findViewById(R.id.textViewClark);
+			
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",textView4.getText().toString());
+			intent.putExtra("array",  clarkArray);
+			startActivity(intent);
+		}
+	
+	}; 
+	
+	// for testing purposes
 	public OnClickListener textView1Listener = new OnClickListener(){
 
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			//textView1.setText("HELLO YOU");
+			
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
 			intent.putExtra("Library",textView1.getText().toString());
 			textView1.setText(textView1.getText().toString());
