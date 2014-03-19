@@ -51,7 +51,7 @@ public class PostActivity extends Activity {
 					radioID = R.layout.radio_section_clemons;
 				}
 				else if (checkedId == R.id.libraryRadioCommerce) {
-					Log.d(TAG, "Clemons Selected");
+					Log.d(TAG, "Commerce School Selected");
 					radioID = R.layout.radio_section_commerce;
 				}
 				else if (checkedId == R.id.libraryRadioRice) {

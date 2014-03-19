@@ -44,13 +44,19 @@ public class LibraryInfoActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_info);
-		//String library = getIntent().getExtras().getString("Library");
 		String arrays[] = getIntent().getExtras().getStringArray("array");
 		String library = getIntent().getExtras().getString("Library");
+		if (library.equals("Commerce School")){
+			library = "Commerce%20School";
+		}
+		if (library.equals("Rice Hall")){
+			library = ("Rice%20Hall");
+		}
 		
 		for(int i=0; i<5; i++){
 			if(i<arrays.length){
 				section[i]=arrays[i];
+				Log.d(TAG, section[i]);
 			}
 			else{
 				section[i]="";
@@ -61,22 +67,22 @@ public class LibraryInfoActivity extends Activity {
 		
 	
 		if(arrays.length>=1){
-			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[0] + "/day",""+R.id.text1,""+R.id.text2,""+R.id.text3, section[0] );
+			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[0] + "/timespan/60",""+R.id.sec0,""+R.id.sec0Crowd,""+R.id.sec0Noise, section[0] );
 		}
 		if(arrays.length>=2){
-			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[1] + "/day",""+R.id.text4,""+R.id.text5,""+R.id.text6, section[1] );
+			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[1] + "/timespan/60",""+R.id.sec1,""+R.id.sec1Crowd,""+R.id.sec1Noise, section[1] );
 		}
 		if(arrays.length>=3){
-			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[2] + "/day",""+R.id.text7,""+R.id.text8,""+R.id.text9, section[2] );
+			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[2] + "/timespan/60",""+R.id.sec2,""+R.id.sec2Crowd,""+R.id.sec2Noise, section[2] );
 		}
 		if(arrays.length>=4){
-			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[3] + "/day",""+R.id.text10,""+R.id.text11,""+R.id.text12, section[3] );
+			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[3] + "/timespan/60",""+R.id.sec3,""+R.id.sec3Crowd,""+R.id.sec3Noise, section[3] );
 		}
 		if(arrays.length>=5){
-			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[4] + "/day",""+R.id.text13,""+R.id.text14,""+R.id.text15, section[4] );
+			new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/library/" + library + "/section/" + section[4] + "/timespan/60",""+R.id.sec4,""+R.id.sec4Crowd,""+R.id.sec4Noise, section[4] );
 		} 
 	
-		}
+	}
 	
 	private class MyAsyncTask extends AsyncTask<String, String, String> {
 
@@ -95,14 +101,35 @@ public class LibraryInfoActivity extends Activity {
 			section = args[4];
 			
 			String result = getJSONfromURL(args[0]);
-			Log.d(TAG, args[0]+" | "+result);
+			Log.d(TAG, args[0]+" | " + result);
 			try {
 				if (result != null) {
 					JSONObject jObject = new JSONObject(result);
 					
 					crowd = jObject.getString("crowd");
 					noise = jObject.getString("noise");
-					Log.d("DATAAAAAAA", crowd+" "+noise);
+					Log.d("DATAAAAAAA", crowd + " " + noise);
+					
+					if (crowd.equals("0") || noise.equals("0")){
+						String [] parts = args[0].split("/");
+						String query = parts[0] + "/" + parts[1] + "/" + parts[2] + "/" + 
+								parts[3] + "/" + parts[4] + "/" + parts[5] + "/" + 
+								parts[6] + "/" + parts[7] + "/day";
+						Log.d(TAG, "Temp: " + query);
+						String result2 = getJSONfromURL(query);
+
+						Log.d(TAG, "Exception: " + query + "|" + result2);
+
+						JSONObject jObject2 = new JSONObject(result2);
+						crowd = jObject2.getString("crowd") + "*";
+						noise = jObject2.getString("noise") + "*";
+						
+						if (crowd.equals("0") || noise.equals("0*")){
+							crowd = "No data";
+							noise = "No data";
+						}
+						
+					}
 				}
 			} catch (JSONException e) {
 				Log.d(TAG, e.getMessage());
@@ -117,7 +144,23 @@ public class LibraryInfoActivity extends Activity {
 		protected void onPostExecute(String result) {
 			Log.d(TAG, "About to set data");
 			//String sect = getIntent().getExtras().getString("Library");
-			((TextView) findViewById(sectionId)).setText(section);
+			//((TextView) findViewById(sectionId)).setText(section);
+			if(section.equals("CompLab")){
+				((TextView) findViewById(sectionId)).setText("Computer Lab");
+			}
+			else if(section.equals("EastWing")){
+				((TextView) findViewById(sectionId)).setText("East Wing");
+			}
+			else if(section.equals("WestWing")){
+				((TextView) findViewById(sectionId)).setText("West Wing");
+			}
+			else if(section.matches(".*\\d.*")){
+				((TextView) findViewById(sectionId)).setText("Floor " + section);
+			}
+			else{
+				((TextView) findViewById(sectionId)).setText(section);
+			}
+
 			((TextView) findViewById(crowdId)).setText(" "+crowd+" " );
 			((TextView) findViewById(noiseId)).setText(" "+noise+" ");
 		}

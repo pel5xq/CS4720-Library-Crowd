@@ -6,8 +6,8 @@
     <string name="alderman">Alderman</string>
     <string name="thornton">Thornton</string>
     <string name="libraryLabel">Library</string>
-    <string name="crowdLabel">How crowded is it?</string>
-    <string name="noiseLabel">How loud is it?</string>
+    <string name="crowdLabel">Crowd Level</string>
+    <string name="noiseLabel">Noise Level</string>
     <string name="sectionLabel">Section</string>
     <string name="one">1</string>
     <string name="two">2</string>
@@ -20,7 +20,7 @@
     <string name="submit">Submit</string>
     <string name="defaultData">No Data</string>
     <string name="makePost">Post Library Report</string>
-     <string name="west_wing">West Wing</string>
+    <string name="west_wing">West Wing</string>
     <string name="east_wing">East Wing</string>
     <string name="mcgregor">McGregor Room</string>
     <string name="cafe">Cafe</string>
@@ -33,4 +33,7 @@
     <string name="reading_room">Reading Room</string>
     <string name="commerce">Commerce School</string>
     <string name="computer_lab">Computer Lab</string>
+    <string name="main_title">Crowd and Noise Statistics</string>
+    <string name="exception">*No recent data - daily trend shown instead</string>
+    
 </resources>

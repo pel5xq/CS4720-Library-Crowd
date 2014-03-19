@@ -1,73 +1,47 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ChooseLibraryEditText"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <TableRow
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_title"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+        
+    	<TableRow
         android:id="@+id/tableRow1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textViewClemons"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/clemons"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/clemonsCrowd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/defaultData" />
-
-        <TextView
-            android:id="@+id/clemonsNoise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/defaultData" />
-
+        <TextView 
+            android:text="@string/sectionLabel"
+            android:layout_gravity="center"/>
+        <TextView 
+            android:text="@string/crowdLabel"
+            android:padding="10dip"
+            android:layout_gravity="center"/>
+        <TextView 
+            android:text="@string/noiseLabel"
+            android:padding="10dip"
+            android:layout_gravity="center"/>
+        
     </TableRow>
-
-    <TableRow
+    
+        <TableRow
         android:id="@+id/tableRow2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textViewThornton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/thornton"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/thorntonCrowd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/defaultData" />
-
-        <TextView
-            android:id="@+id/thorntonNoise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/defaultData" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textViewAlderman"
+        <Button
+            android:id="@+id/buttonAlderman"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/alderman"
@@ -77,23 +51,25 @@
             android:id="@+id/aldermanCrowd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="@string/defaultData" />
 
         <TextView
             android:id="@+id/aldermanNoise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="@string/defaultData" />
 
     </TableRow>
-    
+
     <TableRow
-        android:id="@+id/tableRow4"
+        android:id="@+id/tableRow3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/textViewClark"
+        <Button
+            android:id="@+id/buttonClark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/clark"
@@ -103,12 +79,154 @@
             android:id="@+id/clarkCrowd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="@string/defaultData" />
 
         <TextView
             android:id="@+id/clarkNoise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonClemons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/clemons"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/clemonsCrowd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+        <TextView
+            android:id="@+id/clemonsNoise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRow5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonCommerce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/commerce"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/commerceCrowd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+        <TextView
+            android:id="@+id/commerceNoise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRow6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonRice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rice"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/riceCrowd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+        <TextView
+            android:id="@+id/riceNoise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRow7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonThornton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/thornton"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/thorntonCrowd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+        <TextView
+            android:id="@+id/thorntonNoise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRow8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/buttonWilsdorf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/wilsdorf"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/wilsdorfCrowd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/defaultData" />
+
+        <TextView
+            android:id="@+id/wilsdorfNoise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="@string/defaultData" />
 
     </TableRow>
@@ -123,7 +241,6 @@
         android:id="@+id/LibraryDatascrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
-        android:layout_span="5"
         android:padding="5dp">
 
         <ScrollView
@@ -148,4 +265,12 @@
 
     </TableRow>
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/exception"
+        android:gravity="center" />
+    
 </TableLayout>
+

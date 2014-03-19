@@ -30,19 +30,24 @@ public class MainActivity extends Activity {
 	
 	private final String TAG = "LIBRARYCROWD";
 	
-	private EditText editText1;
 	//private TableLayout LibraryDatascrollView;
 	Button submit_library_button;
+	Button buttonAlderman;
+	Button buttonClark;
+	Button buttonClemons;
+	Button buttonCommerce;
+	Button buttonRice;
+	Button buttonThornton;
+	Button buttonWilsdorf;
 	private TextView textView1;
-	private TableRow tableRow1;
-	private TableRow tableRow2;
-	private TableRow tableRow3;
-	private TableRow tableRow4;
 	
 	private final String clemonsArray[] = {"1", "2", "3", "4"};
 	private final String aldermanArray[] = {"WestWing", "EastWing", "McGregor", "Cafe"};
 	private final String thorntonArray[] = {"Stacks"};
 	private final String clarkArray[] = {"WestWing", "EastWing", "Reading", "Stacks"};
+	private final String commerceArray[] = {"CompLab", "4"};
+	private final String riceArray[] = {"1", "2", "3", "4", "5"};
+	private final String wilsdorfArray [] = {"Cafe"};
 	//private final String 
 	
 	@Override
@@ -53,34 +58,39 @@ public class MainActivity extends Activity {
 	
 		textView1 = (TextView) findViewById(R.id.libraryNameTextView);
 		
-		textView1.setOnClickListener(textView1Listener);	
+		textView1.setOnClickListener(textView1Listener);
 		
-		tableRow1 = (TableRow) findViewById(R.id.tableRow1);
-		tableRow2 = (TableRow) findViewById(R.id.tableRow2);
-		tableRow3 = (TableRow) findViewById(R.id.tableRow3);
-		tableRow4 = (TableRow) findViewById(R.id.tableRow4);
-		
-		tableRow1.setOnClickListener(tableRow1Listener);
-		tableRow2.setOnClickListener(tableRow2Listener);
-		tableRow3.setOnClickListener(tableRow3Listener);
-		tableRow4.setOnClickListener(tableRow4Listener);
+		buttonAlderman = (Button) findViewById(R.id.buttonAlderman);
+		buttonClark = (Button) findViewById(R.id.buttonClark);
+		buttonClemons = (Button) findViewById(R.id.buttonClemons);
+		buttonCommerce = (Button) findViewById(R.id.buttonCommerce);
+		buttonRice = (Button) findViewById(R.id.buttonRice);
+		buttonThornton = (Button) findViewById(R.id.buttonThornton);
+		buttonWilsdorf = (Button) findViewById(R.id.buttonWilsdorf);
 
-			
 		
 		Log.d(TAG, "About to perform task");
-		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
-				+ "library/Clemons/timespan/60", 
-				""+R.id.clemonsCrowd, ""+R.id.clemonsNoise);
 		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
 				+ "library/Alderman/timespan/60", 
 				""+R.id.aldermanCrowd, ""+R.id.aldermanNoise);
 		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Clark/timespan/60", 
+				""+R.id.clarkCrowd, ""+R.id.clarkNoise);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Clemons/timespan/60", 
+				""+R.id.clemonsCrowd, ""+R.id.clemonsNoise);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Commerce%20School/timespan/60", 
+				""+R.id.commerceCrowd, ""+R.id.commerceNoise);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Rice/timespan/60", 
+				""+R.id.riceCrowd, ""+R.id.riceNoise);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
 				+ "library/Thornton/timespan/60", 
 				""+R.id.thorntonCrowd, ""+R.id.thorntonNoise);
 		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
-				+ "library/Clark/timespan/60", 
-				""+R.id.clarkCrowd, ""+R.id.clarkNoise);
-	
+				+ "library/Wilsdorf/timespan/60", 
+				""+R.id.wilsdorfCrowd, ""+R.id.wilsdorfNoise);
 		
 		Log.d(TAG, "About to set button listener");
 		((Button) findViewById(R.id.makePostButton)).setOnClickListener(new OnClickListener(){
@@ -92,66 +102,99 @@ public class MainActivity extends Activity {
 			}
 			
 		});
-}
 	
-	public OnClickListener tableRow1Listener = new OnClickListener(){
-
+	buttonAlderman.setOnClickListener(new OnClickListener() {
 		@Override
-		public void onClick(View v) {
-			
-			TextView TextViewNoise = (TextView) findViewById(R.id.textViewClemons);
+		public void onClick(View v) {	
+			TextView TextViewNoise = (TextView) findViewById(R.id.buttonAlderman);
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("array", aldermanArray);
+			startActivity(intent);
+
+		}
+		
+	});
+	
+	buttonClark.setOnClickListener(new OnClickListener() {
+		@Override
+		public void onClick(View v) {	
+			TextView TextViewNoise = (TextView) findViewById(R.id.buttonClark);
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("array", clarkArray);
+			startActivity(intent);
+
+		}
+		
+	});
+	
+	buttonClemons.setOnClickListener(new OnClickListener() {
+		@Override
+		public void onClick(View v) {	
+			TextView TextViewNoise = (TextView) findViewById(R.id.buttonClemons);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
 			intent.putExtra("Library",TextViewNoise.getText().toString());
 			intent.putExtra("array", clemonsArray);
-		
 			startActivity(intent);
-		}
-	
-	}; 
-	
-	 public OnClickListener tableRow2Listener = new OnClickListener(){
 
-		@Override
-		public void onClick(View v) {
+		}
 		
-			TextView TextViewNoise = (TextView) findViewById(R.id.textViewThornton);
+	});
+	
+	buttonCommerce.setOnClickListener(new OnClickListener() {
+		@Override
+		public void onClick(View v) {	
+			TextView TextViewNoise = (TextView) findViewById(R.id.buttonCommerce);
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("array", commerceArray);
+			startActivity(intent);
+
+		}
+		
+	});
+	
+	buttonRice.setOnClickListener(new OnClickListener() {
+		@Override
+		public void onClick(View v) {	
+			TextView TextViewNoise = (TextView) findViewById(R.id.buttonRice);
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("array", riceArray);
+			startActivity(intent);
+
+		}
+		
+	});
+	
+	buttonThornton.setOnClickListener(new OnClickListener() {
+		@Override
+		public void onClick(View v) {	
+			TextView TextViewNoise = (TextView) findViewById(R.id.buttonThornton);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
 			intent.putExtra("Library",TextViewNoise.getText().toString());
 			intent.putExtra("array", thorntonArray);
 			startActivity(intent);
-		}
-	
-	}; 
-	
-	public OnClickListener tableRow3Listener = new OnClickListener(){
 
-		@Override
-		public void onClick(View v) {
-			
-			TextView textView3 = (TextView) findViewById(R.id.textViewAlderman);
-			
-			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",textView3.getText().toString());
-			intent.putExtra("array",  aldermanArray);
-			startActivity(intent);
 		}
+		
+	});
 	
-	}; 
-	
-	public OnClickListener tableRow4Listener = new OnClickListener(){
+	buttonWilsdorf.setOnClickListener(new OnClickListener() {
+		@Override
+		public void onClick(View v) {	
+			TextView TextViewNoise = (TextView) findViewById(R.id.buttonWilsdorf);
+			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
+			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("array", wilsdorfArray);
+			startActivity(intent);
 
-		@Override
-		public void onClick(View v) {
-	
-			TextView textView4 = (TextView) findViewById(R.id.textViewClark);
-			
-			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",textView4.getText().toString());
-			intent.putExtra("array",  clarkArray);
-			startActivity(intent);
 		}
+		
+	});
+}
 	
-	}; 
 	
 	// for testing purposes
 	public OnClickListener textView1Listener = new OnClickListener(){
@@ -175,6 +218,16 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	/**protected void onResume(){
+		super.onResume();
+		restartActivity();
+	}
+	
+	 private void restartActivity() { 
+         Intent i = new Intent(getBaseContext(), MainActivity.class); 
+         startActivity(i); 
+	 } */
 
 	private class MyAsyncTask extends AsyncTask<String, String, String> {
 
@@ -184,10 +237,10 @@ public class MainActivity extends Activity {
 		private int noiseId;
 
 		protected String doInBackground(String... args) {
-			
+
 			crowdId = Integer.parseInt(args[1]);
 			noiseId = Integer.parseInt(args[2]);
-			
+
 			String result = getJSONfromURL(args[0]);
 			Log.d(TAG, args[0]+" | "+result);
 			try {
@@ -195,6 +248,26 @@ public class MainActivity extends Activity {
 					JSONObject jObject = new JSONObject(result);
 					crowd = jObject.getString("crowd");
 					noise = jObject.getString("noise");
+					
+					if (crowd.equals("0") || noise.equals("0")){
+						String [] parts = args[0].split("/");
+						String query = parts[0] + "/" + parts[1] + "/" + parts[2] + "/" + 
+								parts[3] + "/" + parts[4] + "/" + parts[5] + "/day";
+						Log.d(TAG, "Temp: " + query);
+						String result2 = getJSONfromURL(query);
+
+						Log.d(TAG, "Exception: " + query + "|" + result2);
+
+						JSONObject jObject2 = new JSONObject(result2);
+						crowd = jObject2.getString("crowd") + "*";
+						noise = jObject2.getString("noise") + "*";
+						
+						if (crowd.equals("0") || noise.equals("0*")){
+							crowd = "No data";
+							noise = "No data";
+						}
+						
+					}
 				}
 			} catch (JSONException e) {
 				Log.d(TAG, e.getMessage());
