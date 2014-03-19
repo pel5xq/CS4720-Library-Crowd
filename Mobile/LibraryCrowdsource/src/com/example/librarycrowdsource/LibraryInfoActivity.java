@@ -35,9 +35,10 @@ public class LibraryInfoActivity extends Activity {
 			
 			//http://plato.cs.virginia.edu/~pel5xq/library/Alderman/section/4/day
 				
-	private String libraryName = "";
-	private String libraryCrowd = "";
-	private String libraryNoise = "";
+	//private String libraryName = "";
+	//private String libraryCrowd = "";
+	//private String libraryNoise = "";
+	//String library;
 	String section[] = new String[5];
 	
 	@Override
@@ -160,7 +161,11 @@ public class LibraryInfoActivity extends Activity {
 			else{
 				((TextView) findViewById(sectionId)).setText(section);
 			}
+<<<<<<< HEAD
 
+=======
+			
+>>>>>>> a0fc98af03a105ff1be6ba08d5f945558f496f5d
 			((TextView) findViewById(crowdId)).setText(" "+crowd+" " );
 			((TextView) findViewById(noiseId)).setText(" "+noise+" ");
 		}
