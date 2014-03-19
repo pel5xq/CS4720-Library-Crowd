@@ -35,9 +35,10 @@ public class LibraryInfoActivity extends Activity {
 			
 			//http://plato.cs.virginia.edu/~pel5xq/library/Alderman/section/4/day
 				
-	private String libraryName = "";
-	private String libraryCrowd = "";
-	private String libraryNoise = "";
+	//private String libraryName = "";
+	//private String libraryCrowd = "";
+	//private String libraryNoise = "";
+	//String library;
 	String section[] = new String[5];
 	
 	@Override
@@ -117,7 +118,23 @@ public class LibraryInfoActivity extends Activity {
 		protected void onPostExecute(String result) {
 			Log.d(TAG, "About to set data");
 			//String sect = getIntent().getExtras().getString("Library");
-			((TextView) findViewById(sectionId)).setText(section);
+			//((TextView) findViewById(sectionId)).setText(section);
+			if(section.equals("CompLab")){
+				((TextView) findViewById(sectionId)).setText("Computer Lab");
+			}
+			else if(section.equals("EastWing")){
+				((TextView) findViewById(sectionId)).setText("East Wing");
+			}
+			else if(section.equals("WestWing")){
+				((TextView) findViewById(sectionId)).setText("West Wing");
+			}
+			else if(section.matches(".*\\d.*")){
+				((TextView) findViewById(sectionId)).setText("Floor " + section);
+			}
+			else{
+				((TextView) findViewById(sectionId)).setText(section);
+			}
+			
 			((TextView) findViewById(crowdId)).setText(" "+crowd+" " );
 			((TextView) findViewById(noiseId)).setText(" "+noise+" ");
 		}

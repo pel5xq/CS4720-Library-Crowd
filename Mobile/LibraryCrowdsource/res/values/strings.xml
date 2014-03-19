@@ -33,4 +33,27 @@
     <string name="reading_room">Reading Room</string>
     <string name="commerce">Commerce School</string>
     <string name="computer_lab">Computer Lab</string>
+    <string name = "clemons1">Floor 1</string>
+    <string name = "clemons2">Floor 2</string>
+    <string name = "clemons3">Floor 3</string>
+    <string name = "clemons4">Floor 4</string>
+    <string name = "aldermanWest">West Wing</string>
+    <string name = "aldermanEast">East Wing</string>
+    <string name = "aldermanMcGregor">McGregor</string>
+    <string name = "aldermanCafe">Cafe</string>
+    <string name = "thorntonStacks">Stacks</string>
+    <string name = "clarkWest">West Wing</string>
+    <string name = "clarkEast">East Wing</string>
+    <string name = "clarkReading">Reading</string>
+    <string name = "clarkStacks">Stacks</string>
+    <string name = "commerceCompLab">Computer Lab</string>
+    <string name = "commerce4">Floor 4</string>
+    <string name = "rice1">Floor 1</string>
+    <string name = "rice2">Floor 2</string>
+    <string name = "rice3">Floor 3</string>
+    <string name = "rice4">Floor 4</string>
+    <string name = "rice5">Floor 5</string>
+    <string name = "wilsdorfCafe">Cafe</string>
+    
+	
 </resources>
