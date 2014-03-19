@@ -89,6 +89,9 @@ public class PostActivity extends Activity {
 					selectedLibrary = ((RadioButton)findViewById((
 							(RadioGroup)findViewById(R.id.libraryRadioGroup))
 							.getCheckedRadioButtonId())).getText().toString();
+					if (selectedLibrary.equals(getResources().getString(R.string.rice))) {
+						selectedLibrary = getResources().getString(R.string.url_rice);
+					}
 				}
 				if (null != ((RadioGroup)findViewById(R.id.sectionRadioGroup)) &&
 						((RadioGroup)findViewById(R.id.sectionRadioGroup))
@@ -96,6 +99,36 @@ public class PostActivity extends Activity {
 					selectedSection = ((RadioButton)findViewById((
 							(RadioGroup)findViewById(R.id.sectionRadioGroup))
 							.getCheckedRadioButtonId())).getText().toString();
+					if (selectedSection.equals(getResources().getString(R.string.floor_one))) {
+						selectedSection = getResources().getString(R.string.one);
+					}
+					else if (selectedSection.equals(getResources().getString(R.string.floor_two))) {
+						selectedSection = getResources().getString(R.string.two);
+					}
+					else if (selectedSection.equals(getResources().getString(R.string.floor_three))) {
+						selectedSection = getResources().getString(R.string.three);
+					}
+					else if (selectedSection.equals(getResources().getString(R.string.floor_four))) {
+						selectedSection = getResources().getString(R.string.four);
+					}
+					else if (selectedSection.equals(getResources().getString(R.string.floor_five))) {
+						selectedSection = getResources().getString(R.string.five);
+					}
+					else if (selectedSection.equals(getResources().getString(R.string.west_wing))) {
+						selectedSection = getResources().getString(R.string.url_west_wing);
+					}
+					else if (selectedSection.equals(getResources().getString(R.string.east_wing))) {
+						selectedSection = getResources().getString(R.string.url_east_wing);
+					}
+					else if (selectedSection.equals(getResources().getString(R.string.mcgregor))) {
+						selectedSection = getResources().getString(R.string.aldermanMcGregor);
+					}
+					else if (selectedSection.equals(getResources().getString(R.string.reading_room))) {
+						selectedSection = getResources().getString(R.string.clarkReading);
+					}
+					else if (selectedSection.equals(getResources().getString(R.string.computer_lab))) {
+						selectedSection = getResources().getString(R.string.url_computer_lab);
+					}
 				}
 				if (((RadioGroup)findViewById(R.id.noiseRadioGroup))
 						.getCheckedRadioButtonId() != -1) {

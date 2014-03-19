@@ -51,7 +51,7 @@ public class LibraryInfoActivity extends Activity {
 			library = "Commerce%20School";
 		}
 		if (library.equals("Rice Hall")){
-			library = ("Rice%20Hall");
+			library = ("Rice");
 		}
 		
 		for(int i=0; i<5; i++){
@@ -161,11 +161,6 @@ public class LibraryInfoActivity extends Activity {
 			else{
 				((TextView) findViewById(sectionId)).setText(section);
 			}
-<<<<<<< HEAD
-
-=======
-			
->>>>>>> a0fc98af03a105ff1be6ba08d5f945558f496f5d
 			((TextView) findViewById(crowdId)).setText(" "+crowd+" " );
 			((TextView) findViewById(noiseId)).setText(" "+noise+" ");
 		}
