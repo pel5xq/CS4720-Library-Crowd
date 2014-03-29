@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">LibraryCrowdsource</string>
     <string name="action_settings">Settings</string>
     <string name="clemons">Clemons</string>
@@ -35,30 +36,65 @@
     <string name="computer_lab">Computer Lab</string>
     <string name="main_title">Crowd and Noise Statistics</string>
     <string name="exception">*No recent data - daily trend shown instead</string>
-    <string name = "clemons1">Floor 1</string>
-    <string name = "clemons2">Floor 2</string>
-    <string name = "clemons3">Floor 3</string>
-    <string name = "clemons4">Floor 4</string>
-    <string name = "aldermanWest">West Wing</string>
-    <string name = "aldermanEast">East Wing</string>
-    <string name = "aldermanMcGregor">McGregor</string>
-    <string name = "aldermanCafe">Cafe</string>
-    <string name = "thorntonStacks">Stacks</string>
-    <string name = "clarkWest">West Wing</string>
-    <string name = "clarkEast">East Wing</string>
-    <string name = "clarkReading">Reading</string>
-    <string name = "clarkStacks">Stacks</string>
-    <string name = "commerceCompLab">Computer Lab</string>
-    <string name = "commerce4">Floor 4</string>
-    <string name = "rice1">Floor 1</string>
-    <string name = "rice2">Floor 2</string>
-    <string name = "rice3">Floor 3</string>
-    <string name = "rice4">Floor 4</string>
-    <string name = "rice5">Floor 5</string>
-    <string name = "wilsdorfCafe">Cafe</string>
-    
+    <string name="clemons1">Floor 1</string>
+    <string name="clemons2">Floor 2</string>
+    <string name="clemons3">Floor 3</string>
+    <string name="clemons4">Floor 4</string>
+    <string name="aldermanWest">West Wing</string>
+    <string name="aldermanEast">East Wing</string>
+    <string name="aldermanMcGregor">McGregor</string>
+    <string name="aldermanCafe">Cafe</string>
+    <string name="thorntonStacks">Stacks</string>
+    <string name="clarkWest">West Wing</string>
+    <string name="clarkEast">East Wing</string>
+    <string name="clarkReading">Reading</string>
+    <string name="clarkStacks">Stacks</string>
+    <string name="commerceCompLab">Computer Lab</string>
+    <string name="commerce4">Floor 4</string>
+    <string name="rice1">Floor 1</string>
+    <string name="rice2">Floor 2</string>
+    <string name="rice3">Floor 3</string>
+    <string name="rice4">Floor 4</string>
+    <string name="rice5">Floor 5</string>
+    <string name="wilsdorfCafe">Cafe</string>
     <string name="url_rice">Rice</string>
     <string name="url_west_wing">WestWing</string>
     <string name="url_east_wing">EastWing</string>
     <string name="url_computer_lab">CompLab</string>
+    <string name="studySearch">Search for Study Groups</string>
+    <string name="submitStudyGroup">Create a Study Group</string>
+    <string name="searchHere">Search for a Study Group&#8230; </string>
+    <string name="postHere">Create a new Study Group&#8230; </string>
+    <string name="coursePrompt">Choose a course subject</string>
+
+    <string-array name="course_array">
+        <item>APMA</item>
+        <item>ANTH</item>
+        <item>ASTR</item>
+        <item>BIOL</item>
+        <item>BME</item>
+        <item>CE</item>
+        <item>CHE</item>
+        <item>CHEM</item>
+        <item>CS</item>
+        <item>ECE</item>
+        <item>ECON</item>
+        <item>EVSC</item>
+        <item>MAE</item>
+        <item>MATH</item>
+        <item>MSE</item>
+        <item>PHIL</item>
+        <item>PHYS</item>
+        <item>PSYC</item>
+        <item>STAT</item>
+        <item>STS</item>
+        <item>SYS</item>
+    </string-array>
+
+    <string name="numPrompt">Enter a course number: </string>
+    <string name="startTime">Study group start time: </string>
+    <string name="endTime">Study group end time: </string>
+    <string name="startTimePicker">Choose a start time: </string>
+    <string name="endTimePicker">Choose an end time: </string>
+
 </resources>

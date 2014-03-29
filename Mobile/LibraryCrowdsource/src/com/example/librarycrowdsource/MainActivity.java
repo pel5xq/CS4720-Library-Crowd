@@ -92,12 +92,25 @@ public class MainActivity extends Activity {
 				+ "library/Wilsdorf/timespan/60", 
 				""+R.id.wilsdorfCrowd, ""+R.id.wilsdorfNoise);
 		
-		Log.d(TAG, "About to set button listener");
+		//Post Lib crowd and noise data
+		Log.d(TAG, "About to set post button listener");
 		((Button) findViewById(R.id.makePostButton)).setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View theView) {
 				Intent intent = new Intent(MainActivity.this, PostActivity.class);
+	            startActivity(intent);
+			}
+			
+		});
+		
+		//Search for study groups
+		Log.d(TAG, "About to set search button listener");
+		((Button) findViewById(R.id.studySearchButton)).setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View theView) {
+				Intent intent = new Intent(MainActivity.this, StudySearchActivity.class);
 	            startActivity(intent);
 			}
 			
@@ -304,6 +317,7 @@ public class MainActivity extends Activity {
 			Log.d(TAG, "About to set data");
 			((TextView) findViewById(crowdId)).setText(crowd);
 			((TextView) findViewById(noiseId)).setText(noise);
+			
 		}
 		
 		public String getJSONfromURL(String url) {

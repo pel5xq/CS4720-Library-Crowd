@@ -13,29 +13,31 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_title"
         android:gravity="center"
+        android:text="@string/main_title"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-        
-    	<TableRow
+
+    <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-        <TextView 
-            android:text="@string/sectionLabel"
-            android:layout_gravity="center"/>
-        <TextView 
-            android:text="@string/crowdLabel"
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="@string/sectionLabel" />
+
+        <TextView
+            android:layout_gravity="center"
             android:padding="10dip"
-            android:layout_gravity="center"/>
-        <TextView 
-            android:text="@string/noiseLabel"
+            android:text="@string/crowdLabel" />
+
+        <TextView
+            android:layout_gravity="center"
             android:padding="10dip"
-            android:layout_gravity="center"/>
-        
+            android:text="@string/noiseLabel" />
     </TableRow>
-    
-        <TableRow
+
+    <TableRow
         android:id="@+id/tableRow2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
@@ -60,7 +62,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/defaultData" />
-
     </TableRow>
 
     <TableRow
@@ -88,7 +89,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/defaultData" />
-
     </TableRow>
 
     <TableRow
@@ -116,9 +116,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/defaultData" />
-
     </TableRow>
-    
+
     <TableRow
         android:id="@+id/tableRow5"
         android:layout_width="match_parent"
@@ -144,9 +143,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/defaultData" />
-
     </TableRow>
-    
+
     <TableRow
         android:id="@+id/tableRow6"
         android:layout_width="match_parent"
@@ -172,9 +170,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/defaultData" />
-
     </TableRow>
-    
+
     <TableRow
         android:id="@+id/tableRow7"
         android:layout_width="match_parent"
@@ -200,9 +197,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/defaultData" />
-
     </TableRow>
-    
+
     <TableRow
         android:id="@+id/tableRow8"
         android:layout_width="match_parent"
@@ -228,7 +224,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/defaultData" />
-
     </TableRow>
 
     <Button
@@ -237,11 +232,17 @@
         android:layout_height="wrap_content"
         android:text="@string/makePost" />
 
+    <Button
+        android:id="@+id/studySearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/studySearch" />
+
     <TableRow
         android:id="@+id/LibraryDatascrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-        android:padding="5dp">
+        android:layout_height="wrap_content"
+        android:padding="5dp" >
 
         <ScrollView
             android:id="@+id/scrollView1"
@@ -259,18 +260,15 @@
                     android:id="@+id/libraryNameTextView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
             </TableLayout>
         </ScrollView>
-
     </TableRow>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/exception"
-        android:gravity="center" />
-    
-</TableLayout>
+        android:gravity="center"
+        android:text="@string/exception" />
 
+</TableLayout>
