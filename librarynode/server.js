@@ -71,5 +71,9 @@ http.createServer(function (request, response) {
 			});
 		}
 	}
+	else {
+		response.writeHead(404, {'Content-Type': 'text/plain'});
+		response.end();
+	}
 	
 }).listen(process.env.PORT || 8080)
