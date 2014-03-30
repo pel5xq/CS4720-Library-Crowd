@@ -33,6 +33,7 @@
     <string name="floor_five">5th Floor</string>
     <string name="reading_room">Reading Room</string>
     <string name="commerce">Commerce School</string>
+    <string name="comNewLine">Comm School</string>
     <string name="computer_lab">Computer Lab</string>
     <string name="main_title">Crowd and Noise Statistics</string>
     <string name="exception">*No recent data - daily trend shown instead</string>

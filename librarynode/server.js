@@ -33,9 +33,9 @@ http.createServer(function (request, response) {
 			response.end();
 		});
 	}
-	
+
 	else if(url_split[1] == "department" && url_split[3] == "courseNum"){
-	
+
 		if(url_split[5]=="library"){
 			if(url_split[7] == "section"){
 				console.log("Querying" + url_split[8]);
@@ -45,7 +45,7 @@ http.createServer(function (request, response) {
 					response.writeHead(200, {'Content-Type': 'text/plain'});
 					response.write(JSON.stringify(rows));
 					response.end();
-		
+
 				});
 			}
 			else{
@@ -56,7 +56,7 @@ http.createServer(function (request, response) {
 					response.writeHead(200, {'Content-Type': 'text/plain'});
 					response.write(JSON.stringify(rows));
 					response.end();
-		
+
 				});
 			}
 		}
@@ -67,9 +67,13 @@ http.createServer(function (request, response) {
 				response.writeHead(200, {'Content-Type': 'text/plain'});
 				response.write(JSON.stringify(rows));
 				response.end();
-		
+
 			});
 		}
 	}
-	
+	else {
+		response.writeHead(404, {'Content-Type': 'text/plain'});
+		response.end();
+	}
+
 }).listen(process.env.PORT || 8080)

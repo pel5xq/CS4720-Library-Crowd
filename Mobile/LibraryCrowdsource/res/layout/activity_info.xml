@@ -1,201 +1,260 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ChooseLibraryEditText"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".LibraryInfoActivity" >
+    android:background="@drawable/library6"
+    android:paddingBottom="60dp"
+    android:paddingLeft="60dp"
+    android:paddingRight="60dp" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/main_title"
-        android:gravity="center"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    <TableRow
-        android:id="@+id/tableRow1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <TextView 
-            android:text="@string/libraryLabel"
-            android:padding="20dip"
-            android:layout_gravity="center"/>
-        <TextView 
-            android:text="@string/crowdLabel"
-            android:padding="20dip"
-            android:layout_gravity="center"/>
-        <TextView 
-            android:text="@string/noiseLabel"
-            android:padding="20dip"
-            android:layout_gravity="center"/>
-        
-    </TableRow>
-    
-    <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="match_parent"
+        android:background="@drawable/layer_card_background"
+        android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/sec0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/defaultData"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <LinearLayout
+            android:layout_width="244dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/layer_card_background"
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/sec0Crowd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/defaultData"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" >
 
-        <TextView
-            android:id="@+id/sec0Noise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/defaultData"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <ImageView
+                    android:id="@+id/bookmark"
+                    android:layout_width="300dp"
+                    android:layout_height="400dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/bookmark" />
 
-    </TableRow>
+                <TextView
+                    android:id="@+id/libName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bookmark"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:paddingBottom="20dp"
+                    android:paddingRight="100dp"
+                    android:rotation="270"
+                    android:text="@string/defaultData"
+                    android:textColor="@android:color/black"
+                    android:textSize="30sp" />
 
-    <TableRow
-        android:id="@+id/tableRow3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+            </RelativeLayout>
 
-        <TextView
-            android:id="@+id/sec1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <Button
+                android:id="@+id/makePostButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/makePost" />
 
-        <TextView
-            android:id="@+id/sec1Crowd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <Button
+                android:id="@+id/studySearchButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/studySearch" />
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/sec1Noise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+        <TableLayout
+            android:id="@+id/ChooseLibraryEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:paddingBottom="@dimen/activity_vertical_margin"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin" >
 
-    </TableRow>
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/main_title"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TableRow
-        android:id="@+id/tableRow4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/sec2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_gravity="center"
+                    android:padding="20dip"
+                    android:text="@string/libraryLabel" />
 
-        <TextView
-            android:id="@+id/sec2Crowd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_gravity="center"
+                    android:padding="20dip"
+                    android:text="@string/crowdLabel" />
 
-        <TextView
-            android:id="@+id/sec2Noise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:layout_gravity="center"
+                    android:padding="20dip"
+                    android:text="@string/noiseLabel" />
+            </TableRow>
 
-    </TableRow>
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-    <TableRow
-        android:id="@+id/tableRow5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/sec0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/defaultData"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/sec3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/sec0Crowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/defaultData"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/sec3Crowd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/sec0Noise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/defaultData"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
 
-        <TextView
-            android:id="@+id/sec3Noise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-    </TableRow>
+                <TextView
+                    android:id="@+id/sec1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <TableRow
-        android:id="@+id/tableRow6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/sec1Crowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/sec4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/sec1Noise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
 
-        <TextView
-            android:id="@+id/sec4Crowd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
-        <TextView
-            android:id="@+id/sec4Noise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text=""
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <TextView
+                    android:id="@+id/sec2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    </TableRow>
-    
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/exception"
-        android:gravity="center" />
+                <TextView
+                    android:id="@+id/sec2Crowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-</TableLayout>
+                <TextView
+                    android:id="@+id/sec2Noise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/sec3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/sec3Crowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/sec3Noise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/sec4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/sec4Crowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/sec4Noise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            </TableRow>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/exception" />
+        </TableLayout>
+    </LinearLayout>
+
+</FrameLayout>
