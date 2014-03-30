@@ -1,23 +1,38 @@
 package com.example.librarycrowdsource;
 
-import java.util.Calendar;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Date;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.text.format.Time;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 public class StudyPostActivity extends Activity {
+	
+	private final String TAG = "LIBRARYCROWD";
 
 	private TimePicker timePicker;
 	private int hour;
@@ -35,7 +50,7 @@ public class StudyPostActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_study_search);
+		setContentView(R.layout.activity_study_post);
 
 		// come back to this to set spinner to data type
 		addListenerOnSpinnerItemSelection();
@@ -78,17 +93,188 @@ public class StudyPostActivity extends Activity {
 					}
 
 				});
+		
+		Log.d(TAG, "About to set spinner listener");
+		((Spinner) findViewById(R.id.spinnerLibrary)).setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				Log.d(TAG, "About to check "+id+" ("+position+")");
+				int spinID = 0;
+				String selectedText = ((Spinner)findViewById(R.id.spinnerLibrary)).getSelectedItem().toString();
+				
+				if (selectedText.equals(getResources().getString(R.string.alderman))) {
+					Log.d(TAG, "Alderman Selected");
+					spinID = R.layout.spinner_alderman;
+				}
+				else if (selectedText.equals(getResources().getString(R.string.clark))) {
+					Log.d(TAG, "Clark Selected");
+					spinID = R.layout.spinner_clark;
+				}
+				else if (selectedText.equals(getResources().getString(R.string.clemons))) {
+					Log.d(TAG, "Clemons Selected");
+					spinID = R.layout.spinner_clemons;
+				}
+				else if (selectedText.equals(getResources().getString(R.string.commerce))) {
+					Log.d(TAG, "Commerce School Selected");
+					spinID = R.layout.spinner_commerce;
+				}
+				else if (selectedText.equals(getResources().getString(R.string.rice))) {
+					Log.d(TAG, "Rice Selected");
+					spinID = R.layout.spinner_rice;
+				}
+				else if (selectedText.equals(getResources().getString(R.string.thornton))) {
+					Log.d(TAG, "Thornton Selected");
+					spinID = R.layout.spinner_thornton;
+				}
+				else if (selectedText.equals(getResources().getString(R.string.wilsdorf))) {
+					Log.d(TAG, "Wilsdorf Selected");
+					spinID = R.layout.spinner_wilsdorf;
+				}
+				if (spinID != 0) {
+					View rightSpinner = ((LayoutInflater) getSystemService
+							(Context.LAYOUT_INFLATER_SERVICE)).inflate(spinID, null);
+					((TableLayout)findViewById(R.id.dynamicSectionSpinnerView)).removeAllViews();
+					((TableLayout)findViewById(R.id.dynamicSectionSpinnerView)).addView(rightSpinner, 0);
+				}
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				Log.d(TAG, "Library Spinner Nothing Selected");
+				((TableLayout)findViewById(R.id.dynamicSectionSpinnerView)).removeAllViews();
+			}
+			
+		});
 
 		((Button) findViewById(R.id.submitSearchButton))
 				.setOnClickListener(new OnClickListener() {
 
 					@Override
 					public void onClick(View theView) {
-						//post!
-
+						String library = "";
+						String section = "";
+						String department = "";
+						String courseNum = "";
+						String name = "";
+						String description = "";
+						String start = "";
+						String end = "";
+						
+						department = ((Spinner)findViewById(R.id.spinnerCourse)).getSelectedItem().toString();
+						courseNum = ((TextView)findViewById(R.id.editText1)).getText().toString();
+						/*try {
+							name = ((TextView)findViewById(R.id.nameText)).getText().toString().replace(" ","%20");
+							name = URLEncoder.encode(name, "UTF-8");
+						} catch (UnsupportedEncodingException e) {
+							Log.d(TAG, e.getMessage());
+						}
+						try {
+							description = ((TextView)findViewById(R.id.descriptionText)).getText().toString().replace(" ", "%20");
+							description = URLEncoder.encode(description, "UTF-8");
+						} catch (UnsupportedEncodingException e) {
+							Log.d(TAG, e.getMessage());
+						}*/
+						name = ((TextView)findViewById(R.id.nameText)).getText().toString().replace(" ","%20");
+						description = ((TextView)findViewById(R.id.descriptionText)).getText().toString().replace(" ", "%20");
+						
+						start = encodeTime(((TextView)findViewById(R.id.sTime)).getText().toString());
+						end = encodeTime(((TextView)findViewById(R.id.eTime)).getText().toString());
+						
+						String selectedLibrary = ((Spinner)findViewById(R.id.spinnerLibrary)).getSelectedItem().toString();
+						if (null != selectedLibrary) {
+							if (selectedLibrary.equals(getResources().getString(R.string.rice))) {
+								library = getResources().getString(R.string.url_rice);
+							}
+							else library = selectedLibrary;
+						}
+						
+						String selectedSection = ((Spinner)findViewById(R.id.spinnerSection)).getSelectedItem().toString();
+						if (null != selectedSection) {
+							if (selectedSection.equals(getResources().getString(R.string.floor_one))) {
+								section = getResources().getString(R.string.one);
+							}
+							else if (selectedSection.equals(getResources().getString(R.string.floor_two))) {
+								section = getResources().getString(R.string.two);
+							}
+							else if (selectedSection.equals(getResources().getString(R.string.floor_three))) {
+								section = getResources().getString(R.string.three);
+							}
+							else if (selectedSection.equals(getResources().getString(R.string.floor_four))) {
+								section = getResources().getString(R.string.four);
+							}
+							else if (selectedSection.equals(getResources().getString(R.string.floor_five))) {
+								section = getResources().getString(R.string.five);
+							}
+							else if (selectedSection.equals(getResources().getString(R.string.west_wing))) {
+								section = getResources().getString(R.string.url_west_wing);
+							}
+							else if (selectedSection.equals(getResources().getString(R.string.east_wing))) {
+								section = getResources().getString(R.string.url_east_wing);
+							}
+							else if (selectedSection.equals(getResources().getString(R.string.mcgregor))) {
+								section = getResources().getString(R.string.aldermanMcGregor);
+							}
+							else if (selectedSection.equals(getResources().getString(R.string.reading_room))) {
+								section = getResources().getString(R.string.clarkReading);
+							}
+							else if (selectedSection.equals(getResources().getString(R.string.computer_lab))) {
+								section = getResources().getString(R.string.url_computer_lab);
+							}
+							else section = selectedSection;
+						}
+						
+						
+						library = library.replace(" ", "%20");
+						section = section.replace(" ", "%20");
+						
+						Log.d(TAG, library+"/" +
+								section+"/" +
+								department+"/"+
+								courseNum+"/"+
+								name+"/"+
+								description+"/"+
+								start+"/"+
+								end);
+						if (!library.equals("") &&
+								!section.equals("") &&
+								!department.equals("") &&
+								!courseNum.equals("") &&
+								//!name.equals("") && //optional
+								//!description.equals("") && //optional
+								!start.equals("") &&
+								!end.equals("")) {
+							
+							new PostAsyncTask().execute("http://librarynode." +
+									"azurewebsites.net/insert/" +
+								"library/"+library+"/" +
+								"section/"+section+"/" +
+								"department/"+department+"/" +
+								"courseNum/"+courseNum+"/" +
+								"name/"+name+"/" +
+								"description/"+description+"/" +
+								"start/"+start+"/" +
+								"end/"+end);
+						}
+				
+						finish();
 					}
 
 				});
+		
+		((Button) findViewById(R.id.submitPostButton))
+		.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View theView) {
+				Intent intent = new Intent(StudyPostActivity.this,
+						StudySearchActivity.class);
+				startActivity(intent);
+
+			}
+
+		});
 
 	}
 
@@ -109,6 +295,24 @@ public class StudyPostActivity extends Activity {
 //		timePicker.setCurrentHour(hour);
 //		timePicker.setCurrentMinute(minute);
 //	}
+	
+	private String encodeTime(String time) {
+		String result = "";
+		result += DateFormat.format("yyyy-MM-dd-", new Date(System.currentTimeMillis()));
+		String[] hm = time.split(":");
+		String hour = hm[0];
+		String minute = hm[1].substring(0, 2);
+		if (time.contains("PM")) {
+			int hourValue = Integer.parseInt(hour);
+			if (hourValue != 12) hour = (hourValue + 12) + "";
+		}
+		else if (time.contains("AM")) {
+			int hourValue = Integer.parseInt(hour);
+			if (hourValue == 12) hour = "00" ;
+		}
+		result += hour+":"+minute+":00";
+		return result;
+	}
 
 	@Override
 	protected Dialog onCreateDialog(int id) {
@@ -172,6 +376,35 @@ public class StudyPostActivity extends Activity {
 			return String.valueOf(c);
 		else
 			return "0" + String.valueOf(c);
+	}
+	
+	private class PostAsyncTask extends AsyncTask<String, String, String> {
+
+		protected String doInBackground(String... args) {
+			String result = postJSONtoURL(args[0]);
+			Log.d(TAG, args[0]+" | "+result);
+			return null;
+		}
+
+		// Changes the values for a bunch of TextViews on the GUI
+		protected void onPostExecute(String result) {
+			
+		}
+		
+		public String postJSONtoURL(String url) {
+			// http post
+			try {
+				HttpClient httpclient = new DefaultHttpClient();
+				HttpPost httppost = new HttpPost(url);
+				HttpResponse response = httpclient.execute(httppost);
+				return response.getStatusLine().toString();
+
+			} catch (Exception e) {
+				Log.e(TAG, "Error in http connection " + e.toString());
+			}
+			return null;
+		}
+
 	}
 
 }

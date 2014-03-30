@@ -14,7 +14,7 @@
         android:id="@+id/submitPostButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submitStudyGroup" />
+        android:text="@string/studySearch" />
 
     <TextView
         android:id="@+id/textView1"
@@ -66,7 +66,45 @@
             <requestFocus />
         </EditText>
     </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRowLibrary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
+        <TextView
+            android:id="@+id/textViewLibrary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chooseLibraryPrompt"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <Spinner
+            android:id="@+id/spinnerLibrary"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/library_array"
+            android:prompt="@string/chooseLibraryPrompt" />
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRowSection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewSection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chooseSectionPrompt"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TableLayout
+            android:id="@+id/dynamicSectionSpinnerView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </TableRow>
+    
     <TableRow
         android:id="@+id/tableRow3"
         android:layout_width="wrap_content"
@@ -119,6 +157,54 @@
         	android:layout_height="wrap_content"
        		android:text="C" />
         
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRowName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/namePrompt"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/nameText"
+            android:layout_width="102dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/nameSuggestion"
+            android:inputType="text|textPersonName" >
+
+            <requestFocus />
+        </EditText>
+    </TableRow>
+    
+    <TableRow
+        android:id="@+id/tableRowDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/descriptionPrompt"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <EditText
+            android:id="@+id/descriptionText"
+            android:layout_width="102dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/descriptionSuggestion"
+            android:inputType="text|textShortMessage" >
+
+            <requestFocus />
+        </EditText>
     </TableRow>
 
    <!--  <TimePicker android:id="@+id/timePickerStart" />

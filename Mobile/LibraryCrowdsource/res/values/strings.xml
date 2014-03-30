@@ -27,7 +27,7 @@
     <string name="cafe">Cafe</string>
     <string name="stacks">Stacks</string>
     <string name="floor_one">1st Floor</string>
-    <string name="floor_two">2nd Foor</string>
+    <string name="floor_two">2nd Floor</string>
     <string name="floor_three">3rd Floor</string>
     <string name="floor_four">4th Floor</string>
     <string name="floor_five">5th Floor</string>
@@ -90,11 +90,69 @@
         <item>STS</item>
         <item>SYS</item>
     </string-array>
+    
+    <string-array name="library_array">
+        <item>Alderman</item>
+        <item>Clark</item>
+        <item>Clemons</item>
+        <item>Commerce School</item>
+        <item>Rice Hall</item>
+        <item>Thornton</item>
+        <item>Wilsdorf</item>
+    </string-array>
+    
+    <string-array name="alderman_section_array">
+        <item>West Wing</item>
+        <item>East Wing</item>
+        <item>McGregor Room</item>
+        <item>Cafe</item>
+    </string-array>
+    
+    <string-array name="clark_section_array">
+        <item>West Wing</item>
+        <item>East Wing</item>
+        <item>Reading Room</item>
+        <item>Stacks</item>
+    </string-array>
+    
+    <string-array name="clemons_section_array">
+        <item>1st Floor</item>
+        <item>2nd Floor</item>
+        <item>3rd Floor</item>
+        <item>4th Floor</item>
+    </string-array>
+    
+    <string-array name="commerce_section_array">
+        <item>4th Floor</item>
+        <item>Computer Lab</item>
+    </string-array>
+    
+    <string-array name="rice_section_array">
+        <item>1st Floor</item>
+        <item>2nd Floor</item>
+        <item>3rd Floor</item>
+        <item>4th Floor</item>
+        <item>5th Floor</item>
+    </string-array>
+    
+    <string-array name="thornton_section_array">
+        <item>Stacks</item>
+    </string-array>
+    
+    <string-array name="wilsdorf_section_array">
+        <item>Cafe</item>
+    </string-array>
 
     <string name="numPrompt">Enter a course number: </string>
     <string name="startTime">Study group start time: </string>
     <string name="endTime">Study group end time: </string>
     <string name="startTimePicker">Choose a start time: </string>
     <string name="endTimePicker">Choose an end time: </string>
+    <string name="chooseLibraryPrompt">Choose a Library</string>
+    <string name="chooseSectionPrompt">Choose a Section</string>
+    <string name="namePrompt">Enter Your Name (optional)</string>
+    <string name="descriptionPrompt">Describe Your Study Group (optional)</string>
+    <string name="nameSuggestion">(i.e. Pat, Jane D.)</string>
+    <string name="descriptionSuggestion">What\'s your group like?</string>
 
 </resources>

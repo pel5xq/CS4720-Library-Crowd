@@ -9,7 +9,15 @@ package com.example.librarycrowdsource;
 
 public final class R {
     public static final class array {
+        public static final int alderman_section_array=0x7f070002;
+        public static final int clark_section_array=0x7f070003;
+        public static final int clemons_section_array=0x7f070004;
+        public static final int commerce_section_array=0x7f070005;
         public static final int course_array=0x7f070000;
+        public static final int library_array=0x7f070001;
+        public static final int rice_section_array=0x7f070006;
+        public static final int thornton_section_array=0x7f070007;
+        public static final int wilsdorf_section_array=0x7f070008;
     }
     public static final class attr {
     }
@@ -36,7 +44,7 @@ public final class R {
         public static final int TextViewLibrary=0x7f0a0036;
         public static final int TextViewNoise=0x7f0a0049;
         public static final int TextViewSection=0x7f0a0040;
-        public static final int action_settings=0x7f0a0067;
+        public static final int action_settings=0x7f0a0074;
         public static final int aldermanCrowd=0x7f0a0019;
         public static final int aldermanNoise=0x7f0a001a;
         public static final int buttonAlderman=0x7f0a0018;
@@ -58,10 +66,12 @@ public final class R {
         public static final int crowdRadio4=0x7f0a0047;
         public static final int crowdRadio5=0x7f0a0048;
         public static final int crowdRadioGroup=0x7f0a0043;
+        public static final int descriptionText=0x7f0a0065;
+        public static final int dynamicSectionSpinnerView=0x7f0a0059;
         public static final int dynamicSectionView=0x7f0a0041;
-        public static final int eTime=0x7f0a0058;
+        public static final int eTime=0x7f0a005e;
         public static final int editText1=0x7f0a0053;
-        public static final int endTimeButton=0x7f0a0059;
+        public static final int endTimeButton=0x7f0a005f;
         public static final int libraryNameTextView=0x7f0a0034;
         public static final int libraryRadioAlderman=0x7f0a0038;
         public static final int libraryRadioClark=0x7f0a0039;
@@ -72,6 +82,7 @@ public final class R {
         public static final int libraryRadioThornton=0x7f0a003d;
         public static final int libraryRadioWilsdorf=0x7f0a003e;
         public static final int makePostButton=0x7f0a002f;
+        public static final int nameText=0x7f0a0062;
         public static final int noiseRadio1=0x7f0a004b;
         public static final int noiseRadio2=0x7f0a004c;
         public static final int noiseRadio3=0x7f0a004d;
@@ -80,7 +91,7 @@ public final class R {
         public static final int noiseRadioGroup=0x7f0a004a;
         public static final int riceCrowd=0x7f0a0025;
         public static final int riceNoise=0x7f0a0026;
-        public static final int sTime=0x7f0a0055;
+        public static final int sTime=0x7f0a005b;
         public static final int scrollView1=0x7f0a0032;
         public static final int sec0=0x7f0a0004;
         public static final int sec0Crowd=0x7f0a0005;
@@ -97,23 +108,25 @@ public final class R {
         public static final int sec4=0x7f0a0014;
         public static final int sec4Crowd=0x7f0a0015;
         public static final int sec4Noise=0x7f0a0016;
-        public static final int sectionRadio1=0x7f0a0062;
-        public static final int sectionRadio2=0x7f0a0063;
-        public static final int sectionRadio3=0x7f0a0064;
-        public static final int sectionRadio4=0x7f0a0065;
-        public static final int sectionRadio5=0x7f0a0066;
-        public static final int sectionRadioCafe=0x7f0a005f;
-        public static final int sectionRadioEast=0x7f0a005d;
-        public static final int sectionRadioGroup=0x7f0a005b;
-        public static final int sectionRadioMcGregor=0x7f0a005e;
-        public static final int sectionRadioReadingRoom=0x7f0a0060;
-        public static final int sectionRadioStacks=0x7f0a0061;
-        public static final int sectionRadioWest=0x7f0a005c;
+        public static final int sectionRadio1=0x7f0a006e;
+        public static final int sectionRadio2=0x7f0a006f;
+        public static final int sectionRadio3=0x7f0a0070;
+        public static final int sectionRadio4=0x7f0a0071;
+        public static final int sectionRadio5=0x7f0a0072;
+        public static final int sectionRadioCafe=0x7f0a006b;
+        public static final int sectionRadioEast=0x7f0a0069;
+        public static final int sectionRadioGroup=0x7f0a0067;
+        public static final int sectionRadioMcGregor=0x7f0a006a;
+        public static final int sectionRadioReadingRoom=0x7f0a006c;
+        public static final int sectionRadioStacks=0x7f0a006d;
+        public static final int sectionRadioWest=0x7f0a0068;
         public static final int spinnerCourse=0x7f0a0051;
-        public static final int startTimeButton=0x7f0a0056;
+        public static final int spinnerLibrary=0x7f0a0056;
+        public static final int spinnerSection=0x7f0a0073;
+        public static final int startTimeButton=0x7f0a005c;
         public static final int studySearchButton=0x7f0a0030;
         public static final int submitPostButton=0x7f0a0050;
-        public static final int submitSearchButton=0x7f0a005a;
+        public static final int submitSearchButton=0x7f0a0066;
         public static final int tableRow1=0x7f0a0002;
         public static final int tableRow2=0x7f0a0003;
         public static final int tableRow3=0x7f0a0007;
@@ -122,11 +135,19 @@ public final class R {
         public static final int tableRow6=0x7f0a0013;
         public static final int tableRow7=0x7f0a0027;
         public static final int tableRow8=0x7f0a002b;
+        public static final int tableRowDescription=0x7f0a0063;
+        public static final int tableRowLibrary=0x7f0a0054;
+        public static final int tableRowName=0x7f0a0060;
+        public static final int tableRowSection=0x7f0a0057;
         public static final int textView1=0x7f0a0001;
         public static final int textView2=0x7f0a0017;
         public static final int textView3=0x7f0a0052;
-        public static final int textView4=0x7f0a0054;
-        public static final int textView5=0x7f0a0057;
+        public static final int textView4=0x7f0a005a;
+        public static final int textView5=0x7f0a005d;
+        public static final int textViewDescription=0x7f0a0064;
+        public static final int textViewLibrary=0x7f0a0055;
+        public static final int textViewName=0x7f0a0061;
+        public static final int textViewSection=0x7f0a0058;
         public static final int thorntonCrowd=0x7f0a0029;
         public static final int thorntonNoise=0x7f0a002a;
         public static final int wilsdorfCrowd=0x7f0a002d;
@@ -148,6 +169,13 @@ public final class R {
         public static final int radio_section_rice=0x7f030009;
         public static final int radio_section_thornton=0x7f03000a;
         public static final int radio_section_wilsdorf=0x7f03000b;
+        public static final int spinner_alderman=0x7f03000c;
+        public static final int spinner_clark=0x7f03000d;
+        public static final int spinner_clemons=0x7f03000e;
+        public static final int spinner_commerce=0x7f03000f;
+        public static final int spinner_rice=0x7f030010;
+        public static final int spinner_thornton=0x7f030011;
+        public static final int spinner_wilsdorf=0x7f030012;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -161,6 +189,8 @@ public final class R {
         public static final int aldermanWest=0x7f060027;
         public static final int app_name=0x7f060000;
         public static final int cafe=0x7f060017;
+        public static final int chooseLibraryPrompt=0x7f060046;
+        public static final int chooseSectionPrompt=0x7f060047;
         public static final int clark=0x7f06000e;
         public static final int clarkEast=0x7f06002d;
         public static final int clarkReading=0x7f06002e;
@@ -178,6 +208,8 @@ public final class R {
         public static final int coursePrompt=0x7f060040;
         public static final int crowdLabel=0x7f060006;
         public static final int defaultData=0x7f060012;
+        public static final int descriptionPrompt=0x7f060049;
+        public static final int descriptionSuggestion=0x7f06004b;
         public static final int east_wing=0x7f060015;
         public static final int endTime=0x7f060043;
         public static final int endTimePicker=0x7f060045;
@@ -193,6 +225,8 @@ public final class R {
         public static final int main_title=0x7f060021;
         public static final int makePost=0x7f060013;
         public static final int mcgregor=0x7f060016;
+        public static final int namePrompt=0x7f060048;
+        public static final int nameSuggestion=0x7f06004a;
         public static final int noiseLabel=0x7f060007;
         public static final int numPrompt=0x7f060041;
         public static final int one=0x7f060009;
