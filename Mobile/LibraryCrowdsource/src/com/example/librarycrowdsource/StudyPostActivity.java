@@ -176,8 +176,9 @@ public class StudyPostActivity extends Activity {
 						} catch (UnsupportedEncodingException e) {
 							Log.d(TAG, e.getMessage());
 						}*/
-						name = ((TextView)findViewById(R.id.nameText)).getText().toString().replace(" ","%20");
-						description = ((TextView)findViewById(R.id.descriptionText)).getText().toString().replace(" ", "%20");
+						
+						name = stripFrom(((TextView)findViewById(R.id.nameText)).getText().toString());
+						description = stripFrom(((TextView)findViewById(R.id.descriptionText)).getText().toString());
 						
 						start = encodeTime(((TextView)findViewById(R.id.sTime)).getText().toString());
 						end = encodeTime(((TextView)findViewById(R.id.eTime)).getText().toString());
@@ -228,6 +229,7 @@ public class StudyPostActivity extends Activity {
 						
 						library = library.replace(" ", "%20");
 						section = section.replace(" ", "%20");
+						
 						
 						Log.d(TAG, library+"/" +
 								section+"/" +
@@ -311,6 +313,15 @@ public class StudyPostActivity extends Activity {
 			if (hourValue == 12) hour = "00" ;
 		}
 		result += hour+":"+minute+":00";
+		return result;
+	}
+	
+	private String stripFrom(String input) {
+		String result = ""; 
+		for (int i = 0; i < input.length(); i++) {
+			if (input.charAt(i) == ' ') result+="_";
+			else if (Character.isLetterOrDigit(input.charAt(i))) result +=input.charAt(i);
+		}
 		return result;
 	}
 

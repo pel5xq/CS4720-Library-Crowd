@@ -1,23 +1,43 @@
 package com.example.librarycrowdsource;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Calendar;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.text.format.Time;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class StudySearchActivity extends Activity {
+	
+	private final String TAG = "LIBRARYCROWD";
 
 	private TimePicker timePicker;
 	private int hour;
@@ -44,7 +64,7 @@ public class StudySearchActivity extends Activity {
 		// setCurrentTimeOnView();
 		// addListenerOnButton();
 
-		Time t = new Time();
+		/*Time t = new Time();
 		t.setToNow();
 		String currentTime = t.format("%I:%M %p");
 		startTime = (TextView) findViewById(R.id.sTime);
@@ -52,7 +72,7 @@ public class StudySearchActivity extends Activity {
 		endTime = (TextView) findViewById(R.id.eTime);
 		t.hour += 1;
 		String incTime = t.format("%I:%M %p");
-		endTime.setText(incTime);
+		endTime.setText(incTime);*/
 
 		((Button) findViewById(R.id.submitPostButton))
 				.setOnClickListener(new OnClickListener() {
@@ -67,7 +87,7 @@ public class StudySearchActivity extends Activity {
 
 				});
 
-		((Button) findViewById(R.id.startTimeButton))
+		/*((Button) findViewById(R.id.startTimeButton))
 				.setOnClickListener(new OnClickListener() {
 
 					@SuppressWarnings("deprecation")
@@ -90,7 +110,26 @@ public class StudySearchActivity extends Activity {
 
 					}
 
-				});
+				});*/
+		
+		((Button) findViewById(R.id.submitSearchButton))
+		.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View theView) {
+				String department = ((Spinner)findViewById(R.id.spinnerCourse)).getSelectedItem().toString();
+				String course = ((TextView)findViewById(R.id.editText1)).getText().toString();
+
+				Log.d(TAG, department+"/"+course);
+				if (!department.equals("") && !course.equals("")) {
+					new SearchAsyncTask().execute("http://librarynode." +
+							"azurewebsites.net/" +
+							"department/"+department+"/" +
+							"courseNum/"+course);
+				}
+			}
+
+		});
 
 	}
 
@@ -112,7 +151,7 @@ public class StudySearchActivity extends Activity {
 	// timePicker.setCurrentMinute(minute);
 	// }
 
-	@Override
+	/*@Override
 	protected Dialog onCreateDialog(int id) {
 		switch (id) {
 		case TIME_DIALOG_ID:
@@ -150,7 +189,7 @@ public class StudySearchActivity extends Activity {
 			}
 
 		}
-	};
+	};*/
 
 	// public void addListenerOnButton() {
 	//
@@ -174,6 +213,102 @@ public class StudySearchActivity extends Activity {
 			return String.valueOf(c);
 		else
 			return "0" + String.valueOf(c);
+	}
+	
+	private class SearchAsyncTask extends AsyncTask<String, String, String> {
+
+		private ArrayList<View> inflatedRows;
+
+		protected String doInBackground(String... args) {
+			inflatedRows = new ArrayList<View>();
+
+			String result = getJSONfromURL(args[0]);
+			Log.d(TAG, args[0]+" | "+result);
+			try {
+				if (result != null) {
+					JSONArray jArray = new JSONArray(result);
+					
+					for (int i = 0; i < jArray.length(); i++) {
+						JSONObject jObject = jArray.getJSONObject(i);
+						String library = jObject.getString("Library");
+						String section = jObject.getString("Section");
+						library = library.replace("%20", " ");
+						section = section.replace("%20", " ");
+						String department = jObject.getString("Dept");
+						String courseNum = jObject.getString("CourseNum");
+						String name = jObject.getString("Name");
+						//Not in returned value -- need to update service
+						String description = "";//= jObject.getString("Description");
+						name = name.replace("_", " ");
+						description = description.replace("_", " ");
+						View newRow = ((LayoutInflater) getSystemService
+							(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.search_row, null);
+						((TextView)newRow.findViewById(R.id.libraryText)).setText(library);
+						((TextView)newRow.findViewById(R.id.sectionText)).setText(section);
+						((TextView)newRow.findViewById(R.id.departmentText)).setText(department);
+						((TextView)newRow.findViewById(R.id.courseText)).setText(courseNum);
+						((TextView)newRow.findViewById(R.id.nameText)).setText(name);
+						((TextView)newRow.findViewById(R.id.descriptionText)).setText(description);
+						inflatedRows.add(newRow);
+					}
+				}
+			} catch (JSONException e) {
+				Log.d(TAG, e.getMessage());
+				e.printStackTrace();
+			}
+			finally {}
+
+			return null;
+		}
+
+		// Changes the values for a bunch of TextViews on the GUI
+		protected void onPostExecute(String result) {
+			Log.d(TAG, "About to inflate add rows");
+			TableLayout searchTable = (TableLayout)findViewById(R.id.searchTable);
+			searchTable.removeAllViews();
+			searchTable.addView(((LayoutInflater) getSystemService
+					(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.search_row_title, null));
+			for (View v : inflatedRows) {
+				searchTable.addView(v);				
+			}
+		}
+		
+		public String getJSONfromURL(String url) {
+
+			// initialize
+			InputStream is = null;
+			String result = "";
+
+			// http post
+			try {
+				HttpClient httpclient = new DefaultHttpClient();
+				HttpPost httppost = new HttpPost(url);
+				HttpResponse response = httpclient.execute(httppost);
+				HttpEntity entity = response.getEntity();
+				is = entity.getContent();
+
+			} catch (Exception e) {
+				Log.e(TAG, "Error in http connection " + e.toString());
+			}
+
+			// convert response to string
+			try {
+				BufferedReader reader = new BufferedReader(new InputStreamReader(
+						is, "iso-8859-1"), 8);
+				StringBuilder sb = new StringBuilder();
+				String line = null;
+				while ((line = reader.readLine()) != null) {
+					sb.append(line + "\n");
+				}
+				is.close();
+				result = sb.toString();
+			} catch (Exception e) {
+				Log.e(TAG, "Error converting result " + e.toString());
+			}
+
+			return result;
+		}
+
 	}
 
 }
