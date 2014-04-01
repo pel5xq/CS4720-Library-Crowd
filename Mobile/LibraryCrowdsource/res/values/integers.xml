@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <integer name="noiseMaxValue">10</integer>
+    <integer name="five">5</integer>
+    <integer name="four">4</integer>
 </resources>

@@ -15,54 +15,12 @@
             android:text="@string/libraryLabel"
             android:textAppearance="?android:attr/textAppearanceMedium" />
         
-        <RadioGroup
-            android:id="@+id/libraryRadioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
-
-            <RadioButton
-                android:id="@+id/libraryRadioAlderman"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/alderman" />
-
-            <RadioButton
-                android:id="@+id/libraryRadioClark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/clark" />
-
-            <RadioButton
-                android:id="@+id/libraryRadioClemons"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/clemons" />
-            
-            <RadioButton
-                android:id="@+id/libraryRadioCommerce"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/commerce" />
-
-            <RadioButton
-                android:id="@+id/libraryRadioRice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/rice" />
-
-            <RadioButton
-                android:id="@+id/libraryRadioThornton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/thornton" />
-
-            <RadioButton
-                android:id="@+id/libraryRadioWilsdorf"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/wilsdorf" />
-
-        </RadioGroup>
+        <Spinner
+            android:id="@+id/spinnerLibrary"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/library_array"
+            android:prompt="@string/chooseLibraryPrompt" />
     </TableRow>
 
     <TableRow
@@ -96,43 +54,11 @@
             android:text="@string/crowdLabel"
             android:textAppearance="?android:attr/textAppearanceMedium" />
         
-        <RadioGroup
-            android:id="@+id/crowdRadioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/crowdRadio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/one" />
-
-            <RadioButton
-                android:id="@+id/crowdRadio2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/two" />
-
-            <RadioButton
-                android:id="@+id/crowdRadio3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/three" />
-            
-            <RadioButton
-                android:id="@+id/crowdRadio4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/four" />
-            
-            <RadioButton
-                android:id="@+id/crowdRadio5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/five" />
-        </RadioGroup>
+    <SeekBar
+        android:id="@+id/crowdSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="@integer/four" />
     </TableRow>
 
     <TableRow
@@ -147,43 +73,11 @@
             android:text="@string/noiseLabel"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <RadioGroup
-            android:id="@+id/noiseRadioGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <RadioButton
-                android:id="@+id/noiseRadio1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/one" />
-
-            <RadioButton
-                android:id="@+id/noiseRadio2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/two" />
-
-            <RadioButton
-                android:id="@+id/noiseRadio3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/three" />
-            
-            <RadioButton
-                android:id="@+id/noiseRadio4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/four" />
-            
-            <RadioButton
-                android:id="@+id/noiseRadio5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/five" />
-        </RadioGroup>
+    <SeekBar
+        android:id="@+id/noiseSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="@integer/four" />
 
     </TableRow>
 

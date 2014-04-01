@@ -14,10 +14,11 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TableLayout;
 
 public class PostActivity extends Activity {
@@ -29,52 +30,61 @@ public class PostActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_post);
 		
-		Log.d(TAG, "About to set check listener");
-		((RadioGroup) findViewById(R.id.libraryRadioGroup)).setOnCheckedChangeListener(new OnCheckedChangeListener() {
+		Log.d(TAG, "About to set spinner listener");
+		((Spinner) findViewById(R.id.spinnerLibrary)).setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				Log.d(TAG, "About to check "+checkedId);
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				Log.d(TAG, "About to check "+id+" ("+position+")");
+				int spinID = 0;
+				String selectedText = ((Spinner)findViewById(R.id.spinnerLibrary)).getSelectedItem().toString();
 				
-				int radioID = 0;
-				
-				if (checkedId == R.id.libraryRadioAlderman) {
+				if (selectedText.equals(getResources().getString(R.string.alderman))) {
 					Log.d(TAG, "Alderman Selected");
-					radioID = R.layout.radio_section_alderman;
+					spinID = R.layout.spinner_alderman;
 				}
-				else if (checkedId == R.id.libraryRadioClark) {
+				else if (selectedText.equals(getResources().getString(R.string.clark))) {
 					Log.d(TAG, "Clark Selected");
-					radioID = R.layout.radio_section_clark;
+					spinID = R.layout.spinner_clark;
 				}
-				else if (checkedId == R.id.libraryRadioClemons) {
+				else if (selectedText.equals(getResources().getString(R.string.clemons))) {
 					Log.d(TAG, "Clemons Selected");
-					radioID = R.layout.radio_section_clemons;
+					spinID = R.layout.spinner_clemons;
 				}
-				else if (checkedId == R.id.libraryRadioCommerce) {
+				else if (selectedText.equals(getResources().getString(R.string.commerce))) {
 					Log.d(TAG, "Commerce School Selected");
-					radioID = R.layout.radio_section_commerce;
+					spinID = R.layout.spinner_commerce;
 				}
-				else if (checkedId == R.id.libraryRadioRice) {
+				else if (selectedText.equals(getResources().getString(R.string.rice))) {
 					Log.d(TAG, "Rice Selected");
-					radioID = R.layout.radio_section_rice;
+					spinID = R.layout.spinner_rice;
 				}
-				else if (checkedId == R.id.libraryRadioThornton) {
+				else if (selectedText.equals(getResources().getString(R.string.thornton))) {
 					Log.d(TAG, "Thornton Selected");
-					radioID = R.layout.radio_section_thornton;
+					spinID = R.layout.spinner_thornton;
 				}
-				else if (checkedId == R.id.libraryRadioWilsdorf) {
+				else if (selectedText.equals(getResources().getString(R.string.wilsdorf))) {
 					Log.d(TAG, "Wilsdorf Selected");
-					radioID = R.layout.radio_section_wilsdorf;
+					spinID = R.layout.spinner_wilsdorf;
 				}
-				if (radioID != 0) {
-					View radioButtons = ((LayoutInflater) getSystemService
-							(Context.LAYOUT_INFLATER_SERVICE)).inflate(radioID, null);
+				if (spinID != 0) {
+					View rightSpinner = ((LayoutInflater) getSystemService
+							(Context.LAYOUT_INFLATER_SERVICE)).inflate(spinID, null);
 					((TableLayout)findViewById(R.id.dynamicSectionView)).removeAllViews();
-					((TableLayout)findViewById(R.id.dynamicSectionView)).addView(radioButtons, 0);
+					((TableLayout)findViewById(R.id.dynamicSectionView)).addView(rightSpinner, 0);
 				}
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				Log.d(TAG, "Library Spinner Nothing Selected");
+				((TableLayout)findViewById(R.id.dynamicSectionView)).removeAllViews();
 			}
 			
 		});
+		
+		
 		((Button) findViewById(R.id.submitPostButton)).setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -84,64 +94,47 @@ public class PostActivity extends Activity {
 				String selectedSection = "";
 				String selectedNoise = "";
 				String selectedCrowd = "";
-				if (((RadioGroup)findViewById(R.id.libraryRadioGroup))
-					.getCheckedRadioButtonId() != -1) {
-					selectedLibrary = ((RadioButton)findViewById((
-							(RadioGroup)findViewById(R.id.libraryRadioGroup))
-							.getCheckedRadioButtonId())).getText().toString();
-					if (selectedLibrary.equals(getResources().getString(R.string.rice))) {
-						selectedLibrary = getResources().getString(R.string.url_rice);
-					}
+				
+				selectedLibrary = ((Spinner)findViewById(R.id.spinnerLibrary)).getSelectedItem().toString();
+				if (selectedLibrary.equals(getResources().getString(R.string.rice))) {
+					selectedLibrary = getResources().getString(R.string.url_rice);
 				}
-				if (null != ((RadioGroup)findViewById(R.id.sectionRadioGroup)) &&
-						((RadioGroup)findViewById(R.id.sectionRadioGroup))
-						.getCheckedRadioButtonId() != -1) {
-					selectedSection = ((RadioButton)findViewById((
-							(RadioGroup)findViewById(R.id.sectionRadioGroup))
-							.getCheckedRadioButtonId())).getText().toString();
-					if (selectedSection.equals(getResources().getString(R.string.floor_one))) {
-						selectedSection = getResources().getString(R.string.one);
-					}
-					else if (selectedSection.equals(getResources().getString(R.string.floor_two))) {
-						selectedSection = getResources().getString(R.string.two);
-					}
-					else if (selectedSection.equals(getResources().getString(R.string.floor_three))) {
-						selectedSection = getResources().getString(R.string.three);
-					}
-					else if (selectedSection.equals(getResources().getString(R.string.floor_four))) {
-						selectedSection = getResources().getString(R.string.four);
-					}
-					else if (selectedSection.equals(getResources().getString(R.string.floor_five))) {
-						selectedSection = getResources().getString(R.string.five);
-					}
-					else if (selectedSection.equals(getResources().getString(R.string.west_wing))) {
-						selectedSection = getResources().getString(R.string.url_west_wing);
-					}
-					else if (selectedSection.equals(getResources().getString(R.string.east_wing))) {
-						selectedSection = getResources().getString(R.string.url_east_wing);
-					}
-					else if (selectedSection.equals(getResources().getString(R.string.mcgregor))) {
-						selectedSection = getResources().getString(R.string.aldermanMcGregor);
-					}
-					else if (selectedSection.equals(getResources().getString(R.string.reading_room))) {
-						selectedSection = getResources().getString(R.string.clarkReading);
-					}
-					else if (selectedSection.equals(getResources().getString(R.string.computer_lab))) {
-						selectedSection = getResources().getString(R.string.url_computer_lab);
-					}
+				
+				selectedSection = ((Spinner)findViewById(R.id.spinnerSection)).getSelectedItem().toString();
+				if (selectedSection.equals(getResources().getString(R.string.floor_one))) {
+					selectedSection = getResources().getString(R.string.one);
 				}
-				if (((RadioGroup)findViewById(R.id.noiseRadioGroup))
-						.getCheckedRadioButtonId() != -1) {
-					selectedNoise = ((RadioButton)findViewById((
-							(RadioGroup)findViewById(R.id.noiseRadioGroup))
-							.getCheckedRadioButtonId())).getText().toString();
+				else if (selectedSection.equals(getResources().getString(R.string.floor_two))) {
+					selectedSection = getResources().getString(R.string.two);
 				}
-				if (((RadioGroup)findViewById(R.id.crowdRadioGroup))
-						.getCheckedRadioButtonId() != -1) {
-					selectedCrowd = ((RadioButton)findViewById((
-							(RadioGroup)findViewById(R.id.crowdRadioGroup))
-							.getCheckedRadioButtonId())).getText().toString();
+				else if (selectedSection.equals(getResources().getString(R.string.floor_three))) {
+					selectedSection = getResources().getString(R.string.three);
 				}
+				else if (selectedSection.equals(getResources().getString(R.string.floor_four))) {
+					selectedSection = getResources().getString(R.string.four);
+				}
+				else if (selectedSection.equals(getResources().getString(R.string.floor_five))) {
+					selectedSection = getResources().getString(R.string.five);
+				}
+				else if (selectedSection.equals(getResources().getString(R.string.west_wing))) {
+					selectedSection = getResources().getString(R.string.url_west_wing);
+				}
+				else if (selectedSection.equals(getResources().getString(R.string.east_wing))) {
+					selectedSection = getResources().getString(R.string.url_east_wing);
+				}
+				else if (selectedSection.equals(getResources().getString(R.string.mcgregor))) {
+					selectedSection = getResources().getString(R.string.aldermanMcGregor);
+				}
+				else if (selectedSection.equals(getResources().getString(R.string.reading_room))) {
+					selectedSection = getResources().getString(R.string.clarkReading);
+				}
+				else if (selectedSection.equals(getResources().getString(R.string.computer_lab))) {
+					selectedSection = getResources().getString(R.string.url_computer_lab);
+				}
+				
+				selectedNoise = (((SeekBar)findViewById(R.id.noiseSeekBar)).getProgress()+1)+"";
+				selectedCrowd = (((SeekBar)findViewById(R.id.crowdSeekBar)).getProgress()+1)+"";
+	
 				selectedLibrary = selectedLibrary.replace(" ", "%20");
 				selectedSection = selectedSection.replace(" ", "%20");
 				Log.d(TAG, selectedLibrary+" "+selectedSection+" "+selectedCrowd+" "+selectedNoise);
