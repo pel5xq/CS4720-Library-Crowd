@@ -39,7 +39,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 public class StudySearchActivity extends Activity {
-	
+
 	private final String TAG = "LIBRARYCROWD";
 
 	private TimePicker timePicker;
@@ -59,13 +59,14 @@ public class StudySearchActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+
 		progress = new ProgressDialog(this);
 		progress.setTitle("Please wait...");
-		progress.setMessage("Azure is searching for study groups");
+		progress.setMessage("Searching for study groups");
 		setContentView(R.layout.activity_study_search);
-		
-		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+		getWindow().setSoftInputMode(
+				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 		// come back to this to set spinner to data type
 		addListenerOnSpinnerItemSelection();
@@ -74,15 +75,13 @@ public class StudySearchActivity extends Activity {
 		// setCurrentTimeOnView();
 		// addListenerOnButton();
 
-		/*Time t = new Time();
-		t.setToNow();
-		String currentTime = t.format("%I:%M %p");
-		startTime = (TextView) findViewById(R.id.sTime);
-		startTime.setText(currentTime);
-		endTime = (TextView) findViewById(R.id.eTime);
-		t.hour += 1;
-		String incTime = t.format("%I:%M %p");
-		endTime.setText(incTime);*/
+		/*
+		 * Time t = new Time(); t.setToNow(); String currentTime =
+		 * t.format("%I:%M %p"); startTime = (TextView)
+		 * findViewById(R.id.sTime); startTime.setText(currentTime); endTime =
+		 * (TextView) findViewById(R.id.eTime); t.hour += 1; String incTime =
+		 * t.format("%I:%M %p"); endTime.setText(incTime);
+		 */
 
 		((Button) findViewById(R.id.createGroupButton))
 				.setOnClickListener(new OnClickListener() {
@@ -97,51 +96,56 @@ public class StudySearchActivity extends Activity {
 
 				});
 
-		/*((Button) findViewById(R.id.startTimeButton))
+		/*
+		 * ((Button) findViewById(R.id.startTimeButton)) .setOnClickListener(new
+		 * OnClickListener() {
+		 * 
+		 * @SuppressWarnings("deprecation")
+		 * 
+		 * @Override public void onClick(View theView) {
+		 * showDialog(TIME_DIALOG_ID);
+		 * 
+		 * }
+		 * 
+		 * });
+		 * 
+		 * ((Button) findViewById(R.id.endTimeButton)) .setOnClickListener(new
+		 * OnClickListener() {
+		 * 
+		 * @SuppressWarnings("deprecation")
+		 * 
+		 * @Override public void onClick(View theView) {
+		 * showDialog(TIME_DIALOG_ID); picker = true;
+		 * 
+		 * }
+		 * 
+		 * });
+		 */
+
+		((Button) findViewById(R.id.submitSearchButton))
 				.setOnClickListener(new OnClickListener() {
 
-					@SuppressWarnings("deprecation")
 					@Override
 					public void onClick(View theView) {
-						showDialog(TIME_DIALOG_ID);
+						progress.show();
 
+						String department = ((Spinner) findViewById(R.id.spinnerCourse))
+								.getSelectedItem().toString();
+						String course = ((TextView) findViewById(R.id.editText1))
+								.getText().toString();
+
+						Log.d(TAG, department + "/" + course);
+						if (!department.equals("") && !course.equals("")) {
+							new SearchAsyncTask()
+									.execute("http://infinite-thicket-5143.herokuapp.com/department/"
+											+ department
+											+ "/"
+											+ "courseNum/"
+											+ course);
+						}
 					}
 
 				});
-
-		((Button) findViewById(R.id.endTimeButton))
-				.setOnClickListener(new OnClickListener() {
-
-					@SuppressWarnings("deprecation")
-					@Override
-					public void onClick(View theView) {
-						showDialog(TIME_DIALOG_ID);
-						picker = true;
-
-					}
-
-				});*/
-		
-		((Button) findViewById(R.id.submitSearchButton))
-		.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View theView) {
-				progress.show();
-
-				String department = ((Spinner)findViewById(R.id.spinnerCourse)).getSelectedItem().toString();
-				String course = ((TextView)findViewById(R.id.editText1)).getText().toString();
-
-				Log.d(TAG, department+"/"+course);
-				if (!department.equals("") && !course.equals("")) {
-					new SearchAsyncTask().execute("http://librarynode." +
-							"azurewebsites.net/" +
-							"department/"+department+"/" +
-							"courseNum/"+course);
-				}
-			}
-
-		});
 
 	}
 
@@ -163,45 +167,33 @@ public class StudySearchActivity extends Activity {
 	// timePicker.setCurrentMinute(minute);
 	// }
 
-	/*@Override
-	protected Dialog onCreateDialog(int id) {
-		switch (id) {
-		case TIME_DIALOG_ID:
-			// set timePicker as current time
-			return new TimePickerDialog(this, timePickerListener, hour, minute,
-					false);
-		}
-		return null;
-	}
-
-	private TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener() {
-		public void onTimeSet(TimePicker view, int selectedHour,
-				int selectedMinute) {
-			hour = selectedHour;
-			minute = selectedMinute;
-
-			// set current time into textview
-
-			if (picker == false) {
-				startTime.setText(new StringBuilder().append(pad(hour))
-						.append(":").append(pad(minute)));
-
-				// set current time into timepicker
-				view.setCurrentHour(hour);
-				view.setCurrentMinute(minute);
-			}
-
-			else {
-				endTime.setText(new StringBuilder().append(pad(hour))
-						.append(":").append(pad(minute)));
-
-				// set current time into timepicker
-				view.setCurrentHour(hour);
-				view.setCurrentMinute(minute);
-			}
-
-		}
-	};*/
+	/*
+	 * @Override protected Dialog onCreateDialog(int id) { switch (id) { case
+	 * TIME_DIALOG_ID: // set timePicker as current time return new
+	 * TimePickerDialog(this, timePickerListener, hour, minute, false); } return
+	 * null; }
+	 * 
+	 * private TimePickerDialog.OnTimeSetListener timePickerListener = new
+	 * TimePickerDialog.OnTimeSetListener() { public void onTimeSet(TimePicker
+	 * view, int selectedHour, int selectedMinute) { hour = selectedHour; minute
+	 * = selectedMinute;
+	 * 
+	 * // set current time into textview
+	 * 
+	 * if (picker == false) { startTime.setText(new
+	 * StringBuilder().append(pad(hour)) .append(":").append(pad(minute)));
+	 * 
+	 * // set current time into timepicker view.setCurrentHour(hour);
+	 * view.setCurrentMinute(minute); }
+	 * 
+	 * else { endTime.setText(new StringBuilder().append(pad(hour))
+	 * .append(":").append(pad(minute)));
+	 * 
+	 * // set current time into timepicker view.setCurrentHour(hour);
+	 * view.setCurrentMinute(minute); }
+	 * 
+	 * } };
+	 */
 
 	// public void addListenerOnButton() {
 	//
@@ -226,7 +218,7 @@ public class StudySearchActivity extends Activity {
 		else
 			return "0" + String.valueOf(c);
 	}
-	
+
 	private class SearchAsyncTask extends AsyncTask<String, String, String> {
 
 		private ArrayList<View> inflatedRows;
@@ -235,11 +227,11 @@ public class StudySearchActivity extends Activity {
 			inflatedRows = new ArrayList<View>();
 
 			String result = getJSONfromURL(args[0]);
-			Log.d(TAG, args[0]+" | "+result);
+			Log.d(TAG, args[0] + " | " + result);
 			try {
 				if (result != null) {
 					JSONArray jArray = new JSONArray(result);
-					
+
 					for (int i = 0; i < jArray.length(); i++) {
 						JSONObject jObject = jArray.getJSONObject(i);
 						String library = jObject.getString("Library");
@@ -249,51 +241,60 @@ public class StudySearchActivity extends Activity {
 						String department = jObject.getString("Dept");
 						String courseNum = jObject.getString("CourseNum");
 						String name = jObject.getString("Name");
-						//Not in returned value -- need to update service
-						String description = "";//= jObject.getString("Description");
+						// Not in returned value -- need to update service
+						String description = "";// =
+												// jObject.getString("Description");
 						name = name.replace("_", " ");
 						description = description.replace("_", " ");
-						View newRow = ((LayoutInflater) getSystemService
-							(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.search_row, null);
-						((TextView)newRow.findViewById(R.id.libraryText)).setText(library);
-						((TextView)newRow.findViewById(R.id.sectionText)).setText(section);
-						((TextView)newRow.findViewById(R.id.departmentText)).setText(department);
-						((TextView)newRow.findViewById(R.id.courseText)).setText(courseNum);
-						((TextView)newRow.findViewById(R.id.nameText)).setText(name);
+						View newRow = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+								.inflate(R.layout.search_row, null);
+						((TextView) newRow.findViewById(R.id.libraryText))
+								.setText(library);
+						((TextView) newRow.findViewById(R.id.sectionText))
+								.setText(section);
+						((TextView) newRow.findViewById(R.id.departmentText))
+								.setText(department);
+						((TextView) newRow.findViewById(R.id.courseText))
+								.setText(courseNum);
+						((TextView) newRow.findViewById(R.id.nameText))
+								.setText(name);
 						inflatedRows.add(newRow);
 					}
 				}
 			} catch (JSONException e) {
 				Log.d(TAG, e.getMessage());
 				e.printStackTrace();
+			} finally {
 			}
-			finally {}
 
 			return null;
 		}
 
 		// Changes the values for a bunch of TextViews on the GUI
 		protected void onPostExecute(String result) {
-			
+
 			progress.dismiss();
 			InputMethodManager man = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-			if (getCurrentFocus() != null){
-				man.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),  man.HIDE_NOT_ALWAYS);
+			if (getCurrentFocus() != null) {
+				man.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+						man.HIDE_NOT_ALWAYS);
 			}
 			Log.d(TAG, "About to inflate add rows");
-			TableLayout searchTable = (TableLayout)findViewById(R.id.searchTable);
+			TableLayout searchTable = (TableLayout) findViewById(R.id.searchTable);
 			searchTable.removeAllViews();
-			searchTable.addView(((LayoutInflater) getSystemService
-					(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.search_row_title, null));
-			if (inflatedRows.isEmpty()){
-				searchTable.addView(((LayoutInflater) getSystemService
-						(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.search_row_empty, null));
+			searchTable
+					.addView(((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+							.inflate(R.layout.search_row_title, null));
+			if (inflatedRows.isEmpty()) {
+				searchTable
+						.addView(((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+								.inflate(R.layout.search_row_empty, null));
 			}
 			for (View v : inflatedRows) {
-				searchTable.addView(v);				
+				searchTable.addView(v);
 			}
 		}
-		
+
 		public String getJSONfromURL(String url) {
 
 			// initialize
@@ -315,8 +316,8 @@ public class StudySearchActivity extends Activity {
 
 			// convert response to string
 			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(
-						is, "iso-8859-1"), 8);
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(is, "iso-8859-1"), 8);
 				StringBuilder sb = new StringBuilder();
 				String line = null;
 				while ((line = reader.readLine()) != null) {
