@@ -43,7 +43,6 @@
                     android:text="@string/defaultData"
                     android:textColor="@android:color/black"
                     android:textSize="30sp" />
-
             </RelativeLayout>
 
             <Button
@@ -112,21 +111,42 @@
                     android:text="@string/defaultData"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sec0Crowd"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/defaultData"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_gravity="fill_horizontal" >
 
-                <TextView
-                    android:id="@+id/sec0Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="@string/defaultData"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <ImageView
+                        android:id="@+id/sec0SmallCrowdImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/twiceAsBig"
+                        android:layout_marginRight="@dimen/alignTextIcon"
+                        android:src="@drawable/small_crowd"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec0Crowd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+
+                    <ImageView
+                        android:id="@+id/sec0SmallNoiseImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/noiseColn"
+                        android:src="@drawable/small_noise"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec0Noise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+                </LinearLayout>
             </TableRow>
 
             <TableRow
@@ -142,20 +162,42 @@
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sec1Crowd"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_gravity="fill_horizontal" >
 
-                <TextView
-                    android:id="@+id/sec1Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text=""
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <ImageView
+                        android:id="@+id/sec1SmallCrowdImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/twiceAsBig"
+                        android:layout_marginRight="@dimen/alignTextIcon"
+                        android:src="@drawable/small_crowd"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec1Crowd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+
+                    <ImageView
+                        android:id="@+id/sec1SmallNoiseImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/noiseColn"
+                        android:src="@drawable/small_noise"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec1Noise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+                </LinearLayout>
             </TableRow>
 
             <TableRow
@@ -171,21 +213,42 @@
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sec2Crowd"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text=""
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_gravity="fill_horizontal" >
 
-                <TextView
-                    android:id="@+id/sec2Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text=""
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <ImageView
+                        android:id="@+id/sec2SmallCrowdImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/twiceAsBig"
+                        android:layout_marginRight="@dimen/alignTextIcon"
+                        android:src="@drawable/small_crowd"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec2Crowd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+
+                    <ImageView
+                        android:id="@+id/sec2SmallNoiseImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/noiseColn"
+                        android:src="@drawable/small_noise"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec2Noise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+                </LinearLayout>
             </TableRow>
 
             <TableRow
@@ -201,21 +264,42 @@
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sec3Crowd"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text=""
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_gravity="fill_horizontal" >
 
-                <TextView
-                    android:id="@+id/sec3Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text=""
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <ImageView
+                        android:id="@+id/sec3SmallCrowdImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/twiceAsBig"
+                        android:layout_marginRight="@dimen/alignTextIcon"
+                        android:src="@drawable/small_crowd"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec3Crowd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+
+                    <ImageView
+                        android:id="@+id/sec3SmallNoiseImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/noiseColn"
+                        android:src="@drawable/small_noise"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec3Noise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+                </LinearLayout>
             </TableRow>
 
             <TableRow
@@ -231,21 +315,42 @@
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sec4Crowd"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text=""
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    android:layout_gravity="fill_horizontal" >
 
-                <TextView
-                    android:id="@+id/sec4Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text=""
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                    <ImageView
+                        android:id="@+id/sec4SmallCrowdImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/twiceAsBig"
+                        android:layout_marginRight="@dimen/alignTextIcon"
+                        android:src="@drawable/small_crowd"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec4Crowd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+
+                    <ImageView
+                        android:id="@+id/sec4SmallNoiseImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/noiseColn"
+                        android:src="@drawable/small_noise"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/sec4Noise"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/textToIcon"
+                        android:text="" />
+                </LinearLayout>
             </TableRow>
 
             <TextView

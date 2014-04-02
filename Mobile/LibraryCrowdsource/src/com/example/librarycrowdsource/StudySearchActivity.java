@@ -62,7 +62,7 @@ public class StudySearchActivity extends Activity {
 		
 		progress = new ProgressDialog(this);
 		progress.setTitle("Please wait...");
-		progress.setMessage("Searching for Study Groups");
+		progress.setMessage("Azure is searching for study groups");
 		setContentView(R.layout.activity_study_search);
 		
 		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
@@ -300,6 +300,7 @@ public class StudySearchActivity extends Activity {
 			InputStream is = null;
 			String result = "";
 
+			Log.d(TAG, "url: " + url);
 			// http post
 			try {
 				HttpClient httpclient = new DefaultHttpClient();

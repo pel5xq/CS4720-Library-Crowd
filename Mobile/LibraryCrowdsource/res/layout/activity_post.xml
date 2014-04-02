@@ -94,8 +94,37 @@
                     android:id="@+id/crowdSeekBar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:max="@integer/four" />
+                    android:max="@integer/four"
+                    android:minWidth="200dp" />
+
             </TableRow>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/aldermanSmallCrowdImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="@dimen/alignIcon"
+                    android:src="@drawable/small_crowd" />
+
+                <ImageView
+                    android:id="@+id/aldermanNoiseImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/twiceAsBig"
+                    android:src="@drawable/med_crowd" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/twiceAsBig"
+                    android:src="@drawable/large_crowd" />
+            </LinearLayout>
 
             <TableRow
                 android:id="@+id/tableRow2"
@@ -115,6 +144,32 @@
                     android:layout_height="wrap_content"
                     android:max="@integer/four" />
             </TableRow>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/alignIcon"
+                    android:src="@drawable/small_noise" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/twiceAsBig"
+                    android:src="@drawable/medium_noise" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/noiseColn"
+                    android:src="@drawable/loud_noise" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/submitPostButton"
