@@ -1,90 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/library6"
+    android:paddingBottom="60dp"
+    android:paddingLeft="60dp"
+    android:paddingRight="60dp" >
 
-    <TableRow
-        android:id="@+id/TableRow02"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/layer_card_background"
+        android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/TextViewLibrary"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/libraryLabel"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-        
-        <Spinner
-            android:id="@+id/spinnerLibrary"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/library_array"
-            android:prompt="@string/chooseLibraryPrompt" />
-    </TableRow>
+        <FrameLayout
+            android:layout_width="244dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/layer_card_background"
+            android:orientation="vertical" >
 
-    <TableRow
-        android:id="@+id/TableRow01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/TextViewSection"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/sectionLabel"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            <ImageView
+                android:id="@+id/bookmark"
+                android:layout_width="300dp"
+                android:layout_height="400dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/bookmark" />
+        </FrameLayout>
 
         <TableLayout
-            android:id="@+id/dynamicSectionView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        
-    </TableRow>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-    <TableRow
-        android:id="@+id/tableRow1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="25dp"
+                android:layout_height="110dp"
+                android:gravity="center"
+                android:text="@string/makePost"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/TextViewCrowd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/crowdLabel"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-        
-    <SeekBar
-        android:id="@+id/crowdSeekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="@integer/four" />
-    </TableRow>
+            <TableRow
+                android:id="@+id/TableRow02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
-    <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/TextViewLibrary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/libraryLabel"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView
-            android:id="@+id/TextViewNoise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/noiseLabel"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+                <Spinner
+                    android:id="@+id/spinnerLibrary"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/library_array"
+                    android:prompt="@string/chooseLibraryPrompt" />
+            </TableRow>
 
-    <SeekBar
-        android:id="@+id/noiseSeekBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="@integer/four" />
+            <TableRow
+                android:id="@+id/TableRow01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
 
-    </TableRow>
+                <TextView
+                    android:id="@+id/TextViewSection"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sectionLabel"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <Button
-        android:id="@+id/submitPostButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/submit" />
+                <TableLayout
+                    android:id="@+id/dynamicSectionView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </TableRow>
 
-</TableLayout>
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/TextViewCrowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/crowdLabel"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <SeekBar
+                    android:id="@+id/crowdSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="@integer/four" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/TextViewNoise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/noiseLabel"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <SeekBar
+                    android:id="@+id/noiseSeekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="@integer/four" />
+            </TableRow>
+
+            <Button
+                android:id="@+id/submitPostButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submit" />
+        </TableLayout>
+    </LinearLayout>
+
+</FrameLayout>

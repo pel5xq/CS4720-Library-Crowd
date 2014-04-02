@@ -119,9 +119,9 @@ public class MainActivity extends Activity {
 	buttonAlderman.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {	
-			TextView TextViewNoise = (TextView) findViewById(R.id.buttonAlderman);
+			TextView lib = (TextView) findViewById(R.id.buttonAlderman);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("Library",lib.getText().toString());
 			intent.putExtra("array", aldermanArray);
 			startActivity(intent);
 
@@ -132,9 +132,9 @@ public class MainActivity extends Activity {
 	buttonClark.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {	
-			TextView TextViewNoise = (TextView) findViewById(R.id.buttonClark);
+			TextView lib = (TextView) findViewById(R.id.buttonClark);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("Library",lib.getText().toString());
 			intent.putExtra("array", clarkArray);
 			startActivity(intent);
 
@@ -145,9 +145,9 @@ public class MainActivity extends Activity {
 	buttonClemons.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {	
-			TextView TextViewNoise = (TextView) findViewById(R.id.buttonClemons);
+			TextView lib = (TextView) findViewById(R.id.buttonClemons);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("Library",lib.getText().toString());
 			intent.putExtra("array", clemonsArray);
 			startActivity(intent);
 
@@ -158,9 +158,9 @@ public class MainActivity extends Activity {
 	buttonCommerce.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {	
-			TextView TextViewNoise = (TextView) findViewById(R.id.buttonCommerce);
+			TextView lib = (TextView) findViewById(R.id.buttonCommerce);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("Library",lib.getText().toString());
 			intent.putExtra("array", commerceArray);
 			startActivity(intent);
 
@@ -171,9 +171,9 @@ public class MainActivity extends Activity {
 	buttonRice.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {	
-			TextView TextViewNoise = (TextView) findViewById(R.id.buttonRice);
+			TextView lib = (TextView) findViewById(R.id.buttonRice);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("Library",lib.getText().toString());
 			intent.putExtra("array", riceArray);
 			startActivity(intent);
 
@@ -184,9 +184,9 @@ public class MainActivity extends Activity {
 	buttonThornton.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {	
-			TextView TextViewNoise = (TextView) findViewById(R.id.buttonThornton);
+			TextView lib = (TextView) findViewById(R.id.buttonThornton);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("Library",lib.getText().toString());
 			intent.putExtra("array", thorntonArray);
 			startActivity(intent);
 
@@ -197,9 +197,9 @@ public class MainActivity extends Activity {
 	buttonWilsdorf.setOnClickListener(new OnClickListener() {
 		@Override
 		public void onClick(View v) {	
-			TextView TextViewNoise = (TextView) findViewById(R.id.buttonWilsdorf);
+			TextView lib = (TextView) findViewById(R.id.buttonWilsdorf);
 			Intent intent = new Intent(MainActivity.this, LibraryInfoActivity.class);
-			intent.putExtra("Library",TextViewNoise.getText().toString());
+			intent.putExtra("Library",lib.getText().toString());
 			intent.putExtra("array", wilsdorfArray);
 			startActivity(intent);
 

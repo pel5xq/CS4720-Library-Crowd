@@ -47,14 +47,14 @@ public class LibraryInfoActivity extends Activity {
 		String arrays[] = getIntent().getExtras().getStringArray("array");
 		String library = getIntent().getExtras().getString("Library");
 		
-		if (library.equals("Commerce School")){
-			library = getResources().getString(R.string.comNewLine);
-		}
 		((TextView) findViewById(R.id.libName)).setText(library);
 		
-		if (library.equals("Commerce School")) {
+		if (library.equals("Commerce School")){
+			library = getResources().getString(R.string.comNewLine);
+			((TextView) findViewById(R.id.libName)).setText(library);
 			library = "Commerce%20School";
 		}
+		
 		if (library.equals("Rice Hall")) {
 			library = ("Rice");
 		}

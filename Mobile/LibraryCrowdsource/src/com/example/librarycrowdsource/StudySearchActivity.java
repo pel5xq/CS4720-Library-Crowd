@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -27,7 +28,9 @@ import android.text.format.Time;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TableLayout;
@@ -43,6 +46,7 @@ public class StudySearchActivity extends Activity {
 	private int hour;
 	private int minute;
 	static final int TIME_DIALOG_ID = 999;
+	public static ProgressDialog progress;
 	private boolean picker = false;
 
 	private TextView startTime;
@@ -55,7 +59,13 @@ public class StudySearchActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
+		progress = new ProgressDialog(this);
+		progress.setTitle("Please wait...");
+		progress.setMessage("Searching for Study Groups");
 		setContentView(R.layout.activity_study_search);
+		
+		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 		// come back to this to set spinner to data type
 		addListenerOnSpinnerItemSelection();
@@ -74,7 +84,7 @@ public class StudySearchActivity extends Activity {
 		String incTime = t.format("%I:%M %p");
 		endTime.setText(incTime);*/
 
-		((Button) findViewById(R.id.submitPostButton))
+		((Button) findViewById(R.id.createGroupButton))
 				.setOnClickListener(new OnClickListener() {
 
 					@Override
@@ -117,6 +127,8 @@ public class StudySearchActivity extends Activity {
 
 			@Override
 			public void onClick(View theView) {
+				progress.show();
+
 				String department = ((Spinner)findViewById(R.id.spinnerCourse)).getSelectedItem().toString();
 				String course = ((TextView)findViewById(R.id.editText1)).getText().toString();
 
@@ -248,7 +260,6 @@ public class StudySearchActivity extends Activity {
 						((TextView)newRow.findViewById(R.id.departmentText)).setText(department);
 						((TextView)newRow.findViewById(R.id.courseText)).setText(courseNum);
 						((TextView)newRow.findViewById(R.id.nameText)).setText(name);
-						((TextView)newRow.findViewById(R.id.descriptionText)).setText(description);
 						inflatedRows.add(newRow);
 					}
 				}
@@ -263,11 +274,21 @@ public class StudySearchActivity extends Activity {
 
 		// Changes the values for a bunch of TextViews on the GUI
 		protected void onPostExecute(String result) {
+			
+			progress.dismiss();
+			InputMethodManager man = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+			if (getCurrentFocus() != null){
+				man.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),  man.HIDE_NOT_ALWAYS);
+			}
 			Log.d(TAG, "About to inflate add rows");
 			TableLayout searchTable = (TableLayout)findViewById(R.id.searchTable);
 			searchTable.removeAllViews();
 			searchTable.addView(((LayoutInflater) getSystemService
 					(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.search_row_title, null));
+			if (inflatedRows.isEmpty()){
+				searchTable.addView(((LayoutInflater) getSystemService
+						(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.search_row_empty, null));
+			}
 			for (View v : inflatedRows) {
 				searchTable.addView(v);				
 			}
@@ -310,5 +331,4 @@ public class StudySearchActivity extends Activity {
 		}
 
 	}
-
 }

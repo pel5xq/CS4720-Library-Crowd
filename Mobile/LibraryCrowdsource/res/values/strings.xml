@@ -62,11 +62,12 @@
     <string name="url_west_wing">WestWing</string>
     <string name="url_east_wing">EastWing</string>
     <string name="url_computer_lab">CompLab</string>
-    <string name="studySearch">Search for Study Groups</string>
-    <string name="submitStudyGroup">Create a Study Group</string>
+    <string name="studySearch">Search for A Study Group</string>
+    <string name="submitStudyGroup">Create a New Study Group</string>
     <string name="searchHere">Search for a Study Group&#8230; </string>
-    <string name="postHere">Create a new Study Group&#8230; </string>
+    <string name="postHere">Create a New Study Group&#8230; </string>
     <string name="coursePrompt">Choose a course subject</string>
+    <string name="emptyResults">No Current \nStudy Groups</string>
 
     <string-array name="course_array">
         <item>APMA</item>

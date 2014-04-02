@@ -22,6 +22,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
@@ -50,7 +51,10 @@ public class StudyPostActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_study_post);
+		
+		getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 		// come back to this to set spinner to data type
 		addListenerOnSpinnerItemSelection();
@@ -178,7 +182,17 @@ public class StudyPostActivity extends Activity {
 						}*/
 						
 						name = stripFrom(((TextView)findViewById(R.id.nameText)).getText().toString());
-						description = stripFrom(((TextView)findViewById(R.id.descriptionText)).getText().toString());
+						//description = stripFrom(((TextView)findViewById(R.id.descriptionText)).getText().toString());
+
+						
+						if (null == name || name.equals("")){
+							name = "Anonymous";
+						}
+						
+						if (null == description || description.equals("")){
+							description = "Studying";
+						}
+						
 						
 						start = encodeTime(((TextView)findViewById(R.id.sTime)).getText().toString());
 						end = encodeTime(((TextView)findViewById(R.id.eTime)).getText().toString());
@@ -270,9 +284,11 @@ public class StudyPostActivity extends Activity {
 
 			@Override
 			public void onClick(View theView) {
-				Intent intent = new Intent(StudyPostActivity.this,
-						StudySearchActivity.class);
-				startActivity(intent);
+//				Intent intent = new Intent(StudyPostActivity.this,
+//						StudySearchActivity.class);
+//				startActivity(intent);
+				
+				finish();
 
 			}
 
@@ -304,11 +320,11 @@ public class StudyPostActivity extends Activity {
 		String[] hm = time.split(":");
 		String hour = hm[0];
 		String minute = hm[1].substring(0, 2);
-		if (time.contains("PM")) {
+		if (time.contains("PM") || time.contains("pm")) {
 			int hourValue = Integer.parseInt(hour);
 			if (hourValue != 12) hour = (hourValue + 12) + "";
 		}
-		else if (time.contains("AM")) {
+		else if (time.contains("AM") || time.contains("am")) {
 			int hourValue = Integer.parseInt(hour);
 			if (hourValue == 12) hour = "00" ;
 		}
@@ -342,11 +358,16 @@ public class StudyPostActivity extends Activity {
 			hour = selectedHour;
 			minute = selectedMinute;
 
+			Time t = new Time();
+			t.minute = selectedMinute;
+			t.hour = selectedHour;
+			String time = t.format("%I:%M %p");
+			
 			// set current time into textview
 
 			if (picker == false) {
-				startTime.setText(new StringBuilder().append(pad(hour))
-						.append(":").append(pad(minute)));
+				
+				startTime.setText(time);
 
 				// set current time into timepicker
 				view.setCurrentHour(hour);
@@ -354,8 +375,7 @@ public class StudyPostActivity extends Activity {
 			}
 
 			else {
-				endTime.setText(new StringBuilder().append(pad(hour))
-						.append(":").append(pad(minute)));
+				endTime.setText(time);
 
 				// set current time into timepicker
 				view.setCurrentHour(hour);
