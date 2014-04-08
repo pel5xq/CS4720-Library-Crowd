@@ -23,13 +23,13 @@ http.createServer(function (request, response) {
 		url_split[12] == "description" &&
 		url_split[14] == "start" &&
 		url_split[16] == "end") {
-		console.log(url_split[3]+", "+url_split[5]+", "+url_split[7]+", "+url_split[9]+
-			", "+url_split[11]+", "+url_split[13]+", "+url_split[15]+", "+url_split[17]);
+	//	console.log(url_split[3]+", "+url_split[5]+", "+url_split[7]+", "+url_split[9]+
+	//		", "+url_split[11]+", "+url_split[13]+", "+url_split[15]+", "+url_split[17]);
 		connection.query('INSERT INTO `LibraryStudyGroups`(`Library`, `Section`, `Dept`, `CourseNum`, `Name`, `Descrip`, `StartTime`, `EndTime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', 
 			[url_split[3].toString(), url_split[5].toString(), url_split[7].toString(), url_split[9].toString(), url_split[11].toString(), url_split[13].toString(), 
 			url_split[15].toString(), url_split[17].toString()],
 			function(error, rows, fields) {
-			response.writeHead(200, {'Content-Type': 'text/plain'});
+			response.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
 			response.end();
 		});
 	}
@@ -38,22 +38,22 @@ http.createServer(function (request, response) {
 	
 		if(url_split[5]=="library"){
 			if(url_split[7] == "section"){
-				console.log("Querying" + url_split[8]);
-				connection.query('SELECT Library, Section, Dept, CourseNum, Name FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND Section = ? AND CURDATE() = DATE(EndTime) AND (HOUR(NOW())*60+MINUTE(NOW()))<(60*HOUR(EndTime) + MINUTE(EndTime))', 
+			//	console.log("Querying" + url_split[8]);
+				connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND Section = ? AND CURDATE() = DATE(EndTime) AND (HOUR(NOW())*60+MINUTE(NOW()))<(60*HOUR(EndTime) + MINUTE(EndTime))', 
 					[url_split[4].toString(), url_split[2].toString(), url_split[6].toString(), url_split[8].toString()],
 				function(error, rows, fields){
-					response.writeHead(200, {'Content-Type': 'text/plain'});
+					response.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
 					response.write(JSON.stringify(rows));
 					response.end();
 		
 				});
 			}
 			else{
-				console.log("Querying" + url_split[6]);
-				connection.query('SELECT Library, Section, Dept, CourseNum, Name FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND CURDATE() = DATE(EndTime) AND (HOUR(NOW())*60+MINUTE(NOW()))<(60*HOUR(EndTime) + MINUTE(EndTime))', 
+//console.log("Querying" + url_split[6]);
+				connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND CURDATE() = DATE(EndTime) AND (HOUR(NOW())*60+MINUTE(NOW()))<(60*HOUR(EndTime) + MINUTE(EndTime))', 
 					[url_split[4].toString(), url_split[2].toString(), url_split[6].toString()],
 				function(error, rows, fields){
-					response.writeHead(200, {'Content-Type': 'text/plain'});
+					response.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
 					response.write(JSON.stringify(rows));
 					response.end();
 		
@@ -61,10 +61,10 @@ http.createServer(function (request, response) {
 			}
 		}
 		else{
-		console.log("Querying" + url_split[2] + " " + url_split[4]);
-		connection.query('SELECT Library, Section, Dept, CourseNum, Name FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND CURDATE() = DATE(EndTime) AND (HOUR(NOW())*60+MINUTE(NOW()))<(60*HOUR(EndTime) + MINUTE(EndTime))', [url_split[4].toString(), url_split[2].toString()],
+		//console.log("Querying" + url_split[2] + " " + url_split[4]);
+		connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND CURDATE() = DATE(EndTime) AND (HOUR(NOW())*60+MINUTE(NOW()))<(60*HOUR(EndTime) + MINUTE(EndTime))', [url_split[4].toString(), url_split[2].toString()],
 			function(error, rows, fields){
-				response.writeHead(200, {'Content-Type': 'text/plain'});
+				response.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
 				response.write(JSON.stringify(rows));
 				response.end();
 		
@@ -72,7 +72,7 @@ http.createServer(function (request, response) {
 		}
 	}
 	else {
-		response.writeHead(404, {'Content-Type': 'text/plain'});
+		response.writeHead(400, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
 		response.end();
 	}
 	
