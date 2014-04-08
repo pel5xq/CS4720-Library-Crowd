@@ -50,7 +50,7 @@ http.createServer(function (request, response) {
 			}
 			else{
 //console.log("Querying" + url_split[6]);
-				connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND CURDATE() = DATE(EndTime) AND TIMEDIFF(EndTime, NOW())>0 AND TIMEDIFF(NOW(), StartTime)>0', 
+				connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND TIMEDIFF(EndTime, NOW())>0 AND TIMEDIFF(NOW(), StartTime)>0', 
 					[url_split[4].toString(), url_split[2].toString(), url_split[6].toString()],
 				function(error, rows, fields){
 					response.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
