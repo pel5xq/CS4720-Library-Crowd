@@ -33,41 +33,42 @@ http.createServer(function (request, response) {
 			response.end();
 		});
 	}
-	
+
 	else if(url_split[1] == "department" && url_split[3] == "courseNum"){
-	
+
 		if(url_split[5]=="library"){
 			if(url_split[7] == "section"){
 			//	console.log("Querying" + url_split[8]);
-				connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND Section = ? AND CURDATE() = DATE(EndTime) AND (HOUR(NOW())*60+MINUTE(NOW()))<(60*HOUR(EndTime) + MINUTE(EndTime))', 
+				connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND Section = ? AND TIMEDIFF(EndTime, NOW())>0 AND TIMEDIFF(NOW(), StartTime)>0', 
 					[url_split[4].toString(), url_split[2].toString(), url_split[6].toString(), url_split[8].toString()],
 				function(error, rows, fields){
 					response.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
 					response.write(JSON.stringify(rows));
 					response.end();
-		
+
 				});
 			}
 			else{
 //console.log("Querying" + url_split[6]);
-				connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND CURDATE() = DATE(EndTime) AND (HOUR(NOW())*60+MINUTE(NOW()))<(60*HOUR(EndTime) + MINUTE(EndTime))', 
+				connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND Library = ? AND CURDATE() = DATE(EndTime) AND TIMEDIFF(EndTime, NOW())>0 AND TIMEDIFF(NOW(), StartTime)>0', 
 					[url_split[4].toString(), url_split[2].toString(), url_split[6].toString()],
 				function(error, rows, fields){
 					response.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
 					response.write(JSON.stringify(rows));
 					response.end();
-		
+
 				});
 			}
 		}
 		else{
 		//console.log("Querying" + url_split[2] + " " + url_split[4]);
-		connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND CURDATE() = DATE(EndTime) AND (HOUR(NOW())*60+MINUTE(NOW()))<(60*HOUR(EndTime) + MINUTE(EndTime))', [url_split[4].toString(), url_split[2].toString()],
+		connection.query('SELECT Library, Section, Dept, CourseNum, Name, Descrip FROM LibraryStudyGroups WHERE CourseNum = ? AND Dept = ? AND TIMEDIFF(EndTime, NOW())>0 AND TIMEDIFF(NOW(), StartTime)>0', 
+			[url_split[4].toString(), url_split[2].toString()],
 			function(error, rows, fields){
 				response.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
 				response.write(JSON.stringify(rows));
 				response.end();
-		
+
 			});
 		}
 	}
@@ -75,5 +76,5 @@ http.createServer(function (request, response) {
 		response.writeHead(400, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin': '*'});
 		response.end();
 	}
-	
+
 }).listen(process.env.PORT || 8080)
