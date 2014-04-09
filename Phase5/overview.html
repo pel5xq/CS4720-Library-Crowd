@@ -17,6 +17,10 @@ border:1px solid black;
 <h1>Overview</h1>
 The Library Busyness Crowdsourcing Web Services were designed to allow students to share information about libraries at UVa.<br>
 The first web service provides a way to post and query information about how busy and loud various libraries are. The second lets users organize open study groups at libraries.<br>
+
+<br>
+The general pattern for each of the webservices is as follows. Various people post data to the service, and their information along with the time it was written is stored in a database. Then, a client queries the webservice for the information. Based on the time of the query, the service will respond with an average of the most recent data or only those pieces of data relevant for the time the query was made. Thus, these web services should be used for real-time crowdsourcing data. 
+<br><br>
 While we used these services for libraries at UVa, the services are flexible enough to track other places and types of information as well.<br>
 
 <h1>How We Used The Web Services</h1>
