@@ -113,7 +113,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/aldermanCrowdImage"
@@ -127,7 +127,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/aldermanNoise"
@@ -161,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/clarkCrowd"
@@ -175,7 +175,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/clarkNoise"
@@ -209,7 +209,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/clemonsCrowd"
@@ -223,7 +223,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/clemonsNoise"
@@ -257,7 +257,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/commerceCrowd"
@@ -271,7 +271,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/commerceNoise"
@@ -305,7 +305,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/riceCrowd"
@@ -319,7 +319,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/riceNoise"
@@ -353,7 +353,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/thorntonCrowd"
@@ -367,7 +367,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/thorntonNoise"
@@ -401,7 +401,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/wilsdorfCrowd"
@@ -415,7 +415,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise" />
+                        android:src="@drawable/nodata" />
 
                     <TextView
                         android:id="@+id/wilsdorfNoise"

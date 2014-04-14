@@ -366,6 +366,8 @@ public class MainActivity extends Activity {
 
 				if (doubleCrowd <= 2) {
 					((TextView) findViewById(crowdId)).setText("Sparse");
+					ImageView img = (ImageView) findViewById(crowdImageId);
+					img.setImageResource(R.drawable.small_crowd);
 				} else if (doubleCrowd > 2 && doubleCrowd < 4) {
 					((TextView) findViewById(crowdId)).setText("Normal");
 					ImageView img = (ImageView) findViewById(crowdImageId);
@@ -378,6 +380,8 @@ public class MainActivity extends Activity {
 			} else {
 				if (doubleCrowd <= 2) {
 					((TextView) findViewById(crowdId)).setText("Sparse *");
+					ImageView img = (ImageView) findViewById(crowdImageId);
+					img.setImageResource(R.drawable.small_crowd);
 				} else if (doubleCrowd > 2 && doubleCrowd < 4) {
 					((TextView) findViewById(crowdId)).setText("Normal *");
 					ImageView img = (ImageView) findViewById(crowdImageId);
@@ -396,6 +400,8 @@ public class MainActivity extends Activity {
 
 				if (doubleNoise <= 2) {
 					((TextView) findViewById(noiseId)).setText("Sparse");
+					ImageView img = (ImageView) findViewById(noiseImageId);
+					img.setImageResource(R.drawable.small_noise);
 				} else if (doubleNoise > 2 && doubleNoise < 4) {
 					((TextView) findViewById(noiseId)).setText("Normal");
 					ImageView img = (ImageView) findViewById(noiseImageId);
@@ -410,6 +416,8 @@ public class MainActivity extends Activity {
 
 				if (doubleNoise <= 2) {
 					((TextView) findViewById(noiseId)).setText("Sparse *");
+					ImageView img = (ImageView) findViewById(noiseImageId);
+					img.setImageResource(R.drawable.small_noise);
 				} else if (doubleNoise > 2 && doubleNoise < 4) {
 					((TextView) findViewById(noiseId)).setText("Normal *");
 					ImageView img = (ImageView) findViewById(noiseImageId);
