@@ -113,6 +113,11 @@ public class MainActivity extends Activity {
 				"phase1/cakephp/location?loc=CHG", "" + R.id.clarkOpenImage);
 		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
 				"phase1/cakephp/location?loc=CLM", "" + R.id.clemonsOpenImage);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=COMM", "" + R.id.commerceOpenImage);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=WILS", "" + R.id.wilsdorfOpenImage);
+		
 
 		// Post Lib crowd and noise data
 		Log.d(TAG, "About to set post button listener");
