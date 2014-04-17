@@ -24,15 +24,7 @@
         android:id="@+id/departmentText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_department"
-        android:layout_margin="10dp"
-        android:textSize="22sp" />
-    
-    <TextView
-        android:id="@+id/courseText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_course_num"
+        android:text="@string/title_course"
         android:layout_margin="10dp"
         android:textSize="22sp" />
     
@@ -43,5 +35,13 @@
         android:text="@string/title_name"
         android:layout_margin="10dp"
         android:textSize="22sp" />
+    
+     <TextView
+         android:id="@+id/descriptionText"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_margin="10dp"
+         android:text="@string/title_description"
+         android:textSize="22sp" />
     
 </TableRow>

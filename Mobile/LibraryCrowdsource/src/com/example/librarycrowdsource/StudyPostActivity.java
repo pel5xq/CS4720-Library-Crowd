@@ -233,8 +233,8 @@ public class StudyPostActivity extends Activity {
 
 						name = stripFrom(((TextView) findViewById(R.id.nameText))
 								.getText().toString());
-						// description =
-						// stripFrom(((TextView)findViewById(R.id.descriptionText)).getText().toString());
+						 description = stripFrom(((TextView)findViewById(R.id.descriptionText))
+								.getText().toString());
 
 						if (null == name || name.equals("")) {
 							name = "Anonymous";

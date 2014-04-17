@@ -241,9 +241,7 @@ public class StudySearchActivity extends Activity {
 						String department = jObject.getString("Dept");
 						String courseNum = jObject.getString("CourseNum");
 						String name = jObject.getString("Name");
-						// Not in returned value -- need to update service
-						String description = "";// =
-												// jObject.getString("Description");
+						String description = jObject.getString("Descrip");
 						name = name.replace("_", " ");
 						description = description.replace("_", " ");
 						View newRow = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE))
@@ -253,11 +251,11 @@ public class StudySearchActivity extends Activity {
 						((TextView) newRow.findViewById(R.id.sectionText))
 								.setText(section);
 						((TextView) newRow.findViewById(R.id.departmentText))
-								.setText(department);
-						((TextView) newRow.findViewById(R.id.courseText))
-								.setText(courseNum);
+								.setText(department+" "+courseNum);
 						((TextView) newRow.findViewById(R.id.nameText))
 								.setText(name);
+						((TextView) newRow.findViewById(R.id.descriptionText))
+								.setText(description);
 						inflatedRows.add(newRow);
 					}
 				}
