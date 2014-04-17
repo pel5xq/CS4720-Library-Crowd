@@ -3,9 +3,9 @@
 
     <string name="app_name">LibraryCrowdsource</string>
     <string name="action_settings">Settings</string>
-    <string name="clemons">Clemons</string>
-    <string name="alderman">Alderman</string>
-    <string name="thornton">Thornton</string>
+    <string name="clemons">    Clemons    </string>
+    <string name="alderman">   Alderman    </string>
+    <string name="thornton">   Thornton    </string>
     <string name="libraryLabel">Library</string>
     <string name="crowdLabel">Crowd Level</string>
     <string name="noiseLabel">Noise Level</string>
@@ -15,9 +15,9 @@
     <string name="three">3</string>
     <string name="four">4</string>
     <string name="five">5</string>
-    <string name="clark">Clark</string>
-    <string name="rice">Rice Hall</string>
-    <string name="wilsdorf">Wilsdorf</string>
+    <string name="clark">     Clark     </string>
+    <string name="rice">   Rice Hall   </string>
+    <string name="wilsdorf">   Wilsdorf    </string>
     <string name="submit">Submit</string>
     <string name="defaultData">No Data</string>
     <string name="makePost">Post Library Report</string>

@@ -40,6 +40,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/studySearch" />
         </LinearLayout>
+</LinearLayout>
 
         <TableLayout
             android:id="@+id/ChooseLibraryEditText"
@@ -66,6 +67,8 @@
 
                 <TextView
                     android:layout_gravity="center"
+                    android:layout_marginLeft="150dp"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/sectionLabel" />
 
                 <LinearLayout
@@ -76,419 +79,454 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/twiceAsBig"
                         android:padding="10dip" />
-                    
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/twiceAsBig"
-                        android:padding="10dip"
+                        android:layout_marginLeft="150dp"
+                       android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/crowdLabel" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:padding="10dip"
+                        android:layout_marginLeft="120dp"
+                       android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/noiseLabel" />
                 </LinearLayout>
             </TableRow>
 
-            <TableRow
-                android:id="@+id/tableRow2"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                android:layout_height="fill_parent" >
 
                 <Button
                     android:id="@+id/buttonAlderman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="200dp"
+                    android:layout_marginRight="110dp"
                     android:text="@string/alderman"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/aldermanOpenImage"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal" >
-                    
-                    <ImageView
-                        android:id="@+id/aldermanOpenImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/open"
-                        android:visibility="invisible" />
+                    android:layout_alignBottom="@+id/buttonAlderman"
+                    android:layout_marginRight="75dp"
+                    android:layout_toRightOf="@+id/buttonAlderman"
+                    android:src="@drawable/open"
+                    android:visibility="invisible" />
 
-                    <ImageView
-                        android:id="@+id/aldermanSmallCrowdImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/twiceAsBig"
-                        android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/aldermanSmallCrowdImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonAlderman"
+                    android:layout_marginRight="40dp"
+                    android:layout_toRightOf="@id/aldermanOpenImage"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/aldermanCrowdImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
+                <TextView
+                    android:id="@+id/aldermanCrowdImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonAlderman"
+                    android:layout_marginRight="75dp"
+                    android:layout_toRightOf="@id/aldermanSmallCrowdImage"
+                    android:text="@string/defaultData" />
 
-                    <ImageView
-                        android:id="@+id/aldermanSmallNoiseImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/aldermanSmallNoiseImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonAlderman"
+                    android:layout_marginRight="20dp"
+                    android:layout_toRightOf="@id/aldermanCrowdImage"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/aldermanNoise"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/aldermanNoise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonAlderman"
+                    android:layout_toRightOf="@id/aldermanSmallNoiseImage"
+                    android:text="@string/defaultData" />
 
                 <Button
                     android:id="@+id/buttonClark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonAlderman"
+                    android:layout_below="@id/buttonAlderman"
                     android:text="@string/clark"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/clarkOpenImage"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal" >
-                    
-                    <ImageView
-                        android:id="@+id/clarkOpenImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/open"
-                        android:visibility="invisible" />
+                    android:layout_alignBottom="@+id/buttonClark"
+                    android:layout_alignLeft="@+id/aldermanOpenImage"
+                    android:layout_below="@+id/aldermanOpenImage"
+                    android:layout_toRightOf="@+id/buttonClark"
+                    android:src="@drawable/open"
+                    android:visibility="invisible" />
 
-                    <ImageView
-                        android:id="@+id/clarkSmallCrowdImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/twiceAsBig"
-                        android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/clarkSmallCrowdImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonClark"
+                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
+                    android:layout_below="@+id/aldermanSmallCrowdImage"
+                    android:layout_toRightOf="@+id/clarkOpenImage"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/clarkCrowd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
+                <TextView
+                    android:id="@+id/clarkCrowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonClark"
+                    android:layout_alignLeft="@+id/aldermanCrowdImage"
+                    android:layout_below="@+id/aldermanCrowdImage"
+                    android:layout_toRightOf="@+id/clarkSmallCrowdImage"
+                    android:text="@string/defaultData" />
 
-                    <ImageView
-                        android:id="@+id/clarkSmallNoiseImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/clarkSmallNoiseImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonClark"
+                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
+                    android:layout_below="@+id/aldermanSmallNoiseImage"
+                    android:layout_toRightOf="@+id/clarkCrowd"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/clarkNoise"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/clarkNoise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonClark"
+                    android:layout_alignLeft="@+id/aldermanNoise"
+                    android:layout_below="@+id/aldermanNoise"
+                    android:layout_toRightOf="@+id/clarkSmallNoiseImage"
+                    android:text="@string/defaultData" />
 
                 <Button
                     android:id="@+id/buttonClemons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonAlderman"
+                    android:layout_below="@+id/buttonClark"
                     android:text="@string/clemons"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/clemonsOpenImage"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal" >
-                    
-                    <ImageView
-                        android:id="@+id/clemonsOpenImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/open"
-                        android:visibility="invisible" />
+                    android:layout_alignBottom="@+id/buttonClemons"
+                    android:layout_alignLeft="@+id/aldermanOpenImage"
+                    android:layout_below="@+id/clarkOpenImage"
+                    android:layout_toRightOf="@+id/buttonClemons"
+                    android:src="@drawable/open"
+                    android:visibility="invisible" />
 
-                    <ImageView
-                        android:id="@+id/clemonsSmallCrowdImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/twiceAsBig"
-                        android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/clemonsSmallCrowdImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonClemons"
+                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
+                    android:layout_below="@+id/clarkSmallCrowdImage"
+                    android:layout_toRightOf="@+id/clemonsOpenImage"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/clemonsCrowd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
+                <TextView
+                    android:id="@+id/clemonsCrowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonClemons"
+                    android:layout_alignLeft="@+id/aldermanCrowdImage"
+                    android:layout_below="@+id/clarkCrowd"
+                    android:layout_toRightOf="@+id/clemonsSmallCrowdImage"
+                    android:text="@string/defaultData" />
 
-                    <ImageView
-                        android:id="@+id/clemonsSmallNoiseImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/clemonsSmallNoiseImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonClemons"
+                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
+                    android:layout_below="@+id/clarkSmallNoiseImage"
+                    android:layout_toRightOf="@+id/clemonsCrowd"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/clemonsNoise"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/clemonsNoise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonClemons"
+                    android:layout_alignLeft="@+id/aldermanNoise"
+                    android:layout_below="@+id/clarkNoise"
+                    android:layout_toRightOf="@+id/clemonsSmallNoiseImage"
+                    android:text="@string/defaultData" />
 
                 <Button
                     android:id="@+id/buttonCommerce"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonAlderman"
+                    android:layout_below="@+id/buttonClemons"
                     android:text="@string/commerce"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/commerceOpenImage"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal" >
-                    
-                    <ImageView
-                        android:id="@+id/commerceOpenImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/open"
-                        android:visibility="invisible" />
+                    android:layout_alignBottom="@+id/buttonCommerce"
+                    android:layout_alignLeft="@+id/aldermanOpenImage"
+                    android:layout_below="@+id/clemonsOpenImage"
+                    android:layout_toRightOf="@+id/buttonCommerce"
+                    android:src="@drawable/open"
+                    android:visibility="invisible" />
 
-                    <ImageView
-                        android:id="@+id/commerceSmallCrowdImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/twiceAsBig"
-                        android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/commerceSmallCrowdImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonCommerce"
+                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
+                    android:layout_below="@+id/clemonsSmallCrowdImage"
+                    android:layout_toRightOf="@+id/commerceOpenImage"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/commerceCrowd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
+                <TextView
+                    android:id="@+id/commerceCrowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonCommerce"
+                    android:layout_alignLeft="@+id/aldermanCrowdImage"
+                    android:layout_below="@+id/clemonsCrowd"
+                    android:layout_toRightOf="@+id/commerceSmallCrowdImage"
+                    android:text="@string/defaultData" />
 
-                    <ImageView
-                        android:id="@+id/commerceSmallNoiseImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/commerceSmallNoiseImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonCommerce"
+                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
+                    android:layout_below="@+id/clemonsSmallNoiseImage"
+                    android:layout_toRightOf="@+id/commerceCrowd"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/commerceNoise"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/commerceNoise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonCommerce"
+                    android:layout_alignLeft="@+id/aldermanNoise"
+                    android:layout_below="@+id/clemonsNoise"
+                    android:layout_toRightOf="@+id/commerceSmallNoiseImage"
+                    android:text="@string/defaultData" />
 
                 <Button
                     android:id="@+id/buttonRice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonRice"
+                    android:layout_alignLeft="@+id/buttonAlderman"
+                    android:layout_below="@+id/buttonCommerce"
                     android:text="@string/rice"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/riceOpenImage"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal" >
-                    
-                    <ImageView
-                        android:id="@+id/riceOpenImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/open"
-                        android:visibility="invisible" />
+                    android:layout_alignBottom="@+id/buttonRice"
+                    android:layout_below="@+id/commerceOpenImage"
+                    android:layout_toRightOf="@+id/buttonRice"
+                    android:src="@drawable/open"
+                    android:visibility="invisible" />
 
-                    <ImageView
-                        android:id="@+id/riceSmallCrowdImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/twiceAsBig"
-                        android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/riceSmallCrowdImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonRice"
+                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
+                    android:layout_below="@+id/commerceSmallCrowdImage"
+                    android:layout_toRightOf="@+id/riceOpenImage"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/riceCrowd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
+                <TextView
+                    android:id="@+id/riceCrowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonRice"
+                    android:layout_alignLeft="@+id/aldermanCrowdImage"
+                    android:layout_below="@+id/commerceCrowd"
+                    android:layout_toRightOf="@+id/riceSmallCrowdImage"
+                    android:text="@string/defaultData" />
 
-                    <ImageView
-                        android:id="@+id/riceSmallNoiseImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/riceSmallNoiseImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonRice"
+                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
+                    android:layout_below="@+id/commerceSmallNoiseImage"
+                    android:layout_toRightOf="@+id/riceCrowd"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/riceNoise"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/riceNoise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonRice"
+                    android:layout_alignLeft="@+id/aldermanNoise"
+                    android:layout_below="@+id/commerceNoise"
+                    android:layout_toRightOf="@+id/riceSmallNoiseImage"
+                    android:text="@string/defaultData" />
 
                 <Button
                     android:id="@+id/buttonThornton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonAlderman"
+                    android:layout_below="@+id/buttonRice"
                     android:text="@string/thornton"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/thorntonOpenImage"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal" >
-                    
-                    <ImageView
-                        android:id="@+id/thorntonOpenImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/open"
-                        android:visibility="invisible" />
+                    android:layout_alignBottom="@+id/buttonThornton"
+                    android:layout_alignLeft="@+id/aldermanOpenImage"
+                    android:layout_below="@+id/riceOpenImage"
+                    android:layout_toRightOf="@+id/buttonThornton"
+                    android:src="@drawable/open"
+                    android:visibility="invisible" />
 
-                    <ImageView
-                        android:id="@+id/thorntonSmallCrowdImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/twiceAsBig"
-                        android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/thorntonSmallCrowdImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonThornton"
+                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
+                    android:layout_below="@+id/riceSmallCrowdImage"
+                    android:layout_toRightOf="@+id/thorntonOpenImage"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/thorntonCrowd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
+                <TextView
+                    android:id="@+id/thorntonCrowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonThornton"
+                    android:layout_alignLeft="@+id/aldermanCrowdImage"
+                    android:layout_below="@+id/riceCrowd"
+                    android:layout_toRightOf="@+id/thorntonSmallCrowdImage"
+                    android:text="@string/defaultData" />
 
-                    <ImageView
-                        android:id="@+id/thorntonSmallNoiseImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/thorntonSmallNoiseImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonThornton"
+                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
+                    android:layout_below="@+id/riceSmallNoiseImage"
+                    android:layout_toRightOf="@+id/thorntonCrowd"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/thorntonNoise"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
-                </LinearLayout>
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+                <TextView
+                    android:id="@+id/thorntonNoise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonThornton"
+                    android:layout_alignLeft="@+id/aldermanNoise"
+                    android:layout_below="@+id/riceNoise"
+                    android:layout_toRightOf="@+id/thorntonSmallNoiseImage"
+                    android:text="@string/defaultData" />
 
                 <Button
                     android:id="@+id/buttonWilsdorf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/buttonAlderman"
+                    android:layout_below="@+id/buttonThornton"
                     android:text="@string/wilsdorf"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/wilsdorfOpenImage"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="fill_horizontal" >
-                    
-                    <ImageView
-                        android:id="@+id/wilsdorfOpenImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/open"
-                        android:visibility="invisible" />
+                    android:layout_alignBottom="@+id/buttonWilsdorf"
+                    android:layout_alignLeft="@+id/aldermanOpenImage"
+                    android:layout_below="@+id/thorntonOpenImage"
+                    android:layout_toRightOf="@+id/buttonWilsdorf"
+                    android:src="@drawable/open"
+                    android:visibility="invisible" />
 
-                    <ImageView
-                        android:id="@+id/wilsdorfSmallCrowdImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/twiceAsBig"
-                        android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/wilsdorfSmallCrowdImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonWilsdorf"
+                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
+                    android:layout_below="@+id/thorntonSmallCrowdImage"
+                    android:layout_toRightOf="@+id/wilsdorfOpenImage"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/wilsdorfCrowd"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
+                <TextView
+                    android:id="@+id/wilsdorfCrowd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonWilsdorf"
+                    android:layout_alignLeft="@+id/aldermanCrowdImage"
+                    android:layout_below="@+id/thorntonCrowd"
+                    android:layout_toRightOf="@+id/wilsdorfSmallCrowdImage"
+                    android:text="@string/defaultData" />
 
-                    <ImageView
-                        android:id="@+id/wilsdorfSmallNoiseImage"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/nodata" />
+                <ImageView
+                    android:id="@+id/wilsdorfSmallNoiseImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/buttonWilsdorf"
+                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
+                    android:layout_below="@+id/thorntonSmallNoiseImage"
+                    android:layout_toRightOf="@+id/wilsdorfCrowd"
+                    android:src="@drawable/nodata" />
 
-                    <TextView
-                        android:id="@+id/wilsdorfNoise"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/textToIcon"
-                        android:text="@string/defaultData" />
-                </LinearLayout>
-            </TableRow>
+                <TextView
+                    android:id="@+id/wilsdorfNoise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/buttonWilsdorf"
+                    android:layout_alignLeft="@+id/aldermanNoise"
+                    android:layout_below="@+id/thorntonNoise"
+                    android:layout_toRightOf="@+id/wilsdorfSmallNoiseImage"
+                    android:text="@string/defaultData" />
+                
+                
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
+                    android:layout_below="@+id/buttonWilsdorf"
+                    android:text="@string/exception"/>
 
+             </RelativeLayout>   
             <TableRow
                 android:id="@+id/LibraryDatascrollView"
                 android:layout_width="match_parent"
@@ -515,13 +553,8 @@
                 </ScrollView>
             </TableRow>
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/exception" />
+           
+               
         </TableLayout>
-    </LinearLayout>
 
 </FrameLayout>

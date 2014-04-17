@@ -105,7 +105,7 @@ public class MainActivity extends Activity {
 				+ "library/Wilsdorf/timespan/60", "" + R.id.wilsdorfCrowd, ""
 				+ R.id.wilsdorfNoise, "" + R.id.wilsdorfSmallCrowdImage, ""
 				+ R.id.wilsdorfSmallNoiseImage);
-		
+
 		//Openings/Closings
 		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
 				"phase1/cakephp/location?loc=ALD", "" + R.id.aldermanOpenImage);
@@ -115,9 +115,9 @@ public class MainActivity extends Activity {
 				"phase1/cakephp/location?loc=CLM", "" + R.id.clemonsOpenImage);
 		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
 				"phase1/cakephp/location?loc=COMM", "" + R.id.commerceOpenImage);
-		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~s4720s14corn/" +
 				"phase1/cakephp/location?loc=WILS", "" + R.id.wilsdorfOpenImage);
-		
+
 
 		// Post Lib crowd and noise data
 		Log.d(TAG, "About to set post button listener");
@@ -450,7 +450,7 @@ public class MainActivity extends Activity {
 		}
 
 	}
-	
+
 	private class OpenClosedTask extends AsyncTask<String, String, String> {
 
 		private int imageId;
@@ -466,14 +466,14 @@ public class MainActivity extends Activity {
 			try {
 				if (result != null) {
 					JSONObject jObject = new JSONObject(result);
-					
+
 					cal.setTime(new Date(System.currentTimeMillis()));
-					
+
 					isOpen = 0; //by Default
-					
+
 					String opentime = "";
 					String closetime = "";
-					
+
 					if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
 						opentime = jObject.getString("fri_open_time");
 						closetime = jObject.getString("fri_close_time");
@@ -490,27 +490,27 @@ public class MainActivity extends Activity {
 						opentime = jObject.getString("week_open_time");
 						closetime = jObject.getString("week_close_time");
 					}
-					
+
 					if (!(null == opentime || null == closetime || 
 							opentime.equalsIgnoreCase("null") || 
 							closetime.equalsIgnoreCase("null") || 
 							opentime.equals("") || closetime.equals(""))) {
-						
+
 						int endhour = Integer.parseInt(closetime.split(":")[0]);
 						int endminute = Integer.parseInt(closetime.split(":")[1]);
 						int starthour = Integer.parseInt(opentime.split(":")[0]);
 						int startminute = Integer.parseInt(opentime.split(":")[1]);
-						
-						
-						
+
+
+
 						Log.d(TAG, "Open/Close "+starthour+":"+startminute+" "+endhour+":"+endminute);
-						
+
 						//For libraries open from/till midnight
 						if (endhour <= starthour) endhour = endhour+24;
-						
+
 						int currenthour = cal.get(Calendar.HOUR_OF_DAY);
 						int currentminute = cal.get(Calendar.MINUTE);
-						
+
 						if (currenthour < endhour && currenthour > starthour) {
 							isOpen = 1;
 						}
@@ -523,9 +523,9 @@ public class MainActivity extends Activity {
 						else {
 							isOpen = -1;
 						}
-						
+
 					}
-					
+
 				}
 			} catch (Exception e) {
 				Log.d(TAG, "Open/Close "+e.getMessage());
@@ -590,7 +590,7 @@ public class MainActivity extends Activity {
 
 		return result;
 	}
-	
+
 	public String getJSONfromURLGet(String url) {
 
 		// initialize
