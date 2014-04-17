@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Study Group API</title>
+	<link href="css/blitzer/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script>
+		$(document).ready(function() {
+			$("#sub").click(function() {
+				var department = $("#department").val();
+				var courseNum = $("#courseNum").val();
+				var posturl = "http://infinite-thicket-5143.herokuapp.com/department/"+department+"/courseNum/"+courseNum;
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#studyGroupData").html(data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+			
+			
+			$("#subLib").click(function() {
+				var departmentLib = $("#departmentLib").val();
+				var courseNumLib = $("#courseNumLib").val();
+				var library = $("#library").val();
+				var posturl = "http://infinite-thicket-5143.herokuapp.com/department/"+departmentLib+"/courseNum/"+courseNumLib+"/library/"+library;
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#studyGroupDataLib").html(data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+			
+			$("#subSect").click(function() {
+				var departmentSect = $("#departmentSect").val();
+				var courseNumSect = $("#courseNumSect").val();
+				var librarySect = $("#librarySect").val();
+				var section = $("#section").val();
+				var posturl = "http://infinite-thicket-5143.herokuapp.com/department/"+departmentSect+"/courseNum/"+courseNumSect+"/library/"+librarySect+"/section/"+section;
+				$.ajax({
+					type: "POST",
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#studyGroupDataSect").html(data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			$("#subInsert2").click(function() {
+				var libIns = $("#insertLibrary2").val();
+				var sectIns = $("#insertSection2").val();
+				var deptIns = $("#insertDepartment2").val();
+				var numIns = $("#insertNumber2").val();
+				var nameIns = $("#name2").val();
+				var descIns = $("#description2").val();
+				var startDateIns = $("#startDate2").val();
+				var startTimeIns = $("#startTime2").val();
+				var endDateIns = $("#endDate2").val();
+				var endTimeIns = $("#endTime2").val();
+					
+				var posturl = "http://infinite-thicket-5143.herokuapp.com/insert/library/"+libIns+
+					"/section/"+sectIns+
+					"/department/"+deptIns+
+					"/courseNum/"+numIns+
+					"/name/"+nameIns+
+					"/description/"+descIns+
+					"/start/"+startDateIns+"-"+startTimeIns+":00"+
+					"/end/"+endDateIns+"-"+endTimeIns+":00";
+
+				//$("#studyGroupInsert").html(posturl);
+
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(status){
+						$("#studyGroupInsert").html("Successfully inserted into the database");
+					},
+					error: function(xhr, desc, err){
+						alert("Error calling web service. Error: "+err);
+					}
+				});
+			});
+
+		});
+	</script>
+</head>
+<body>
+	<h1>
+		Instructions:
+	</h1>
+	<h2> To form a new study group:</h2>
+	<p> Insert the following: 
+		<ul>
+			- library name (i.e. Alderman, Clark, etc)<br>
+			- library section (i.e. West Wing, Cafe, 4th Floor)<br>
+			- the course department you're studying for (i.e. MATH, CS, APMA)<br>
+			- the course number (i.e. 4720, 2150, 1110)<br>
+			- your name<br>
+			- description of the assignment<br>
+			- time you begin studying<br>
+			- time your studying ends <br><br>
+
+			The information will be inserted into the database. Be careful what characters you use in each parameter, escaping any ones that urls cannot handle.<br>
+<br>
+The url pattern is: <br>
+			http://infinite-thicket-5143.herokuapp.com/insert/library/@lib/section/@section/department/@department/courseNum/@courseNum/name/@name/description/@description/start/@startTime/end/@endTime
+			<br><br>an example: <br>
+			http://infinite-thicket-5143.herokuapp.com/insert/library/Rice/section/4/department/CS/courseNum/4720/name/Mark/description/Phase3/start/2014-3-25-18:14:23/end/2014-3-25-22:14:23
+			<br><br>
+</ul>
+			<b>Try it yourself!</b>
+			
+			<form>
+				Library:<input type="text" id="insertLibrary2" /><br>
+				Section:<input type="text" id="insertSection2" /><br>
+				Course Department: <input type="text" id="insertDepartment2" /><br>
+				Course Number: <input type="text" id="insertNumber2" /><br>
+				Name: <input type="text" id="name2" /><br>
+				Description: <input type="text" id="description2" /><br>
+				Start date: <input type="date" id="startDate2"/> Start time: <input type = "time" id="startTime2"/> <br>
+				End Date: <input type="date" id="endDate2"> End time: <input type = "time" id = "endTime2"/><br>
+			</form>
+				<button id="subInsert2">Submit</button>
+				<div id="studyGroupInsert"></div>
+				
+			<br>
+		</p>
+		<h2> To find a study group: </h2>
+		<p>
+			You can find a study group based on the course department and number only. You can also limit your search
+				to a library, or a library and a library section. <br><br>
+				
+				<h3>Find a study group for a course:</h3>
+				Insert the following:
+				<ul>
+				- course department<br>
+				- course number<br>
+				</ul>
+				
+				What is returned: <ul>
+				- a list of currently occurring study groups with the same course department and number <br>
+					(begin times are before current time, and end times are past current time of query).<br>
+				- each study group returned has the name of the person who formed the study group, the course department + number, and
+					their library and section location
+
+<br><br>
+				The url pattern: <br> http://infinite-thicket-5143.herokuapp.com/department/@department/courseNum/@courseNum
+				<br>
+				<br>An example: <br>
+				http://infinite-thicket-5143.herokuapp.com/department/CS/courseNum/4720
+
+
+				</ul>
+				<b>Try it yourself!</b>
+				<form>
+				Course Depatment:<input type="text" id="department" /><br>
+				Course Number:<input type="text" id="courseNum" /><br>
+				</form>
+				<button id="sub">Submit</button>
+				<div id="studyGroupData"></div>
+				
+				
+				<br><br>
+				<h3> Find a study group in a library: </h3>
+				Insert the following: <ul>
+				- course department<br>
+				- course number<br>
+				- library name<br> </ul>
+				
+				What is returned:<ul>
+				- a list of currently occurring study groups of same course department, number, and library <br>
+				- each study group has name, course department + number, library and section
+
+<br><br>
+				The url pattern: <br> http://infinite-thicket-5143.herokuapp.com/department/@department/courseNum/@courseNum/library/@library
+				<br><br>
+				An example: <br>
+					 http://infinite-thicket-5143.herokuapp.com/department/CS/courseNum/4720/library/Rice
+
+
+					</ul>
+					<b>Try it yourself!</b>
+				<form>
+				Course Depatment:<input type="text" id="departmentLib" /><br>
+				Course Number:<input type="text" id="courseNumLib" /><br>
+				Library: <input type="text" id="library" /><br>
+				</form>
+				<button id="subLib">Submit</button>
+				<div id="studyGroupDataLib"></div>
+				
+
+					<br> <br>
+					<h3> Find a study group in a library section: </h3>
+					Insert the following: <ul>
+					- course department<br>
+					- course number<br>
+					- library name<br>
+					- library section<br> </ul>
+					
+					What is returned: <ul>
+					- a list of currently occurring study groups of the same course department, number, library and library section<br>
+					- each study group returns name, course department + number, library, and section. 
+					
+					<br><br>
+				The url pattern: <br> http://infinite-thicket-5143.herokuapp.com/department/@department/courseNum/@courseNum/library/@library/section/@section
+				<br><br>
+				An example: <br>  http://infinite-thicket-5143.herokuapp.com/department/CS/courseNum/4720/library/Rice/section/4 <br><br>
+       
+	</ul>
+ <b>Try it yourself!</b>
+				<form>
+				Course Depatment:<input type="text" id="departmentSect" /><br>
+				Course Number:<input type="text" id="courseNumSect" /><br>
+				Library: <input type="text" id="librarySect" /><br>
+				Section: <input type="text" id = "section" /><br>
+				</form>
+				<button id="subSect">Submit</button>
+				<div id="studyGroupDataSect"></div>
+				
+	</p>
+</body>
+</html>

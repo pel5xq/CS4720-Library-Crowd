@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>Library Crowd API</title>
+	<link href="css/blitzer/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script>
+		$(document).ready(function() {
+			//insert
+			$("#subInsert").click(function() {
+						var libIns = $("#insertLibrary").val();
+						var sectIns = $("#insertSection").val();
+						var crowd = $("#insertCrowd").val();
+						var noise = $("#insertNoise").val();
+							
+						var posturl = "http://plato.cs.virginia.edu/~pel5xq/insert/library/"+libIns+"/section/"+sectIns+"/crowd/"+crowd+"/noise/"+noise;
+
+						$("#insertLibStats").html(posturl + " Successfully inserted into the database");
+							
+						$.ajax({
+							url: posturl,
+							data: {},
+							success: function(status){
+								//$("#insertLibStats").html("Successfully inserted into the database");
+							}
+						});
+					});
+			
+			//1
+			$("#subLST").click(function() {
+				var lib = $("#lib1").val();
+				var sect = $("#sect1").val();
+				var time = $("#time1").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/section/"+sect+"/timespan/"+time;
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLST").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			//1b
+			$("#subLSTD").click(function() {
+				var lib = $("#lib2").val();
+				var sect = $("#sect2").val();
+				var time = $("#time2").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/section/"+sect+"/timespan/"+time+"/day";
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLSTD").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			//1c
+			$("#subLSTD2").click(function() {
+				var lib = $("#lib3").val();
+				var sect = $("#sect3").val();
+				var time = $("#time3").val();
+				var day = $("#day3").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/section/"+sect+"/timespan/"+time+"/day/"+day;
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLSTD2").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			//2
+			$("#subLT").click(function() {
+				var lib = $("#lib4").val();
+				var time = $("#time4").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/timespan/"+time;
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLT").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			//2b
+			$("#subLT2").click(function() {
+				var lib = $("#lib5").val();
+				var time = $("#time5").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/timespan/"+time+"/day";
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLT2").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			//2c
+			$("#subLTD").click(function() {
+				var lib = $("#lib6").val();
+				var time = $("#time6").val();
+				var day = $("#day6").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/timespan/"+time+"/day/"+day;
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLTD").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			//3
+			$("#subLS").click(function() {
+				var lib = $("#lib7").val();
+				var sect = $("#sect7").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/section/"+sect+"/day";
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLS").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			//4
+			$("#subLSD").click(function() {
+				var lib = $("#lib8").val();
+				var sect = $("#sect8").val();
+				var day = $("#day8").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/section/"+sect+"/day/"+day;
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLSD").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			//5
+			$("#subLD").click(function() {
+				var lib = $("#lib9").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/day";
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLD").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+			//6
+			$("#subLD2").click(function() {
+				var lib = $("#lib10").val();
+				var day = $("#day10").val();
+				var posturl = "http://plato.cs.virginia.edu/~pel5xq/library/"+lib+"/day/"+day;
+				$.ajax({
+					url: posturl,
+					data: {},
+					success: function(data, status) {
+						$("#findLD2").html(posturl + " " + data);
+					}, 
+					error: function(xhr, desc, err) {
+						alert("Error calling web service:\n" + desc + "\n" + err);
+					}
+				});
+			});
+
+		});
+	</script>
+</head>
+<body>
+
+<h2>Instructions:</h2>
+
+<h3>To post library statistics:</h3>
+<p>
+	Link: http://plato.cs.virginia.edu/~pel5xq/insert/library/@lib/section/@sec/crowd/@crowd/noise/@noise
+	<br>
+	Insert the following:
+	<ul>
+		- library name (or other place name)<br>
+		- library section (or other section name)<br>
+		- crowd level (1-5)<br>
+		- noise level (1-5)
+	</ul>
+		The information will be inserted into the database.<br>
+	<!-- insert -->
+	Try it yourself!
+	<form>
+		Library:<input type="text" id="insertLibrary" /><br>
+		Section:<input type="text" id="insertSection" /><br>
+		Crowd: <input type="text" id="insertCrowd" /><br>
+		Noise: <input type="text" id="insertNoise" /><br>
+	</form>
+		<button id="subInsert">Submit</button>
+		<div id="insertLibStats"></div>
+
+</p>
+
+<h3>To browse library statistics:</h3>
+<p>Depending on what you are interested in, you can explore stats based on different combinations of the following:
+	<ul>
+		- library name<br>
+		- section name<br>
+		- time of day<br>
+		- day of the week (current day or other)
+	</ul>
+
+	<h4>1) Find stats based on library, section, and timespan</h4>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/section/@sec/timespan/@minutes
+		<br>
+		Insert the following:
+		<ul>
+			- library name<br>
+			- section name<br>
+			- time in minutes
+		</ul>
+		What is returned:
+		<ul>- average noise and crowd levels for a library in a given section within the past given number of minutes </ul>
+		Example: What has the West Wing in Alderman looked like in the past 30 minutes?
+		<br>
+		Try it yourself!
+	<!-- 1 -->
+		<form>
+			Library:<input type="text" id="lib1" /><br>
+			Section:<input type="text" id="sect1" /><br>
+			Time: <input type="text" id="time1" /><br>
+		</form>
+		<button id="subLST">Submit</button>
+		<div id="findLST"></div>
+		<br>
+
+		If no current stats are available, you can query the pattern for the current day in the same timespan instead.<br>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/section/@sec/timespan/@minutes/day
+		<ul>- pattern of average noise and crowd for average day of the week as today for a library section within the past given number of minutes</ul>
+		Example: What does the West Wing in Alderman usually look like on this day at this time?
+		<br>
+		Try it yourself!
+	<!-- 1b -->
+		<form>
+			Library:<input type="text" id="lib2" /><br>
+			Section:<input type="text" id="sect2" /><br>
+			Time: <input type="text" id="time2" /><br>
+		</form>
+		<button id="subLSTD">Submit</button>
+		<div id="findLSTD"></div>
+		<br>
+
+		OR for a given day of the week in the same timespan.
+		<br>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/section/@sec/timespan/@minutes/day/@day
+		<br>
+		Insert the following:
+		<ul>
+			- library name<br>
+			- section name<br>
+			- time in minutes<br>
+			- day of the week (numerical - Sunday is 1, Monday is 2, etc.)
+		</ul>
+		What is returned:
+		<ul>- pattern of average noise and crowd for a library section within the past given number of minutes and on a given day of the week</ul>
+		Example: What does the West Wing in Alderman look like on an average Friday at this time?
+		<br>
+		Try it yourself!
+	<!-- 1c -->
+		<form>
+			Library:<input type="text" id="lib3" /><br>
+			Section:<input type="text" id="sect3" /><br>
+			Time: <input type="text" id="time3" /><br>
+			Day of the Week: <input type="text" id="day3" /><br>
+		</form>
+		<button id="subLSTD2">Submit</button>
+		<div id="findLSTD2"></div>
+
+	<h4>2) Find stats based on library and timespan</h4>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/timespan/@minutes
+		<br>
+		Insert the following:
+		<ul>
+			- library name<br>
+			- time in minutes
+		</ul>
+		What is returned:
+		<ul>- average noise and crowd for an entire library within the past given number of minutes</ul> 
+		Example: What has Alderman looked like in the past 45 minutes?<br>
+		<br>
+		Try it yourself!
+	<!-- 2 -->
+		<form>
+			Library:<input type="text" id="lib4" /><br>
+			Time: <input type="text" id="time4" /><br>
+		</form>
+		<button id="subLT">Submit</button>
+		<div id="findLT"></div>
+		<br>
+		If no current stats are available, you can query the pattern for the current day in the same timespan instead.<br>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/timespan/@minutes/day
+		<br>
+		What is returned:
+		<ul>- pattern of average noise and crowd for average day of the week as today for a library within the past given number of minutes </ul>
+		Example: What does Alderman usually look like on this day at this time? <br>
+		Try it yourself!
+	<!-- 2b -->
+		<form>
+			Library:<input type="text" id="lib5" /><br>
+			Time: <input type="text" id="time5" /><br>
+		</form>
+
+		<button id="subLT2">Submit</button>
+		<div id="findLT2"></div>
+		<br>
+		OR for a given day of the week in the same timespan.
+		<br>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/timespan/@minutes/day/@day
+		<br>
+		Insert the following:
+		<ul>
+			- library name<br>
+			- time in minutes<br>
+			- day of the week (numerical - Sunday is 1, Monday is 2, etc.)
+		</ul>
+		What is returned:
+		<ul>- pattern of average noise and crowd for average given day of the week for a library within the past given number of minutes </ul>
+		Example: What does Alderman look like on an average Wednesday at this time? 
+		<br>
+		Try it yourself!
+	<!-- 2c -->
+		<form>
+			Library:<input type="text" id="lib6" /><br>
+			Time: <input type="text" id="time6" /><br>
+			Day of the Week: <input type="text" id="day6" /><br>
+		</form>
+		<button id="subLTD">Submit</button>
+		<div id="findLTD"></div>
+
+	<h4>3) Find pattern stats based on library, section, and current day of the week:</h4>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/section/@sec/day
+		<br>
+		Insert the following:
+		<ul>
+			- library name<br>
+			- section name
+		</ul>
+		What is returned:<ul>
+		- pattern of average noise and crowd levels for an average day of the week as today in a given section</ul>
+		Example: What does the Commons section of Rice look like on this (current day of the week)?
+		<br>
+		Try it yourself!
+	<!-- 3 -->
+		<form>
+			Library:<input type="text" id="lib7" /><br>
+			Section: <input type="text" id="sect7" /><br>
+		</form>
+		<button id="subLS">Submit</button>
+		<div id="findLS"></div>
+
+	<h4>4) Find pattern stats based on library, section, and any day of the week</h4>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/section/@sec/day/@day
+		<br>
+		Insert the following:
+		<ul>
+			- library name<br>
+			- section name<br>
+			- any day of the week (numerical - Sunday is 1, Monday is 2, etc.)
+		</ul>
+		What is returned:<ul>
+		- pattern of average noise and crowd levels for an average day of the week as given day for a given section</ul>
+		Example: What does the Commons section of Rice look like on an average Monday?
+		<br>
+		Try it yourself!
+	<!-- 4 -->
+		<form>
+			Library:<input type="text" id="lib8" /><br>
+			Section: <input type="text" id="sect8" /><br>
+			Day of the Week: <input type="text" id="day8" /><br>
+		</form>
+		<button id="subLSD">Submit</button>
+		<div id="findLSD"></div>
+
+	<h4>5) Find pattern stats based on library and current day</h4>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/day
+		<br>
+		Insert the following:
+		<ul>
+			- library name
+		</ul>
+		What is returned:<ul>
+		- pattern of average noise and crowd levels for average day of the week as today for entire library
+		</ul>
+		Example: What does the Commerce School look like on an average (current day of the week)?
+		<br>
+		Try it yourself!
+	<!-- 5 -->
+		<form>
+			Library:<input type="text" id="lib9" /><br>
+		</form>
+		<button id="subLD">Submit</button>
+		<div id="findLD"></div>
+
+	<h4>6) Find the pattern stats based on library and any day of the week</h4>
+		Link: http://plato.cs.virginia.edu/~pel5xq/library/@lib/day/@day
+		<br>
+		Insert the following:
+		<ul>
+			- library name<br>
+			- any day of the week (numerical - Sunday is 1, Monday is 2, etc.)
+		</ul>
+		What is returned:<ul>
+		- pattern of average noise and crowd levels for average given day of the week for entire library</ul>
+		Example: What does the Commerce School look like on an average Tuesday?
+		<br>
+		Try it yourself!
+	<!-- 6 -->
+		<form>
+			Library:<input type="text" id="lib10" /><br>
+			Day of the Week:<input type="text" id="day10" /><br>
+		</form>
+		<button id="subLD2">Submit</button>
+		<div id="findLD2"></div>
+</p>
+</body>
+</html>

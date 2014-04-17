@@ -122,7 +122,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView
@@ -137,7 +137,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView
@@ -173,7 +173,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView
@@ -188,7 +188,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView
@@ -224,7 +224,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView
@@ -239,7 +239,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView
@@ -275,7 +275,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView
@@ -290,7 +290,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView
@@ -326,7 +326,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/twiceAsBig"
                         android:layout_marginRight="@dimen/alignTextIcon"
-                        android:src="@drawable/small_crowd"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView
@@ -341,7 +341,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/noiseColn"
-                        android:src="@drawable/small_noise"
+                        android:src="@drawable/nodata"
                         android:visibility="invisible" />
 
                     <TextView

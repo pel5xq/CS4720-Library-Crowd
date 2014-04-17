@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>Library Crowdsource Web Service</title>
+	<link href="css/blitzer/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+</head>
+<style>
+table,th,td
+{
+border:1px solid black;
+}
+</style>
+<body>
+<h1>Overview</h1>
+The Library Busyness Crowdsourcing Web Services were designed to allow students to share information about libraries at UVa.<br>
+The first web service provides a way to post and query information about how busy and loud various libraries are. The second lets users organize open study groups at libraries.<br>
+
+<br>
+The general pattern for each of the webservices is as follows. Various people post data to the service, and their information along with the time it was written is stored in a database. Then, a client queries the webservice for the information. Based on the time of the query, the service will respond with an average of the most recent data or only those pieces of data relevant for the time the query was made. Thus, these web services should be used for real-time crowdsourcing data. 
+<br><br>
+While we used these services for libraries at UVa, the services are flexible enough to track other places and types of information as well.<br>
+
+<h1>How We Used The Web Services</h1>
+If you want to utilize the same information about libraries that we are, you can query and post information about the following libraries and sections of libraries in our database.<br><br>
+
+<table>
+<tr>
+  <th>Library</th>
+  <th>Section</th> 
+  <th>URL Encoding Convention</th>
+</tr>
+<tr>
+  <td>Alderman</td>
+  <td>East Wing</td> 
+  <td>"EastWing"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>West Wing</td> 
+  <td>"WestWing"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>McGregor Room</td> 
+  <td>"McGregor"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Cafe</td> 
+  <td>"Cafe"</td>
+</tr>
+<tr>
+  <td>Clark</td>
+  <td>East Wing</td> 
+  <td>"EastWing"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>West Wing</td> 
+  <td>"WestWing"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Reading Room</td> 
+  <td>"Reading"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Stacks</td> 
+  <td>"Stacks"</td>
+</tr>
+<tr>
+  <td>Clemons</td>
+  <td>1st Floor</td> 
+  <td>"1"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>2nd Floor</td> 
+  <td>"2"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>3rd Floor</td> 
+  <td>"3"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>4th Floor</td> 
+  <td>"4"</td>
+</tr>
+<tr>
+  <td>Commerce School</td>
+  <td>4th Floor</td> 
+  <td>"4"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>Computer Lab</td> 
+  <td>"CompLab"</td>
+</tr>
+<tr>
+  <td>Rice</td>
+  <td>1st Floor</td> 
+  <td>"1"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>2nd Floor</td> 
+  <td>"2"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>3rd Floor</td> 
+  <td>"3"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>4th Floor</td> 
+  <td>"4"</td>
+</tr>
+<tr>
+  <td></td>
+  <td>5th Floor</td> 
+  <td>"5"</td>
+</tr>
+<tr>
+  <td>Thornton</td>
+  <td>Stacks</td> 
+  <td>"Stacks"</td>
+</tr>
+<tr>
+  <td>Wilsdorf</td>
+  <td>Cafe</td> 
+  <td>"Cafe"</td>
+</tr>
+</table>
+<br>
+For the noise and crowd levels in the first web service, we decided to report information on a scale of 1-5. If you query or post to these libraries, be aware of this convention and respect it.
+
+<h1>How You Can Use The Web Services Differently</h1>
+You could also use these web services to crowdsource information about other things. Instead of "Library" and "Section", you could be tracking the different floors of dorms or restauraunts in different neighborhoods. Similarly, instead of busyness and noise your app could track other kinds of data reported from users. You can also use your own conventions on what the numbers stored to and queried from the service mean.<br><br>
+</body>
+</html>

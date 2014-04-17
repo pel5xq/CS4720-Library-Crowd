@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>Library Crowdsourced Web Service</title>
+	<link href="css/blitzer/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="js/jquery-1.10.2.js"></script>
+	<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	<script>
+	$(document).ready(function() {
+		$( "#tabs" ).tabs();
+		$("#tabs-1").load("overview.html");
+		$("#tabs-2").load("crowds.html");
+		$("#tabs-3").load("studygroups.html");
+	});
+	</script>
+	<style>
+	body{
+		font: 70% "Trebuchet MS", sans-serif;
+		margin: 50px;
+		background-image: url('resources/library6.jpg');
+	}
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#MainTitle {
+		font: 450% "Trebuchet MS", sans-serif;
+		text-align: left;
+		margin-left: auto;
+		margin-right: auto;
+		background-color: #FFFFFF;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		-o-border-radius: 5px;
+		border-radius: 5px;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	</style>
+</head>
+<body>
+
+<div id="pictureBody">
+	<h2 class="demoHeaders" id="MainTitle">Library Busyness Crowdsourcing Web Services</h2>
+	<div id="tabs">
+		<ul>
+			<li><a href="#tabs-1">Overview</a></li>
+			<li><a href="#tabs-2">Library Crowds</a></li>
+			<li><a href="#tabs-3">Library Study Groups</a></li>
+		</ul>
+		<div id="tabs-1"></div>
+		<div id="tabs-2"></div>
+		<div id="tabs-3"></div>
+	</div>
+</div>
+
+</body>
+</html>

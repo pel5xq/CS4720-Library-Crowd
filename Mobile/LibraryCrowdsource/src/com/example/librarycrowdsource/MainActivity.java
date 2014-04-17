@@ -3,10 +3,14 @@ package com.example.librarycrowdsource;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
@@ -101,6 +105,19 @@ public class MainActivity extends Activity {
 				+ "library/Wilsdorf/timespan/60", "" + R.id.wilsdorfCrowd, ""
 				+ R.id.wilsdorfNoise, "" + R.id.wilsdorfSmallCrowdImage, ""
 				+ R.id.wilsdorfSmallNoiseImage);
+		
+		//Openings/Closings
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=ALD", "" + R.id.aldermanOpenImage);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=CHG", "" + R.id.clarkOpenImage);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=CLM", "" + R.id.clemonsOpenImage);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=COMM", "" + R.id.commerceOpenImage);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=WILS", "" + R.id.wilsdorfOpenImage);
+		
 
 		// Post Lib crowd and noise data
 		Log.d(TAG, "About to set post button listener");
@@ -366,6 +383,8 @@ public class MainActivity extends Activity {
 
 				if (doubleCrowd <= 2) {
 					((TextView) findViewById(crowdId)).setText("Sparse");
+					ImageView img = (ImageView) findViewById(crowdImageId);
+					img.setImageResource(R.drawable.small_crowd);
 				} else if (doubleCrowd > 2 && doubleCrowd < 4) {
 					((TextView) findViewById(crowdId)).setText("Normal");
 					ImageView img = (ImageView) findViewById(crowdImageId);
@@ -378,6 +397,8 @@ public class MainActivity extends Activity {
 			} else {
 				if (doubleCrowd <= 2) {
 					((TextView) findViewById(crowdId)).setText("Sparse *");
+					ImageView img = (ImageView) findViewById(crowdImageId);
+					img.setImageResource(R.drawable.small_crowd);
 				} else if (doubleCrowd > 2 && doubleCrowd < 4) {
 					((TextView) findViewById(crowdId)).setText("Normal *");
 					ImageView img = (ImageView) findViewById(crowdImageId);
@@ -396,6 +417,8 @@ public class MainActivity extends Activity {
 
 				if (doubleNoise <= 2) {
 					((TextView) findViewById(noiseId)).setText("Sparse");
+					ImageView img = (ImageView) findViewById(noiseImageId);
+					img.setImageResource(R.drawable.small_noise);
 				} else if (doubleNoise > 2 && doubleNoise < 4) {
 					((TextView) findViewById(noiseId)).setText("Normal");
 					ImageView img = (ImageView) findViewById(noiseImageId);
@@ -410,6 +433,8 @@ public class MainActivity extends Activity {
 
 				if (doubleNoise <= 2) {
 					((TextView) findViewById(noiseId)).setText("Sparse *");
+					ImageView img = (ImageView) findViewById(noiseImageId);
+					img.setImageResource(R.drawable.small_noise);
 				} else if (doubleNoise > 2 && doubleNoise < 4) {
 					((TextView) findViewById(noiseId)).setText("Normal *");
 					ImageView img = (ImageView) findViewById(noiseImageId);
@@ -420,6 +445,110 @@ public class MainActivity extends Activity {
 					img.setImageResource(R.drawable.loud_noise);
 				}
 
+			}
+
+		}
+
+	}
+	
+	private class OpenClosedTask extends AsyncTask<String, String, String> {
+
+		private int imageId;
+		private int isOpen; //-1 = Closed, 1 = Open, 0 = Ignore
+		private Calendar cal = new GregorianCalendar();
+
+		protected String doInBackground(String... args) {
+
+			imageId = Integer.parseInt(args[1]);
+
+			String result = getJSONfromURLGet(args[0]);
+			Log.d(TAG, "Open/Close "+args[0] + " | " + result);
+			try {
+				if (result != null) {
+					JSONObject jObject = new JSONObject(result);
+					
+					cal.setTime(new Date(System.currentTimeMillis()));
+					
+					isOpen = 0; //by Default
+					
+					String opentime = "";
+					String closetime = "";
+					
+					if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY) {
+						opentime = jObject.getString("fri_open_time");
+						closetime = jObject.getString("fri_close_time");
+					}
+					else if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
+						opentime = jObject.getString("sat_open_time");
+						closetime = jObject.getString("sat_close_time");
+					}
+					else if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
+						opentime = jObject.getString("sun_open_time");
+						closetime = jObject.getString("sun_close_time");
+					}
+					else {
+						opentime = jObject.getString("week_open_time");
+						closetime = jObject.getString("week_close_time");
+					}
+					
+					if (!(null == opentime || null == closetime || 
+							opentime.equalsIgnoreCase("null") || 
+							closetime.equalsIgnoreCase("null") || 
+							opentime.equals("") || closetime.equals(""))) {
+						
+						int endhour = Integer.parseInt(closetime.split(":")[0]);
+						int endminute = Integer.parseInt(closetime.split(":")[1]);
+						int starthour = Integer.parseInt(opentime.split(":")[0]);
+						int startminute = Integer.parseInt(opentime.split(":")[1]);
+						
+						
+						
+						Log.d(TAG, "Open/Close "+starthour+":"+startminute+" "+endhour+":"+endminute);
+						
+						//For libraries open from/till midnight
+						if (endhour <= starthour) endhour = endhour+24;
+						
+						int currenthour = cal.get(Calendar.HOUR_OF_DAY);
+						int currentminute = cal.get(Calendar.MINUTE);
+						
+						if (currenthour < endhour && currenthour > starthour) {
+							isOpen = 1;
+						}
+						else if (currenthour == starthour && currentminute >= startminute) {
+							isOpen = 1;
+						}
+						else if (currenthour == endhour && currentminute <= endminute) {
+							isOpen = 1;
+						}
+						else {
+							isOpen = -1;
+						}
+						
+					}
+					
+				}
+			} catch (Exception e) {
+				Log.d(TAG, "Open/Close "+e.getMessage());
+				e.printStackTrace();
+			} finally {
+			}
+
+			return null;
+		}
+
+		// Changes the values for a bunch of TextViews on the GUI
+		protected void onPostExecute(String result) {
+			Log.d(TAG, "Open/Close About to set data");
+
+			if (isOpen == 1) {
+				ImageView img = (ImageView) findViewById(imageId);
+				img.setImageResource(R.drawable.open);
+				img.setVisibility(View.VISIBLE);
+			}
+			else if (isOpen == -1) {
+				ImageView img = (ImageView) findViewById(imageId);
+				img.setImageResource(R.drawable.close);
+				img.setVisibility(View.VISIBLE);
 			}
 
 		}
@@ -436,6 +565,42 @@ public class MainActivity extends Activity {
 		try {
 			HttpClient httpclient = new DefaultHttpClient();
 			HttpPost httppost = new HttpPost(url);
+			HttpResponse response = httpclient.execute(httppost);
+			HttpEntity entity = response.getEntity();
+			is = entity.getContent();
+
+		} catch (Exception e) {
+			Log.e(TAG, "Error in http connection " + e.toString());
+		}
+
+		// convert response to string
+		try {
+			BufferedReader reader = new BufferedReader(new InputStreamReader(
+					is, "iso-8859-1"), 8);
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				sb.append(line + "\n");
+			}
+			is.close();
+			result = sb.toString();
+		} catch (Exception e) {
+			Log.e(TAG, "Error converting result " + e.toString());
+		}
+
+		return result;
+	}
+	
+	public String getJSONfromURLGet(String url) {
+
+		// initialize
+		InputStream is = null;
+		String result = "";
+
+		// http post
+		try {
+			HttpClient httpclient = new DefaultHttpClient();
+			HttpGet httppost = new HttpGet(url);
 			HttpResponse response = httpclient.execute(httppost);
 			HttpEntity entity = response.getEntity();
 			is = entity.getContent();

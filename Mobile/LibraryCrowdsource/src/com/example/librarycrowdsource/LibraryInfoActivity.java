@@ -210,8 +210,8 @@ public class LibraryInfoActivity extends Activity {
 
 			if (crowd.equals("0") || crowd.equals("0*") || crowd == null) {
 				((TextView) findViewById(crowdId)).setText("No Data");
-				// ImageView img = (ImageView) findViewById(crowdImageId);
-				// img.setImageResource(R.drawable.large_crowd);
+				ImageView img = (ImageView) findViewById(crowdImageId);
+				img.setVisibility(View.VISIBLE);
 			}
 
 			else if (isPattern == false) {
@@ -220,6 +220,7 @@ public class LibraryInfoActivity extends Activity {
 				if (doubleCrowd <= 2) {
 					((TextView) findViewById(crowdId)).setText("Sparse");
 					ImageView img = (ImageView) findViewById(crowdImageId);
+					img.setImageResource(R.drawable.small_crowd);
 					img.setVisibility(View.VISIBLE);
 				} else if (doubleCrowd > 2 && doubleCrowd < 4) {
 					((TextView) findViewById(crowdId)).setText("Normal");
@@ -236,6 +237,7 @@ public class LibraryInfoActivity extends Activity {
 				if (doubleCrowd <= 2) {
 					((TextView) findViewById(crowdId)).setText("Sparse *");
 					ImageView img = (ImageView) findViewById(crowdImageId);
+					img.setImageResource(R.drawable.small_crowd);
 					img.setVisibility(View.VISIBLE);
 				} else if (doubleCrowd > 2 && doubleCrowd < 4) {
 					((TextView) findViewById(crowdId)).setText("Normal *");
@@ -253,11 +255,14 @@ public class LibraryInfoActivity extends Activity {
 
 			if (noise.equals("0") || noise.equals("0*") || noise == null) {
 				((TextView) findViewById(noiseId)).setText("No Data");
+				ImageView img = (ImageView) findViewById(noiseImageId);
+				img.setVisibility(View.VISIBLE);
 			} else if (isPattern == false) {
 
 				if (doubleNoise <= 2) {
 					((TextView) findViewById(noiseId)).setText("Sparse");
 					ImageView img = (ImageView) findViewById(noiseImageId);
+					img.setImageResource(R.drawable.small_noise);
 					img.setVisibility(View.VISIBLE);
 				} else if (doubleNoise > 2 && doubleNoise < 4) {
 					((TextView) findViewById(noiseId)).setText("Normal");
@@ -274,6 +279,7 @@ public class LibraryInfoActivity extends Activity {
 				if (doubleNoise <= 2) {
 					((TextView) findViewById(noiseId)).setText("Sparse *");
 					ImageView img = (ImageView) findViewById(noiseImageId);
+					img.setImageResource(R.drawable.small_noise);
 					img.setVisibility(View.VISIBLE);
 				} else if (doubleNoise > 2 && doubleNoise < 4) {
 					((TextView) findViewById(noiseId)).setText("Normal *");
