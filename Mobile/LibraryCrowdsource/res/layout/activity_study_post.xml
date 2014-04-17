@@ -155,7 +155,20 @@
                     android:id="@+id/startTimeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="C" />
+                    android:text="@string/pickerText" />
+                
+                <TextView
+                    android:id="@+id/startDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Button
+                    android:id="@+id/startDateButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pickerText" />
             </TableRow>
 
             <TableRow
@@ -181,7 +194,20 @@
                     android:id="@+id/endTimeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="C" />
+                    android:text="@string/pickerText" />
+                
+                <TextView
+                    android:id="@+id/endDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <Button
+                    android:id="@+id/endDateButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pickerText" />
             </TableRow>
 
             <TableRow

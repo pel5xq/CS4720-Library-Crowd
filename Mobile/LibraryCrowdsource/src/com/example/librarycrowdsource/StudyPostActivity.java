@@ -2,6 +2,7 @@ package com.example.librarycrowdsource;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.http.HttpResponse;
@@ -12,6 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -26,6 +28,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -40,6 +43,9 @@ public class StudyPostActivity extends Activity {
 	private int minute;
 	static final int TIME_DIALOG_ID = 999;
 	private boolean picker = false;
+	static final int DATE_DIALOG_ID = 998;
+	private boolean isEndDate = false;
+	private int dateYear, dateMonth, dateDay;
 
 	private TextView startTime;
 	private TextView endTime;
@@ -98,6 +104,38 @@ public class StudyPostActivity extends Activity {
 					}
 
 				});
+		
+		Calendar cal = Calendar.getInstance();
+		dateYear = cal.get(Calendar.YEAR);
+		dateMonth = cal.get(Calendar.MONTH);
+		dateDay = cal.get(Calendar.DAY_OF_MONTH);
+		((TextView) findViewById(R.id.startDate)).setText(dateYear+"-"+(dateMonth+1)+"-"+dateDay);
+		((TextView) findViewById(R.id.endDate)).setText(dateYear+"-"+(dateMonth+1)+"-"+dateDay);
+		
+		((Button) findViewById(R.id.startDateButton))
+		.setOnClickListener(new OnClickListener() {
+
+			@SuppressWarnings("deprecation")
+			@Override
+			public void onClick(View theView) {
+				isEndDate = false;
+				showDialog(DATE_DIALOG_ID);
+
+			}
+
+		});
+
+		((Button) findViewById(R.id.endDateButton))
+		.setOnClickListener(new OnClickListener() {
+
+			@SuppressWarnings("deprecation")
+			@Override
+			public void onClick(View theView) {
+				isEndDate = true;
+				showDialog(DATE_DIALOG_ID);
+			}
+
+		});
 
 		Log.d(TAG, "About to set spinner listener");
 		((Spinner) findViewById(R.id.spinnerLibrary))
@@ -206,9 +244,13 @@ public class StudyPostActivity extends Activity {
 							description = "Studying";
 						}
 
-						start = encodeTime(((TextView) findViewById(R.id.sTime))
+						start = encodeTime(((TextView) findViewById(R.id.startDate))
+								.getText().toString(),
+								((TextView) findViewById(R.id.sTime))
 								.getText().toString());
-						end = encodeTime(((TextView) findViewById(R.id.eTime))
+						end = encodeTime(((TextView) findViewById(R.id.endDate))
+								.getText().toString(),
+								((TextView) findViewById(R.id.eTime))
 								.getText().toString());
 
 						String selectedLibrary = ((Spinner) findViewById(R.id.spinnerLibrary))
@@ -346,10 +388,13 @@ public class StudyPostActivity extends Activity {
 	// timePicker.setCurrentMinute(minute);
 	// }
 
-	private String encodeTime(String time) {
+	private String encodeTime(String date, String time) {
 		String result = "";
-		result += DateFormat.format("yyyy-MM-dd-",
+		if (null == date || date.equals(""))
+			result += DateFormat.format("yyyy-MM-dd-",
 				new Date(System.currentTimeMillis()));
+		else 
+			result+=date+"-";
 		String[] hm = time.split(":");
 		String hour = hm[0];
 		String minute = hm[1].substring(0, 2);
@@ -384,6 +429,10 @@ public class StudyPostActivity extends Activity {
 			// set timePicker as current time
 			return new TimePickerDialog(this, timePickerListener, hour, minute,
 					false);
+		case DATE_DIALOG_ID:
+			// set timePicker as current time
+			return new DatePickerDialog(this, datePickerListener, dateYear, dateMonth,
+					dateDay);
 		}
 		return null;
 	}
@@ -418,6 +467,26 @@ public class StudyPostActivity extends Activity {
 				view.setCurrentMinute(minute);
 			}
 
+		}
+	};
+	
+	private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+		public void onDateSet(DatePicker view, int selectedYear,
+				int selectedMonth, int selectedDay) {
+			dateYear = selectedYear;
+			dateMonth = selectedMonth;
+			dateDay = selectedDay;
+
+			// set current time into textview
+
+			if (isEndDate == false) {
+				((TextView) findViewById(R.id.startDate)).setText(dateYear+"-"+(dateMonth+1)+"-"+dateDay);
+			}
+
+			else {
+				((TextView) findViewById(R.id.endDate)).setText(dateYear+"-"+(dateMonth+1)+"-"+dateDay);
+			}
+			view.init(dateYear, dateMonth, dateDay, null);
 		}
 	};
 

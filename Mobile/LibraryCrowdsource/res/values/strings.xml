@@ -162,5 +162,6 @@
     <string name="title_course_num">Course Number</string>
     <string name="title_name">Name</string>
     <string name="title_description">Description</string>
+    <string name="pickerText">▼</string>
 
 </resources>
