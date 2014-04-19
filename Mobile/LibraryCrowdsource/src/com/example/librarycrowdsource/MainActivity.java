@@ -152,6 +152,18 @@ public class MainActivity extends Activity {
 					}
 
 				});
+		
+		((Button) findViewById(R.id.studyPostButton))
+		.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View theView) {
+				Intent intent = new Intent(MainActivity.this,
+						StudyPostActivity.class);
+				startActivity(intent);
+			}
+
+		});
 
 		buttonAlderman.setOnClickListener(new OnClickListener() {
 			@Override
@@ -333,7 +345,7 @@ public class MainActivity extends Activity {
 		private Double doubleNoise;
 		private boolean isPattern = false;
 		private int patternId;
-		
+
 		protected String doInBackground(String... args) {
 
 			crowdId = Integer.parseInt(args[1]);
@@ -389,7 +401,7 @@ public class MainActivity extends Activity {
 		protected void onPostExecute(String result) {
 			Log.d(TAG, "About to set data");
 			TextView patternView = (TextView) findViewById(patternId);
-			
+
 			if (crowd.equals("0") || crowd.equals("0*")) {
 				((TextView) findViewById(crowdId)).setText("No Data");
 			}
@@ -461,7 +473,7 @@ public class MainActivity extends Activity {
 					ImageView img = (ImageView) findViewById(noiseImageId);
 					img.setImageResource(R.drawable.loud_noise);
 				}
-			
+
 				patternView.setVisibility(View.VISIBLE);
 
 			}
