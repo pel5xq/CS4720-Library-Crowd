@@ -69,6 +69,18 @@ public class StudyPostActivity extends Activity {
 		// timePicker
 		// setCurrentTimeOnView();
 		// addListenerOnButton();
+		
+		((Button) findViewById(R.id.homeButton))
+		.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View theView) {
+				Intent intent = new Intent(StudyPostActivity.this,
+						MainActivity.class);
+				startActivity(intent);
+			}
+
+		});
 
 		Time t = new Time();
 		t.setToNow();
