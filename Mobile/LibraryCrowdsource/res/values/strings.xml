@@ -68,6 +68,7 @@
     <string name="postHere">Create a New Study Group&#8230; </string>
     <string name="coursePrompt">Choose a course subject</string>
     <string name="emptyResults">No Current \nStudy Groups</string>
+    <string name="home">Home</string>
 
     <string-array name="course_array">
         <item>APMA</item>
