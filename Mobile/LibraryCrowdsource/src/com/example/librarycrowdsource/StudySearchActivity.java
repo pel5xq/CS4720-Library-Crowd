@@ -95,6 +95,18 @@ public class StudySearchActivity extends Activity {
 					}
 
 				});
+		
+		((Button) findViewById(R.id.homeButton))
+		.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View theView) {
+				Intent intent = new Intent(StudySearchActivity.this,
+						MainActivity.class);
+				startActivity(intent);
+			}
+
+		});
 
 		/*
 		 * ((Button) findViewById(R.id.startTimeButton)) .setOnClickListener(new
