@@ -7,6 +7,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +30,18 @@ public class PostActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_post);
+		
+		((Button) findViewById(R.id.homeButton))
+		.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View theView) {
+				Intent intent = new Intent(PostActivity.this,
+						MainActivity.class);
+				startActivity(intent);
+			}
+
+		});
 		
 		Log.d(TAG, "About to set spinner listener");
 		((Spinner) findViewById(R.id.spinnerLibrary)).setOnItemSelectedListener(new OnItemSelectedListener() {
