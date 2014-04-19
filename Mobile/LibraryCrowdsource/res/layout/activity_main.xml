@@ -67,9 +67,9 @@
 
                 <TextView
                     android:layout_gravity="center"
-                    android:layout_marginLeft="150dp"
+                    android:layout_marginLeft="135dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/sectionLabel" />
+                    android:text="Library" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -85,7 +85,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="150dp"
+                        android:layout_marginLeft="110dp"
                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/crowdLabel" />
 
@@ -93,7 +93,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginLeft="120dp"
+                        android:layout_marginLeft="100dp"
                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/noiseLabel" />
                 </LinearLayout>
@@ -108,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="200dp"
-                    android:layout_marginRight="110dp"
+                    android:layout_marginRight="80dp"
                     android:text="@string/alderman"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -117,7 +117,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/buttonAlderman"
-                    android:layout_marginRight="75dp"
+                    android:layout_marginRight="55dp"
                     android:layout_toRightOf="@+id/buttonAlderman"
                     android:src="@drawable/open"
                     android:visibility="invisible" />
@@ -127,7 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/buttonAlderman"
-                    android:layout_marginRight="40dp"
+                    android:layout_marginRight="50dp"
                     android:layout_toRightOf="@id/aldermanOpenImage"
                     android:src="@drawable/nodata" />
 
@@ -136,7 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/buttonAlderman"
-                    android:layout_marginRight="75dp"
+                    android:layout_marginRight="90dp"
                     android:layout_toRightOf="@id/aldermanSmallCrowdImage"
                     android:text="@string/defaultData" />
 
@@ -145,7 +145,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignBottom="@+id/buttonAlderman"
-                    android:layout_marginRight="20dp"
+                    android:layout_marginRight="25dp"
                     android:layout_toRightOf="@id/aldermanCrowdImage"
                     android:src="@drawable/nodata" />
 
@@ -524,7 +524,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
                     android:layout_below="@+id/buttonWilsdorf"
-                    android:text="@string/exception"/>
+                    android:text="@string/exception"
+                    android:visibility="invisible"/>
 
              </RelativeLayout>   
             <TableRow

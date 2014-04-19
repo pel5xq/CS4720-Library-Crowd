@@ -43,7 +43,8 @@
             <TableRow
                 android:id="@+id/TableRow02"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content" 
+                android:paddingBottom="20dp">
 
                 <TextView
                     android:id="@+id/TextViewLibrary"
@@ -63,7 +64,8 @@
             <TableRow
                 android:id="@+id/TableRow01"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content" 
+                android:paddingBottom="20dp">
 
                 <TextView
                     android:id="@+id/TextViewSection"
@@ -81,7 +83,8 @@
             <TableRow
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content" 
+                android:paddingBottom="5dp">
 
                 <TextView
                     android:id="@+id/TextViewCrowd"
@@ -101,7 +104,8 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content" 
+                android:paddingBottom="25dp">
 
                 <ImageView
                     android:id="@+id/aldermanSmallCrowdImage"
@@ -129,7 +133,8 @@
             <TableRow
                 android:id="@+id/tableRow2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content" 
+                android:paddingBottom="5dp">
 
                 <TextView
                     android:id="@+id/TextViewNoise"
@@ -147,7 +152,8 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
+                android:layout_height="wrap_content"
+                android:paddingBottom="25dp" >
 
                 <ImageView
                     android:id="@+id/imageView4"

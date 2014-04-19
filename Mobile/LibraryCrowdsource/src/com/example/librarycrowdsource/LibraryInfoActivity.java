@@ -81,7 +81,8 @@ public class LibraryInfoActivity extends Activity {
 							+ "/section/" + section[0] + "/timespan/60", ""
 							+ R.id.sec0, "" + R.id.sec0Crowd, ""
 							+ R.id.sec0Noise, section[0],
-							""+R.id.sec0SmallCrowdImage, ""+R.id.sec0SmallNoiseImage);
+							""+R.id.sec0SmallCrowdImage, ""+R.id.sec0SmallNoiseImage, 
+							""+R.id.textView2);
 		}
 		if (arrays.length >= 2) {
 			new MyAsyncTask().execute(
@@ -89,7 +90,8 @@ public class LibraryInfoActivity extends Activity {
 							+ "/section/" + section[1] + "/timespan/60", ""
 							+ R.id.sec1, "" + R.id.sec1Crowd, ""
 							+ R.id.sec1Noise, section[1],
-							""+ R.id.sec1SmallCrowdImage, ""+R.id.sec1SmallNoiseImage);
+							""+ R.id.sec1SmallCrowdImage, ""+R.id.sec1SmallNoiseImage, 
+							""+R.id.textView2);
 		}
 		if (arrays.length >= 3) {
 			new MyAsyncTask().execute(
@@ -97,7 +99,8 @@ public class LibraryInfoActivity extends Activity {
 							+ "/section/" + section[2] + "/timespan/60", ""
 							+ R.id.sec2, "" + R.id.sec2Crowd, ""
 							+ R.id.sec2Noise, section[2],
-							""+R.id.sec2SmallCrowdImage, ""+R.id.sec2SmallNoiseImage);
+							""+R.id.sec2SmallCrowdImage, ""+R.id.sec2SmallNoiseImage, 
+							""+R.id.textView2);
 		}
 		if (arrays.length >= 4) {
 			new MyAsyncTask().execute(
@@ -105,7 +108,8 @@ public class LibraryInfoActivity extends Activity {
 							+ "/section/" + section[3] + "/timespan/60", ""
 							+ R.id.sec3, "" + R.id.sec3Crowd, ""
 							+ R.id.sec3Noise, section[3],
-							""+R.id.sec3SmallCrowdImage, ""+R.id.sec3SmallNoiseImage);
+							""+R.id.sec3SmallCrowdImage, ""+R.id.sec3SmallNoiseImage, 
+							""+R.id.textView2);
 		}
 		if (arrays.length >= 5) {
 			new MyAsyncTask().execute(
@@ -113,7 +117,8 @@ public class LibraryInfoActivity extends Activity {
 							+ "/section/" + section[4] + "/timespan/60", ""
 							+ R.id.sec4, "" + R.id.sec4Crowd, ""
 							+ R.id.sec4Noise, section[4],
-							""+R.id.sec4SmallCrowdImage, ""+R.id.sec4SmallNoiseImage);
+							""+R.id.sec4SmallCrowdImage, ""+R.id.sec4SmallNoiseImage, 
+							""+R.id.textView2);
 		}
 
 	}
@@ -130,6 +135,7 @@ public class LibraryInfoActivity extends Activity {
 		private int noiseImageId;
 		private double doubleCrowd;
 		private double doubleNoise;
+		private int patternViewId;
 		private boolean isPattern = false;
 
 		protected String doInBackground(String... args) {
@@ -140,7 +146,8 @@ public class LibraryInfoActivity extends Activity {
 			section = args[4];
 			crowdImageId = Integer.parseInt(args[5]);
 			noiseImageId = Integer.parseInt(args[6]);
-
+			patternViewId = Integer.parseInt(args[7]);
+			
 			String result = getJSONfromURL(args[0]);
 			Log.d(TAG, args[0] + " | " + result);
 			try {
@@ -191,6 +198,9 @@ public class LibraryInfoActivity extends Activity {
 		// Changes the values for a bunch of TextViews on the GUI
 		protected void onPostExecute(String result) {
 			Log.d(TAG, "About to set data");
+			
+			TextView patternTextView = (TextView) findViewById(patternViewId);
+			//patternTextView.setVisibility(View.INVISIBLE);
 			// String sect = getIntent().getExtras().getString("Library");
 			// ((TextView) findViewById(sectionId)).setText(section);
 			if (section.equals("CompLab")) {
@@ -250,6 +260,7 @@ public class LibraryInfoActivity extends Activity {
 					img.setImageResource(R.drawable.large_crowd);
 					img.setVisibility(View.VISIBLE);
 				}
+				patternTextView.setVisibility(View.VISIBLE);
 
 			}
 
@@ -292,6 +303,8 @@ public class LibraryInfoActivity extends Activity {
 					img.setImageResource(R.drawable.loud_noise);
 					img.setVisibility(View.VISIBLE);
 				}
+				patternTextView.setVisibility(View.VISIBLE);
+
 			}
 
 		}

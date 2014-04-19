@@ -406,7 +406,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/sec0SmallCrowdImage"
                     android:layout_below="@+id/sec4"
-                    android:text=""/>
+                    android:text="@string/exception"
+                    android:visibility="invisible"/>
 
              </RelativeLayout>   
                
