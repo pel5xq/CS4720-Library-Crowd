@@ -17,6 +17,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -74,7 +75,7 @@ public class MainActivity extends Activity {
 		buttonThornton = (Button) findViewById(R.id.buttonThornton);
 		buttonWilsdorf = (Button) findViewById(R.id.buttonWilsdorf);
 
-		Log.d(TAG, "About to perform task");
+		/*Log.d(TAG, "About to perform task");
 		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
 				+ "library/Alderman/timespan/60", "" + R.id.aldermanCrowdImage,
 				"" + R.id.aldermanNoise, "" + R.id.aldermanSmallCrowdImage, ""
@@ -114,15 +115,25 @@ public class MainActivity extends Activity {
 
 		//Openings/Closings
 		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
-				"phase1/cakephp/location?loc=ALD", "" + R.id.aldermanOpenImage);
+				"phase1/cakephp/location?loc=ALD", "" + R.id.aldermanOpenImage,
+				"" + R.id.aldermanNoise, "" + R.id.aldermanSmallNoiseImage,
+				"" + R.id.aldermanCrowdImage, "" + R.id.aldermanSmallCrowdImage);
 		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
-				"phase1/cakephp/location?loc=CHG", "" + R.id.clarkOpenImage);
+				"phase1/cakephp/location?loc=CHG", "" + R.id.clarkOpenImage,
+				"" + R.id.clarkNoise, "" + R.id.clarkSmallNoiseImage,
+				"" + R.id.clarkCrowd, "" + R.id.clarkSmallCrowdImage);
 		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
-				"phase1/cakephp/location?loc=CLM", "" + R.id.clemonsOpenImage);
+				"phase1/cakephp/location?loc=CLM", "" + R.id.clemonsOpenImage,
+				"" + R.id.clemonsNoise, "" + R.id.clemonsSmallNoiseImage,
+				"" + R.id.clemonsCrowd, "" + R.id.clemonsSmallCrowdImage);
 		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
-				"phase1/cakephp/location?loc=COMM", "" + R.id.commerceOpenImage);
+				"phase1/cakephp/location?loc=COMM", "" + R.id.commerceOpenImage,
+				"" + R.id.commerceNoise, "" + R.id.commerceSmallNoiseImage,
+				"" + R.id.commerceCrowd, "" + R.id.commerceSmallCrowdImage);
 		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
-				"phase1/cakephp/location?loc=WILS", "" + R.id.wilsdorfOpenImage);
+				"phase1/cakephp/location?loc=WILS", "" + R.id.wilsdorfOpenImage,
+				"" + R.id.wilsdorfNoise, "" + R.id.wilsdorfSmallNoiseImage,
+				"" + R.id.wilsdorfCrowd, "" + R.id.wilsdorfSmallCrowdImage);*/
 
 
 		// Post Lib crowd and noise data
@@ -154,17 +165,184 @@ public class MainActivity extends Activity {
 				});
 		
 		((Button) findViewById(R.id.studyPostButton))
-		.setOnClickListener(new OnClickListener() {
+		  		.setOnClickListener(new OnClickListener() {
+		  
+		  			@Override
+		  			public void onClick(View theView) {
+		  				Intent intent = new Intent(MainActivity.this,
+		  						StudyPostActivity.class);
+		  				startActivity(intent);
+		  			}
+		  
+		  		});
 
+		/*buttonAlderman.setOnClickListener(new OnClickListener() {
 			@Override
-			public void onClick(View theView) {
+			public void onClick(View v) {
+				TextView lib = (TextView) findViewById(R.id.buttonAlderman);
 				Intent intent = new Intent(MainActivity.this,
-						StudyPostActivity.class);
+						LibraryInfoActivity.class);
+				intent.putExtra("Library", lib.getText().toString());
+				intent.putExtra("array", aldermanArray);
 				startActivity(intent);
+
 			}
 
 		});
 
+		buttonClark.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TextView lib = (TextView) findViewById(R.id.buttonClark);
+				Intent intent = new Intent(MainActivity.this,
+						LibraryInfoActivity.class);
+				intent.putExtra("Library", lib.getText().toString());
+				intent.putExtra("array", clarkArray);
+				startActivity(intent);
+
+			}
+
+		});
+
+		buttonClemons.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TextView lib = (TextView) findViewById(R.id.buttonClemons);
+				Intent intent = new Intent(MainActivity.this,
+						LibraryInfoActivity.class);
+				intent.putExtra("Library", lib.getText().toString());
+				intent.putExtra("array", clemonsArray);
+				startActivity(intent);
+
+			}
+
+		});
+
+		buttonCommerce.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TextView lib = (TextView) findViewById(R.id.buttonCommerce);
+				Intent intent = new Intent(MainActivity.this,
+						LibraryInfoActivity.class);
+				intent.putExtra("Library", lib.getText().toString());
+				intent.putExtra("array", commerceArray);
+				startActivity(intent);
+
+			}
+
+		});
+
+		buttonRice.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TextView lib = (TextView) findViewById(R.id.buttonRice);
+				Intent intent = new Intent(MainActivity.this,
+						LibraryInfoActivity.class);
+				intent.putExtra("Library", lib.getText().toString());
+				intent.putExtra("array", riceArray);
+				startActivity(intent);
+
+			}
+
+		});
+
+		buttonThornton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TextView lib = (TextView) findViewById(R.id.buttonThornton);
+				Intent intent = new Intent(MainActivity.this,
+						LibraryInfoActivity.class);
+				intent.putExtra("Library", lib.getText().toString());
+				intent.putExtra("array", thorntonArray);
+				startActivity(intent);
+
+			}
+
+		});
+
+		buttonWilsdorf.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				TextView lib = (TextView) findViewById(R.id.buttonWilsdorf);
+				Intent intent = new Intent(MainActivity.this,
+						LibraryInfoActivity.class);
+				intent.putExtra("Library", lib.getText().toString());
+				intent.putExtra("array", wilsdorfArray);
+				startActivity(intent);
+
+			}
+
+		});*/
+	}
+
+	// for testing purposes
+	public OnClickListener textView1Listener = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+
+			Intent intent = new Intent(MainActivity.this,
+					LibraryInfoActivity.class);
+			intent.putExtra("Library", textView1.getText().toString());
+			textView1.setText(textView1.getText().toString());
+			startActivity(intent);
+		}
+	};
+
+	// private void updateLibraryDatascrollView(String )
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+	protected void onResume() {
+		super.onResume();
+		reloadData();
+	}
+
+	private void reloadData() {
+		// Intent i = new Intent(getBaseContext(), MainActivity.class);
+		// startActivity(i);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Alderman/timespan/60", "" + R.id.aldermanCrowdImage,
+				"" + R.id.aldermanNoise, "" + R.id.aldermanSmallCrowdImage, ""
+						+ R.id.aldermanSmallNoiseImage, 
+						""+R.id.textView2);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Clark/timespan/60", "" + R.id.clarkCrowd, ""
+				+ R.id.clarkNoise, "" + R.id.clarkSmallCrowdImage, ""
+				+ R.id.clarkSmallNoiseImage, 
+				""+R.id.textView2);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Clemons/timespan/60", "" + R.id.clemonsCrowd, ""
+				+ R.id.clemonsNoise, "" + R.id.clemonsSmallCrowdImage, ""
+				+ R.id.clemonsSmallNoiseImage, 
+				""+R.id.textView2);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Commerce%20School/timespan/60", ""
+				+ R.id.commerceCrowd, "" + R.id.commerceNoise, ""
+				+ R.id.commerceSmallCrowdImage, ""
+				+ R.id.commerceSmallNoiseImage, 
+				""+R.id.textView2);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Rice/timespan/60", "" + R.id.riceCrowd, ""
+				+ R.id.riceNoise, "" + R.id.riceSmallCrowdImage, ""
+				+ R.id.riceSmallNoiseImage, 
+				""+R.id.textView2);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Thornton/timespan/60", "" + R.id.thorntonCrowd, ""
+				+ R.id.thorntonNoise, "" + R.id.thorntonSmallCrowdImage, ""
+				+ R.id.thorntonSmallNoiseImage, 
+				""+R.id.textView2);
+		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
+				+ "library/Wilsdorf/timespan/60", "" + R.id.wilsdorfCrowd, ""
+				+ R.id.wilsdorfNoise, "" + R.id.wilsdorfSmallCrowdImage, ""
+				+ R.id.wilsdorfSmallNoiseImage, 
+				""+R.id.textView2);
+		
 		buttonAlderman.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -262,75 +440,32 @@ public class MainActivity extends Activity {
 			}
 
 		});
-	}
-
-	// for testing purposes
-	public OnClickListener textView1Listener = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-
-			Intent intent = new Intent(MainActivity.this,
-					LibraryInfoActivity.class);
-			intent.putExtra("Library", textView1.getText().toString());
-			textView1.setText(textView1.getText().toString());
-			startActivity(intent);
-		}
-	};
-
-	// private void updateLibraryDatascrollView(String )
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
-
-	protected void onResume() {
-		super.onResume();
-		reloadData();
-	}
-
-	private void reloadData() {
-		// Intent i = new Intent(getBaseContext(), MainActivity.class);
-		// startActivity(i);
-		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
-				+ "library/Alderman/timespan/60", "" + R.id.aldermanCrowdImage,
-				"" + R.id.aldermanNoise, "" + R.id.aldermanSmallCrowdImage, ""
-						+ R.id.aldermanSmallNoiseImage, 
-						""+R.id.textView2);
-		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
-				+ "library/Clark/timespan/60", "" + R.id.clarkCrowd, ""
-				+ R.id.clarkNoise, "" + R.id.clarkSmallCrowdImage, ""
-				+ R.id.clarkSmallNoiseImage, 
-				""+R.id.textView2);
-		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
-				+ "library/Clemons/timespan/60", "" + R.id.clemonsCrowd, ""
-				+ R.id.clemonsNoise, "" + R.id.clemonsSmallCrowdImage, ""
-				+ R.id.clemonsSmallNoiseImage, 
-				""+R.id.textView2);
-		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
-				+ "library/Commerce%20School/timespan/60", ""
-				+ R.id.commerceCrowd, "" + R.id.commerceNoise, ""
-				+ R.id.commerceSmallCrowdImage, ""
-				+ R.id.commerceSmallNoiseImage, 
-				""+R.id.textView2);
-		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
-				+ "library/Rice/timespan/60", "" + R.id.riceCrowd, ""
-				+ R.id.riceNoise, "" + R.id.riceSmallCrowdImage, ""
-				+ R.id.riceSmallNoiseImage, 
-				""+R.id.textView2);
-		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
-				+ "library/Thornton/timespan/60", "" + R.id.thorntonCrowd, ""
-				+ R.id.thorntonNoise, "" + R.id.thorntonSmallCrowdImage, ""
-				+ R.id.thorntonSmallNoiseImage, 
-				""+R.id.textView2);
-		new MyAsyncTask().execute("http://plato.cs.virginia.edu/~pel5xq/"
-				+ "library/Wilsdorf/timespan/60", "" + R.id.wilsdorfCrowd, ""
-				+ R.id.wilsdorfNoise, "" + R.id.wilsdorfSmallCrowdImage, ""
-				+ R.id.wilsdorfSmallNoiseImage, 
-				""+R.id.textView2);
+		
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=ALD", "" + R.id.aldermanOpenImage,
+				"" + R.id.aldermanNoise, "" + R.id.aldermanSmallNoiseImage,
+				"" + R.id.aldermanCrowdImage, "" + R.id.aldermanSmallCrowdImage,
+				"" + R.id.buttonAlderman);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=CHG", "" + R.id.clarkOpenImage,
+				"" + R.id.clarkNoise, "" + R.id.clarkSmallNoiseImage,
+				"" + R.id.clarkCrowd, "" + R.id.clarkSmallCrowdImage,
+				"" + R.id.buttonClark);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=CLM", "" + R.id.clemonsOpenImage,
+				"" + R.id.clemonsNoise, "" + R.id.clemonsSmallNoiseImage,
+				"" + R.id.clemonsCrowd, "" + R.id.clemonsSmallCrowdImage,
+				"" + R.id.buttonClemons);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=COMM", "" + R.id.commerceOpenImage,
+				"" + R.id.commerceNoise, "" + R.id.commerceSmallNoiseImage,
+				"" + R.id.commerceCrowd, "" + R.id.commerceSmallCrowdImage,
+				"" + R.id.buttonCommerce);
+		new OpenClosedTask().execute("http://plato.cs.virginia.edu/~cs4720s14corn/" +
+				"phase1/cakephp/location?loc=WILS", "" + R.id.wilsdorfOpenImage,
+				"" + R.id.wilsdorfNoise, "" + R.id.wilsdorfSmallNoiseImage,
+				"" + R.id.wilsdorfCrowd, "" + R.id.wilsdorfSmallCrowdImage,
+				"" + R.id.buttonWilsdorf);
 	}
 
 	private class MyAsyncTask extends AsyncTask<String, String, String> {
@@ -345,7 +480,7 @@ public class MainActivity extends Activity {
 		private Double doubleNoise;
 		private boolean isPattern = false;
 		private int patternId;
-
+		
 		protected String doInBackground(String... args) {
 
 			crowdId = Integer.parseInt(args[1]);
@@ -401,7 +536,7 @@ public class MainActivity extends Activity {
 		protected void onPostExecute(String result) {
 			Log.d(TAG, "About to set data");
 			TextView patternView = (TextView) findViewById(patternId);
-
+			
 			if (crowd.equals("0") || crowd.equals("0*")) {
 				((TextView) findViewById(crowdId)).setText("No Data");
 			}
@@ -473,7 +608,7 @@ public class MainActivity extends Activity {
 					ImageView img = (ImageView) findViewById(noiseImageId);
 					img.setImageResource(R.drawable.loud_noise);
 				}
-
+			
 				patternView.setVisibility(View.VISIBLE);
 
 			}
@@ -487,10 +622,20 @@ public class MainActivity extends Activity {
 		private int imageId;
 		private int isOpen; //-1 = Closed, 1 = Open, 0 = Ignore
 		private Calendar cal = new GregorianCalendar();
+		private int noiseImgId;
+		private int noiseTextId;
+		private int crowdImgId;
+		private int crowdTextId;
+		private int buttonId;
 
 		protected String doInBackground(String... args) {
 
 			imageId = Integer.parseInt(args[1]);
+			noiseTextId = Integer.parseInt(args[2]);
+			noiseImgId = Integer.parseInt(args[3]);
+			crowdTextId = Integer.parseInt(args[4]);
+			crowdImgId = Integer.parseInt(args[5]);
+			buttonId = Integer.parseInt(args[6]);
 
 			String result = getJSONfromURLGet(args[0]);
 			Log.d(TAG, "Open/Close "+args[0] + " | " + result);
@@ -580,6 +725,25 @@ public class MainActivity extends Activity {
 				ImageView img = (ImageView) findViewById(imageId);
 				img.setImageResource(R.drawable.close);
 				img.setVisibility(View.VISIBLE);
+				((ImageView) findViewById(noiseImgId)).setVisibility(View.INVISIBLE);
+				((ImageView) findViewById(crowdImgId)).setVisibility(View.INVISIBLE);
+				((TextView) findViewById(noiseTextId)).setText("Closed");
+				((TextView) findViewById(crowdTextId)).setText("Closed");
+				
+				((Button) findViewById(buttonId))
+				.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View theView) {
+						AlertDialog.Builder alert = new AlertDialog.Builder(MainActivity.this);
+						alert.setTitle("We're sorry: ");
+						alert.setMessage("The library you requested is closed. There is no library section data information" +
+								" available at this time.");
+						alert.setPositiveButton("OK", null);
+						alert.show();
+					}
+
+				});
 			}
 
 		}

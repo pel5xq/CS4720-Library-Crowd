@@ -24,25 +24,25 @@
                 android:layout_height="fill_parent" >
             
             <LinearLayout
-            android:layout_width="244dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/layer_card_background"
-            android:orientation="vertical" >
-            
-            <ImageView
-                android:id="@+id/bookmark"
-                android:layout_width="300dp"
-                android:layout_height="400dp"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/bookmark" />
-            
-             <Button
-                android:id="@+id/homeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/home" />
-             </LinearLayout>
+              android:layout_width="244dp"
+              android:layout_height="match_parent"
+              android:background="@drawable/layer_card_background"
+              android:orientation="vertical" >
+                 
+	            <ImageView
+	                android:id="@+id/bookmark"
+	                android:layout_width="300dp"
+	                android:layout_height="400dp"
+	                android:layout_gravity="center_horizontal"
+	                android:src="@drawable/bookmark" />
+	            
+	            <Button
+	                  android:id="@+id/homeButton"
+	                  android:layout_width="wrap_content"
+	                  android:layout_height="wrap_content"
+	                  android:layout_gravity="center_horizontal"
+	                  android:text="@string/home" />
+            </LinearLayout>
             
             <TextView
                     android:id="@+id/libName"
@@ -418,7 +418,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignLeft="@+id/sec0SmallCrowdImage"
                     android:layout_below="@+id/sec4"
-                    android:text=""/>
+                    android:text="@string/exception"
+                    android:visibility="invisible"/>
 
              </RelativeLayout>   
                

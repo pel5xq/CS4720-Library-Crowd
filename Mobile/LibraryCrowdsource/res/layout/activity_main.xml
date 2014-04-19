@@ -41,11 +41,11 @@
                 android:text="@string/studySearch" />
             
             <Button
-                android:id="@+id/studyPostButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="@string/submitStudyGroup" />
+                  android:id="@+id/studyPostButton"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_gravity="center_horizontal"
+                  android:text="@string/submitStudyGroup" />
             
         </LinearLayout>
 </LinearLayout>
@@ -63,7 +63,6 @@
                 android:id="@+id/textView1"
                 android:layout_width="25dp"
                 android:layout_height="110dp"
-                android:layout_marginLeft="175dp"
                 android:gravity="center"
                 android:text="@string/main_title"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -78,18 +77,18 @@
                     android:layout_gravity="center"
                     android:layout_marginLeft="135dp"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/libraryLabel" />
+                    android:text="@string/libraryLabel" /> />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >                    
+                    android:layout_height="wrap_content" >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="130dp"
-                       android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/crowdLabel" />
 
                     <TextView
@@ -97,7 +96,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="130dp"
-                       android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/noiseLabel" />
                 </LinearLayout>
             </TableRow>
