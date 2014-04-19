@@ -44,11 +44,11 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin" >
 
-            <Button
+            <!-- <Button
                 android:id="@+id/submitPostButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/studySearch" />
+                android:text="@string/studySearch" /> -->
 
             <TextView
                 android:id="@+id/textView01"

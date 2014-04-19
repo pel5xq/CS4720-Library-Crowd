@@ -365,7 +365,7 @@ public class StudyPostActivity extends Activity {
 
 				});
 
-		((Button) findViewById(R.id.submitPostButton))
+		/*((Button) findViewById(R.id.submitPostButton))
 				.setOnClickListener(new OnClickListener() {
 
 					@Override
@@ -378,7 +378,7 @@ public class StudyPostActivity extends Activity {
 
 					}
 
-				});
+				});*/
 
 	}
 

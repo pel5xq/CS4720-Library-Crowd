@@ -83,7 +83,7 @@ public class StudySearchActivity extends Activity {
 		 * t.format("%I:%M %p"); endTime.setText(incTime);
 		 */
 
-		((Button) findViewById(R.id.createGroupButton))
+		/*((Button) findViewById(R.id.createGroupButton))
 				.setOnClickListener(new OnClickListener() {
 
 					@Override
@@ -94,7 +94,7 @@ public class StudySearchActivity extends Activity {
 
 					}
 
-				});
+				});*/
 		
 		((Button) findViewById(R.id.homeButton))
 		 		.setOnClickListener(new OnClickListener() {
