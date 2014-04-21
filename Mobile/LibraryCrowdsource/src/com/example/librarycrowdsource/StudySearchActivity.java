@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.apache.http.HttpEntity;
@@ -18,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
@@ -34,6 +36,7 @@ import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -44,14 +47,18 @@ public class StudySearchActivity extends Activity {
 
 	private final String TAG = "LIBRARYCROWD";
 
-	private TimePicker timePicker;
 	private int hour;
 	private int minute;
 	static final int TIME_DIALOG_ID = 999;
-	public static ProgressDialog progress;
-	private boolean picker = false;
-
+	static final int DATE_DIALOG_ID = 998;
+	private int dateYear, dateMonth, dateDay;
 	private TextView startTime;
+	
+	
+	public static ProgressDialog progress;
+	
+
+	
 	private TextView endTime;
 	private Button startTimeButton;
 	private Button endTimeButton;
@@ -84,6 +91,39 @@ public class StudySearchActivity extends Activity {
 		 * (TextView) findViewById(R.id.eTime); t.hour += 1; String incTime =
 		 * t.format("%I:%M %p"); endTime.setText(incTime);
 		 */
+		
+		Time t = new Time();
+		t.setToNow();
+		String currentTime = t.format("%I:%M %p");
+		startTime = (TextView) findViewById(R.id.studySearchTime);
+		startTime.setText(currentTime);
+		
+		((Button) findViewById(R.id.studySearchTimeButton))
+			.setOnClickListener(new OnClickListener() {
+
+			@SuppressWarnings("deprecation")
+			@Override
+			public void onClick(View theView) {
+				showDialog(TIME_DIALOG_ID);
+
+			}
+
+		});
+		
+		Calendar cal = Calendar.getInstance();
+		dateYear = cal.get(Calendar.YEAR);
+		dateMonth = cal.get(Calendar.MONTH);
+		dateDay = cal.get(Calendar.DAY_OF_MONTH);
+		((TextView) findViewById(R.id.studySearchDate)).setText(dateYear+"-"+(dateMonth+1)+"-"+dateDay);
+		
+		((Button) findViewById(R.id.studySearchDateButton))
+			.setOnClickListener(new OnClickListener() {
+			@SuppressWarnings("deprecation")
+			@Override
+			public void onClick(View theView) {
+				showDialog(DATE_DIALOG_ID);
+			}
+		});
 
 		/*((Button) findViewById(R.id.createGroupButton))
 				.setOnClickListener(new OnClickListener() {
@@ -148,7 +188,11 @@ public class StudySearchActivity extends Activity {
 						String course = ((TextView) findViewById(R.id.editText1))
 								.getText().toString();
 
-						Calendar cal = new GregorianCalendar();
+						
+						String time = encodeTime(((TextView) findViewById(R.id.studySearchDate))
+								.getText().toString(),
+								((TextView) findViewById(R.id.studySearchTime))
+								.getText().toString());
 						
 						Log.d(TAG, department + "/" + course);
 						if (!department.equals("") && !course.equals("")) {
@@ -159,7 +203,7 @@ public class StudySearchActivity extends Activity {
 											+ "courseNum/"
 											+ course
 											+"/time/"
-											+(new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss")).format((new GregorianCalendar()).getTime()));
+											+time);
 						}
 					}
 
@@ -229,6 +273,74 @@ public class StudySearchActivity extends Activity {
 	// });
 	//
 	// }
+	
+	@Override
+	protected Dialog onCreateDialog(int id) {
+		switch (id) {
+		case TIME_DIALOG_ID:
+			// set timePicker as current time
+			return new TimePickerDialog(this, timePickerListener, hour, minute,
+					false);
+		case DATE_DIALOG_ID:
+			// set timePicker as current time
+			return new DatePickerDialog(this, datePickerListener, dateYear, dateMonth,
+					dateDay);
+		}
+		return null;
+	}
+	
+	private TimePickerDialog.OnTimeSetListener timePickerListener = new TimePickerDialog.OnTimeSetListener() {
+		public void onTimeSet(TimePicker view, int selectedHour,
+				int selectedMinute) {
+			hour = selectedHour;
+			minute = selectedMinute;
+
+			Time t = new Time();
+			t.minute = selectedMinute;
+			t.hour = selectedHour;
+			String time = t.format("%I:%M %p");
+
+			startTime.setText(time);
+			view.setCurrentHour(hour);
+			view.setCurrentMinute(minute);
+		}
+	};
+	
+	private DatePickerDialog.OnDateSetListener datePickerListener = new DatePickerDialog.OnDateSetListener() {
+		public void onDateSet(DatePicker view, int selectedYear,
+				int selectedMonth, int selectedDay) {
+			dateYear = selectedYear;
+			dateMonth = selectedMonth;
+			dateDay = selectedDay;
+
+			((TextView) findViewById(R.id.studySearchDate)).setText(dateYear+"-"+(dateMonth+1)+"-"+dateDay);
+
+			view.init(dateYear, dateMonth, dateDay, null);
+		}
+	};
+	
+	private String encodeTime(String date, String time) {
+		String result = "";
+		if (null == date || date.equals(""))
+			result += DateFormat.format("yyyy-MM-dd-",
+				new Date(System.currentTimeMillis()));
+		else 
+			result+=date+"-";
+		String[] hm = time.split(":");
+		String hour = hm[0];
+		String minute = hm[1].substring(0, 2);
+		if (time.contains("PM") || time.contains("pm")) {
+			int hourValue = Integer.parseInt(hour);
+			if (hourValue != 12)
+				hour = (hourValue + 12) + "";
+		} else if (time.contains("AM") || time.contains("am")) {
+			int hourValue = Integer.parseInt(hour);
+			if (hourValue == 12)
+				hour = "00";
+		}
+		result += hour + ":" + minute + ":00";
+		return result;
+	}
 
 	private static String pad(int c) {
 		if (c >= 10)
