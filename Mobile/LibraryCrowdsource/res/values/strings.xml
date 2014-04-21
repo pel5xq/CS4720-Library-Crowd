@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">LibraryCrowdsource</string>
+    <string name="app_name">Study Buddy</string>
     <string name="action_settings">Settings</string>
     <string name="clemons">    Clemons    </string>
     <string name="alderman">   Alderman    </string>

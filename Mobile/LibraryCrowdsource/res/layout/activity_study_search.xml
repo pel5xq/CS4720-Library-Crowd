@@ -117,11 +117,13 @@
                 android:text="@string/submitStudyGroup" />
             -->
 
-            <TableLayout
-                android:id="@+id/searchTable"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-            </TableLayout>
+			<HorizontalScrollView >
+	            <TableLayout
+	                android:id="@+id/searchTable"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content" >
+	            </TableLayout>
+            </HorizontalScrollView>
         </TableLayout>
     </LinearLayout>
 

@@ -33,6 +33,7 @@ public final class R {
         public static final int alignIcon=0x7f040004;
         public static final int alignTextIcon=0x7f040006;
         public static final int largeCrowd=0x7f040002;
+        public static final int max_search_row_width=0x7f040008;
         public static final int noiseColn=0x7f040005;
         public static final int textToIcon=0x7f040007;
         public static final int twiceAsBig=0x7f040003;

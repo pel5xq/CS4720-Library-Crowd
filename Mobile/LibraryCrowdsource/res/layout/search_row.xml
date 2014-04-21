@@ -22,8 +22,8 @@
         android:id="@+id/departmentText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/defaultData"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:text="@string/defaultData" />
     
     <TextView
         android:id="@+id/nameText"

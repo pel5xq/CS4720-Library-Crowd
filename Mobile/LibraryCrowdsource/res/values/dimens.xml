@@ -9,5 +9,6 @@
     <dimen name="noiseColn">75dp</dimen>
     <dimen name="alignTextIcon">5dp</dimen>
     <dimen name="textToIcon">10dp</dimen>
+    <dimen name="max_search_row_width">50dp</dimen>
 
 </resources>

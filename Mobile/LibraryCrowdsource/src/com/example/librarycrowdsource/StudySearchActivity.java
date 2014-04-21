@@ -256,6 +256,17 @@ public class StudySearchActivity extends Activity {
 						String section = jObject.getString("Section");
 						library = library.replace("%20", " ");
 						section = section.replace("%20", " ");
+						
+						if (section.equals("CompLab")) {
+							section = "Computer Lab";
+						} else if (section.equals("EastWing")) {
+							section = "East Wing";
+						} else if (section.equals("WestWing")) {
+							section = "West Wing";
+						} else if (section.matches(".*\\d.*")) {
+							section = "Floor " + section;
+						}
+						
 						String department = jObject.getString("Dept");
 						String courseNum = jObject.getString("CourseNum");
 						String name = jObject.getString("Name");
