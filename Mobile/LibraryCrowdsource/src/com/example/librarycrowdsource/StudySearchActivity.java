@@ -3,8 +3,10 @@ package com.example.librarycrowdsource;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -146,6 +148,8 @@ public class StudySearchActivity extends Activity {
 						String course = ((TextView) findViewById(R.id.editText1))
 								.getText().toString();
 
+						Calendar cal = new GregorianCalendar();
+						
 						Log.d(TAG, department + "/" + course);
 						if (!department.equals("") && !course.equals("")) {
 							new SearchAsyncTask()
@@ -153,7 +157,9 @@ public class StudySearchActivity extends Activity {
 											+ department
 											+ "/"
 											+ "courseNum/"
-											+ course);
+											+ course
+											+"/time/"
+											+(new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss")).format((new GregorianCalendar()).getTime()));
 						}
 					}
 
@@ -254,6 +260,7 @@ public class StudySearchActivity extends Activity {
 						String courseNum = jObject.getString("CourseNum");
 						String name = jObject.getString("Name");
 						String description = jObject.getString("Descrip");
+						String timeString = decodeTime(jObject.getString("StartTime"), jObject.getString("EndTime"));
 						name = name.replace("_", " ");
 						description = description.replace("_", " ");
 						View newRow = ((LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE))
@@ -268,6 +275,8 @@ public class StudySearchActivity extends Activity {
 								.setText(name);
 						((TextView) newRow.findViewById(R.id.descriptionText))
 								.setText(description);
+						((TextView) newRow.findViewById(R.id.timeText))
+								.setText(timeString);
 						inflatedRows.add(newRow);
 					}
 				}
@@ -278,6 +287,23 @@ public class StudySearchActivity extends Activity {
 			}
 
 			return null;
+		}
+		
+		private String decodeTime(String startT, String endT) {
+			String hour = endT.substring(endT.indexOf("T")+1, endT.indexOf(":"));
+			String minute = endT.split(":")[1];
+			if (hour.equals("0") || hour.equals("00")) {
+				return "12:"+minute+" AM";
+			}
+			else if (hour.equals("12")) {
+				return "12:"+minute+" PM";
+			}
+			else if (Integer.parseInt(hour) > 12) {
+				return (Integer.parseInt(hour)-12)+":"+minute+" PM";
+			}
+			else {
+				return hour+":"+minute+" AM";
+			}
 		}
 
 		// Changes the values for a bunch of TextViews on the GUI

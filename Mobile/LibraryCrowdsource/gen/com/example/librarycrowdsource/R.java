@@ -66,8 +66,8 @@ public final class R {
         public static final int TextViewLibrary=0x7f0a005e;
         public static final int TextViewNoise=0x7f0a0067;
         public static final int TextViewSection=0x7f0a0061;
-        public static final int action_settings=0x7f0a009b;
-        public static final int aldermanCrowd=0x7f0a009a;
+        public static final int action_settings=0x7f0a009c;
+        public static final int aldermanCrowd=0x7f0a009b;
         public static final int aldermanCrowdImage=0x7f0a002b;
         public static final int aldermanNoise=0x7f0a002d;
         public static final int aldermanNoiseImage=0x7f0a0065;
@@ -129,7 +129,7 @@ public final class R {
         public static final int sTime=0x7f0a0077;
         public static final int scrollView1=0x7f0a0059;
         public static final int searchRow=0x7f0a0094;
-        public static final int searchRowTitle=0x7f0a0098;
+        public static final int searchRowTitle=0x7f0a0099;
         public static final int searchTable=0x7f0a0087;
         public static final int sec0=0x7f0a000a;
         public static final int sec0Crowd=0x7f0a000c;
@@ -172,7 +172,7 @@ public final class R {
         public static final int sectionText=0x7f0a0096;
         public static final int spinnerCourse=0x7f0a006e;
         public static final int spinnerLibrary=0x7f0a005f;
-        public static final int spinnerSection=0x7f0a0099;
+        public static final int spinnerSection=0x7f0a009a;
         public static final int startDate=0x7f0a0079;
         public static final int startDateButton=0x7f0a007a;
         public static final int startTimeButton=0x7f0a0078;
@@ -207,6 +207,7 @@ public final class R {
         public static final int thorntonOpenImage=0x7f0a004c;
         public static final int thorntonSmallCrowdImage=0x7f0a004d;
         public static final int thorntonSmallNoiseImage=0x7f0a004f;
+        public static final int timeText=0x7f0a0098;
         public static final int title=0x7f0a005c;
         public static final int wilsdorfCrowd=0x7f0a0055;
         public static final int wilsdorfNoise=0x7f0a0057;
@@ -325,6 +326,7 @@ public final class R {
         public static final int thornton=0x7f060004;
         public static final int thorntonStacks=0x7f06002f;
         public static final int three=0x7f06000e;
+        public static final int time_description=0x7f06005b;
         public static final int title_course=0x7f060055;
         public static final int title_course_num=0x7f060056;
         public static final int title_department=0x7f060054;

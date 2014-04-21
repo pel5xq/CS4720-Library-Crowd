@@ -161,5 +161,6 @@
     <string name="title_description">Description</string>
     <string name="pickerText">▼</string>
     <string name="home">Home</string>
+    <string name="time_description">End Time</string>
 
 </resources>
