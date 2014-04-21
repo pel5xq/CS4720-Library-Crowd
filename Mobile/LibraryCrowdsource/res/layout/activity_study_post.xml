@@ -25,15 +25,17 @@
                 android:layout_height="400dp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/bookmark" />
-        
 
             <Button
-                  android:id="@+id/homeButton"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center_horizontal"
-                  android:text="@string/home" />
-          </LinearLayout>
+                android:id="@+id/homeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:padding="8dp"
+                android:text="@string/home" />
+        </LinearLayout>
 
         <TableLayout
             android:id="@+id/ChooseLibraryEditText"
@@ -43,12 +45,6 @@
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin" >
-
-            <!-- <Button
-                android:id="@+id/submitPostButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/studySearch" /> -->
 
             <TextView
                 android:id="@+id/textView01"
@@ -98,7 +94,6 @@
                     android:ems="10"
                     android:hint="@string/courseSuggestion"
                     android:inputType="number" >
-
                 </EditText>
             </TableRow>
 
@@ -156,6 +151,7 @@
                     android:id="@+id/sTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -163,8 +159,10 @@
                     android:id="@+id/startTimeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
                     android:text="@string/pickerText" />
-                
+
                 <TextView
                     android:id="@+id/startDate"
                     android:layout_width="wrap_content"
@@ -176,6 +174,9 @@
                     android:id="@+id/startDateButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
+                    android:padding="8dp"
                     android:text="@string/pickerText" />
             </TableRow>
 
@@ -195,6 +196,7 @@
                     android:id="@+id/eTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
                     android:text=""
                     android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -202,8 +204,11 @@
                     android:id="@+id/endTimeButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
+                    android:padding="8dp"
                     android:text="@string/pickerText" />
-                
+
                 <TextView
                     android:id="@+id/endDate"
                     android:layout_width="wrap_content"
@@ -215,6 +220,9 @@
                     android:id="@+id/endDateButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
+                    android:padding="8dp"
                     android:text="@string/pickerText" />
             </TableRow>
 
@@ -237,7 +245,6 @@
                     android:ems="10"
                     android:hint="@string/nameSuggestion"
                     android:inputType="text|textPersonName" >
-
                 </EditText>
             </TableRow>
 
@@ -260,15 +267,16 @@
                     android:ems="10"
                     android:hint="@string/descriptionSuggestion"
                     android:inputType="text|textShortMessage" >
-
                 </EditText>
             </TableRow>
- 
+
             <Button
                 android:id="@+id/submitSearchButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:background="@drawable/button_selector"
+                android:padding="8dp"
                 android:text="@string/submit" />
         </TableLayout>
     </LinearLayout>

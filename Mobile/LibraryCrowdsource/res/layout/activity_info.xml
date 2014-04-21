@@ -19,32 +19,35 @@
             android:background="@drawable/layer_card_background"
             android:orientation="vertical" >
 
-             <RelativeLayout
+            <RelativeLayout
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent" >
-            
-            <LinearLayout
-              android:layout_width="244dp"
-              android:layout_height="match_parent"
-              android:background="@drawable/layer_card_background"
-              android:orientation="vertical" >
-                 
-	            <ImageView
-	                android:id="@+id/bookmark"
-	                android:layout_width="300dp"
-	                android:layout_height="400dp"
-	                android:layout_gravity="center_horizontal"
-	                android:src="@drawable/bookmark" />
-	            
-	            <Button
-	                  android:id="@+id/homeButton"
-	                  android:layout_width="wrap_content"
-	                  android:layout_height="wrap_content"
-	                  android:layout_gravity="center_horizontal"
-	                  android:text="@string/home" />
-            </LinearLayout>
-            
-            <TextView
+
+                <LinearLayout
+                    android:layout_width="244dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/layer_card_background"
+                    android:orientation="vertical" >
+
+                    <ImageView
+                        android:id="@+id/bookmark"
+                        android:layout_width="300dp"
+                        android:layout_height="400dp"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/bookmark" />
+
+                    <Button
+                        android:id="@+id/homeButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/button_selector"
+                        android:padding="8dp"
+                        android:text="@string/home" />
+                </LinearLayout>
+
+                <TextView
                     android:id="@+id/libName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -56,12 +59,16 @@
                     android:text=""
                     android:textColor="@android:color/black"
                     android:textSize="30sp" />
-</RelativeLayout>
+            </RelativeLayout>
+
             <Button
                 android:id="@+id/makePostButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:padding="8dp"
                 android:text="@string/makePost" />
 
             <Button
@@ -71,358 +78,353 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/studySearch" />
         </LinearLayout>
-</LinearLayout>
+    </LinearLayout>
 
-        <TableLayout
-            android:id="@+id/ChooseLibraryEditText"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:paddingBottom="@dimen/activity_vertical_margin"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingRight="@dimen/activity_horizontal_margin" >
+    <TableLayout
+        android:id="@+id/ChooseLibraryEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="25dp"
+            android:layout_height="110dp"
+            android:gravity="center"
+          	android:layout_marginLeft="25dp"
+            android:text="@string/main_title"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="40sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent" >
 
             <TextView
-                android:id="@+id/textView1"
-                android:layout_width="25dp"
-                android:layout_height="110dp"
-                android:gravity="center"
-                android:text="@string/main_title"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textSize="40sp" />
+                android:id="@+id/sectionLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="200dp"
+                android:layout_marginRight="110dp"
+                android:paddingBottom="15dp"
+                android:text="@string/sectionLabel"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="fill_parent" >
-                
-                 <TextView
-                    android:id="@+id/sectionLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
-                    android:layout_marginRight="110dp"
-                    android:text="@string/sectionLabel"
-                    android:paddingBottom="15dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-                  <TextView
-                    android:id="@+id/crowdLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sectionLabel"
-                    android:layout_marginRight="100dp"
-                    android:layout_toRightOf="@id/sectionLabel"
-                    android:text="@string/crowdLabel"
-                    android:paddingBottom="15dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-                   <TextView
-                    android:id="@+id/noiseLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sectionLabel"
-                    android:layout_marginRight="40dp"
-                    android:layout_toRightOf="@id/crowdLabel"
-                    android:text="@string/noiseLabel"
-                    android:paddingBottom="15dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge" />
-               
+            <TextView
+                android:id="@+id/crowdLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sectionLabel"
+                android:layout_marginRight="100dp"
+                android:layout_toRightOf="@id/sectionLabel"
+                android:paddingBottom="15dp"
+                android:text="@string/crowdLabel"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <TextView
-                    android:id="@+id/sec0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
-                    android:layout_marginRight="110dp"
-                    android:layout_below= "@id/sectionLabel"
-                 
-                    android:text=""
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:paddingBottom="10dp" />
+            <TextView
+                android:id="@+id/noiseLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sectionLabel"
+                android:layout_marginRight="40dp"
+                android:layout_toRightOf="@id/crowdLabel"
+                android:paddingBottom="15dp"
+                android:text="@string/noiseLabel"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <ImageView
-                    android:id="@+id/sec0SmallCrowdImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec0"
-                    android:layout_marginRight="40dp"
-                    android:layout_toRightOf="@id/sec0"
-                    android:layout_below = "@id/crowdLabel"
-                    android:layout_alignLeft = "@id/crowdLabel"
-                    android:src="@drawable/nodata" 
-                    android:visibility="invisible"
-                     android:paddingBottom="10dp"
-                    />
+            <TextView
+                android:id="@+id/sec0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/sectionLabel"
+                android:layout_marginLeft="200dp"
+                android:layout_marginRight="110dp"
+                android:paddingBottom="10dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sec0Crowd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec0"
-                    android:layout_marginRight="75dp"
-                    android:layout_toRightOf="@id/sec0SmallCrowdImage"
-                     android:paddingBottom="10dp"
-                    android:text="" />
+            <ImageView
+                android:id="@+id/sec0SmallCrowdImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec0"
+                android:layout_alignLeft="@id/crowdLabel"
+                android:layout_below="@id/crowdLabel"
+                android:layout_marginRight="40dp"
+                android:layout_toRightOf="@id/sec0"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <ImageView
-                    android:id="@+id/sec0SmallNoiseImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec0"
-                   android:layout_marginRight="40dp"
-                    android:layout_toRightOf="@id/sec0Crowd"
-                    android:layout_below = "@id/noiseLabel"
-                    android:layout_alignLeft = "@id/noiseLabel"
-                    android:src="@drawable/nodata"
-                     android:paddingBottom="10dp" 
-                    android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/sec0Crowd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec0"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="75dp"
+                android:layout_toRightOf="@id/sec0SmallCrowdImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-                <TextView
-                    android:id="@+id/sec0Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec0"
-                    android:layout_toRightOf="@id/sec0SmallNoiseImage"
-                    android:text="" 
-                     android:paddingBottom="10dp"
-                    />
+            <ImageView
+                android:id="@+id/sec0SmallNoiseImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec0"
+                android:layout_alignLeft="@id/noiseLabel"
+                android:layout_below="@id/noiseLabel"
+                android:layout_marginRight="40dp"
+                android:layout_toRightOf="@id/sec0Crowd"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <TextView
-                    android:id="@+id/sec1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/sec0"
-                    android:layout_below="@id/sec0"
-                    android:text=""
-                     android:paddingBottom="10dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/sec0Noise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec0"
+                android:layout_toRightOf="@id/sec0SmallNoiseImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-                <ImageView
-                    android:id="@+id/sec1SmallCrowdImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec1"
-                    android:layout_alignLeft="@+id/sec0SmallCrowdImage"
-                    android:layout_below="@+id/sec0SmallCrowdImage"
-                    android:layout_toRightOf="@+id/sec1"
-                    android:src="@drawable/nodata"
-                     android:paddingBottom="10dp" 
-                    android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/sec1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/sec0"
+                android:layout_below="@id/sec0"
+                android:paddingBottom="10dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sec1Crowd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/sec1"
-                    android:layout_alignLeft="@+id/sec0Crowd"
-                    android:layout_below="@+id/sec0Crowd"
-                    android:layout_toRightOf="@+id/sec1SmallCrowdImage"
-                     android:paddingBottom="10dp"
-                    android:text="" />
+            <ImageView
+                android:id="@+id/sec1SmallCrowdImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec1"
+                android:layout_alignLeft="@+id/sec0SmallCrowdImage"
+                android:layout_below="@+id/sec0SmallCrowdImage"
+                android:layout_toRightOf="@+id/sec1"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <ImageView
-                    android:id="@+id/sec1SmallNoiseImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec1"
-                    android:layout_alignLeft="@+id/sec0SmallNoiseImage"
-                    android:layout_below="@+id/sec0SmallNoiseImage"
-                    android:layout_toRightOf="@+id/sec1Crowd"
-                    android:src="@drawable/nodata"
-                     android:paddingBottom="10dp"
-                    android:visibility="invisible" />
+            <TextView
+                android:id="@+id/sec1Crowd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/sec1"
+                android:layout_alignLeft="@+id/sec0Crowd"
+                android:layout_below="@+id/sec0Crowd"
+                android:layout_toRightOf="@+id/sec1SmallCrowdImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-                <TextView
-                    android:id="@+id/sec1Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/sec1"
-                    android:layout_alignLeft="@+id/sec0Noise"
-                    android:layout_below="@+id/sec0Noise"
-                    android:layout_toRightOf="@+id/sec1SmallNoiseImage"
-                     android:paddingBottom="10dp"
-                    android:text="" />
+            <ImageView
+                android:id="@+id/sec1SmallNoiseImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec1"
+                android:layout_alignLeft="@+id/sec0SmallNoiseImage"
+                android:layout_below="@+id/sec0SmallNoiseImage"
+                android:layout_toRightOf="@+id/sec1Crowd"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <TextView
-                    android:id="@+id/sec2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/sec0"
-                    android:layout_below="@+id/sec1"
-                    android:text=""
-                     android:paddingBottom="10dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/sec1Noise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/sec1"
+                android:layout_alignLeft="@+id/sec0Noise"
+                android:layout_below="@+id/sec0Noise"
+                android:layout_toRightOf="@+id/sec1SmallNoiseImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-                <ImageView
-                    android:id="@+id/sec2SmallCrowdImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec2"
-                    android:layout_alignLeft="@+id/sec0SmallCrowdImage"
-                    android:layout_below="@+id/sec1SmallCrowdImage"
-                    android:layout_toRightOf="@+id/sec2"
-                    android:src="@drawable/nodata" 
-                     android:paddingBottom="10dp"
-                    android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/sec2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/sec0"
+                android:layout_below="@+id/sec1"
+                android:paddingBottom="10dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sec2Crowd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/sec2"
-                    android:layout_alignLeft="@+id/sec0Crowd"
-                    android:layout_below="@+id/sec1Crowd"
-                    android:layout_toRightOf="@+id/sec2SmallCrowdImage"
-                     android:paddingBottom="10dp"
-                    android:text="" />
+            <ImageView
+                android:id="@+id/sec2SmallCrowdImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec2"
+                android:layout_alignLeft="@+id/sec0SmallCrowdImage"
+                android:layout_below="@+id/sec1SmallCrowdImage"
+                android:layout_toRightOf="@+id/sec2"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <ImageView
-                    android:id="@+id/sec2SmallNoiseImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec2"
-                    android:layout_alignLeft="@+id/sec0SmallNoiseImage"
-                    android:layout_below="@+id/sec1SmallNoiseImage"
-                    android:layout_toRightOf="@+id/sec3Crowd"
-                    android:src="@drawable/nodata" 
-                     android:paddingBottom="10dp"
-                    android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/sec2Crowd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/sec2"
+                android:layout_alignLeft="@+id/sec0Crowd"
+                android:layout_below="@+id/sec1Crowd"
+                android:layout_toRightOf="@+id/sec2SmallCrowdImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-                <TextView
-                    android:id="@+id/sec2Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/sec2"
-                    android:layout_alignLeft="@+id/sec0Noise"
-                    android:layout_below="@+id/sec1Noise"
-                    android:layout_toRightOf="@+id/sec2SmallNoiseImage"
-                     android:paddingBottom="10dp"
-                    android:text="" />
+            <ImageView
+                android:id="@+id/sec2SmallNoiseImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec2"
+                android:layout_alignLeft="@+id/sec0SmallNoiseImage"
+                android:layout_below="@+id/sec1SmallNoiseImage"
+                android:layout_toRightOf="@+id/sec3Crowd"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <TextView
-                    android:id="@+id/sec3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/sec0"
-                    android:layout_below="@+id/sec2"
-                    android:text=""
-                     android:paddingBottom="10dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/sec2Noise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/sec2"
+                android:layout_alignLeft="@+id/sec0Noise"
+                android:layout_below="@+id/sec1Noise"
+                android:layout_toRightOf="@+id/sec2SmallNoiseImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-                <ImageView
-                    android:id="@+id/sec3SmallCrowdImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec3"
-                    android:layout_alignLeft="@+id/sec0SmallCrowdImage"
-                    android:layout_below="@+id/sec2SmallCrowdImage"
-                    android:layout_toRightOf="@+id/sec3"
-                    android:src="@drawable/nodata"
-                     android:paddingBottom="10dp"
-                    android:visibility="invisible" />
+            <TextView
+                android:id="@+id/sec3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/sec0"
+                android:layout_below="@+id/sec2"
+                android:paddingBottom="10dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <TextView
-                    android:id="@+id/sec3Crowd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/sec3"
-                    android:layout_alignLeft="@+id/sec0Crowd"
-                    android:layout_below="@+id/sec2Crowd"
-                    android:layout_toRightOf="@+id/sec3SmallCrowdImage"
-                     android:paddingBottom="10dp"
-                    android:text="" />
+            <ImageView
+                android:id="@+id/sec3SmallCrowdImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec3"
+                android:layout_alignLeft="@+id/sec0SmallCrowdImage"
+                android:layout_below="@+id/sec2SmallCrowdImage"
+                android:layout_toRightOf="@+id/sec3"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <ImageView
-                    android:id="@+id/sec3SmallNoiseImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec3"
-                    android:layout_alignLeft="@+id/sec0SmallNoiseImage"
-                    android:layout_below="@+id/sec2SmallNoiseImage"
-                    android:layout_toRightOf="@+id/sec3Crowd"
-                    android:src="@drawable/nodata" 
-                     android:paddingBottom="10dp"
-                    android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/sec3Crowd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/sec3"
+                android:layout_alignLeft="@+id/sec0Crowd"
+                android:layout_below="@+id/sec2Crowd"
+                android:layout_toRightOf="@+id/sec3SmallCrowdImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-                <TextView
-                    android:id="@+id/sec3Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/sec3"
-                    android:layout_alignLeft="@+id/sec0Noise"
-                    android:layout_below="@+id/sec2Noise"
-                    android:layout_toRightOf="@+id/sec3SmallNoiseImage"
-                     android:paddingBottom="10dp"
-                    android:text="" />
+            <ImageView
+                android:id="@+id/sec3SmallNoiseImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec3"
+                android:layout_alignLeft="@+id/sec0SmallNoiseImage"
+                android:layout_below="@+id/sec2SmallNoiseImage"
+                android:layout_toRightOf="@+id/sec3Crowd"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <TextView
-                    android:id="@+id/sec4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec4"
-                    android:layout_alignLeft="@+id/sec0"
-                    android:layout_below="@+id/sec3"
-                    android:text=""
-                     android:paddingBottom="10dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium" />
+            <TextView
+                android:id="@+id/sec3Noise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/sec3"
+                android:layout_alignLeft="@+id/sec0Noise"
+                android:layout_below="@+id/sec2Noise"
+                android:layout_toRightOf="@+id/sec3SmallNoiseImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-              
+            <TextView
+                android:id="@+id/sec4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec4"
+                android:layout_alignLeft="@+id/sec0"
+                android:layout_below="@+id/sec3"
+                android:paddingBottom="10dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <ImageView
-                    android:id="@+id/sec4SmallCrowdImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec4"
-                    android:layout_alignLeft="@+id/sec0SmallCrowdImage"
-                    android:layout_below="@+id/sec3SmallCrowdImage"
-                    android:layout_toRightOf="@+id/sec4"
-                    android:src="@drawable/nodata" 
-                     android:paddingBottom="10dp"
-                    android:visibility="invisible"/>
+            <ImageView
+                android:id="@+id/sec4SmallCrowdImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec4"
+                android:layout_alignLeft="@+id/sec0SmallCrowdImage"
+                android:layout_below="@+id/sec3SmallCrowdImage"
+                android:layout_toRightOf="@+id/sec4"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <TextView
-                    android:id="@+id/sec4Crowd"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/sec4"
-                    android:layout_alignLeft="@+id/sec0Crowd"
-                    android:layout_below="@+id/sec3Crowd"
-                    android:layout_toRightOf="@+id/sec4SmallCrowdImage"
-                     android:paddingBottom="10dp"
-                    android:text="" />
+            <TextView
+                android:id="@+id/sec4Crowd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/sec4"
+                android:layout_alignLeft="@+id/sec0Crowd"
+                android:layout_below="@+id/sec3Crowd"
+                android:layout_toRightOf="@+id/sec4SmallCrowdImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-                <ImageView
-                    android:id="@+id/sec4SmallNoiseImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/sec4"
-                    android:layout_alignLeft="@+id/sec0SmallNoiseImage"
-                    android:layout_below="@+id/sec3SmallNoiseImage"
-                    android:layout_toRightOf="@+id/sec4Crowd"
-                    android:src="@drawable/nodata" 
-                     android:paddingBottom="10dp"
-                    android:visibility="invisible"/>
+            <ImageView
+                android:id="@+id/sec4SmallNoiseImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/sec4"
+                android:layout_alignLeft="@+id/sec0SmallNoiseImage"
+                android:layout_below="@+id/sec3SmallNoiseImage"
+                android:layout_toRightOf="@+id/sec4Crowd"
+                android:paddingBottom="10dp"
+                android:src="@drawable/nodata"
+                android:visibility="invisible" />
 
-                <TextView
-                    android:id="@+id/sec4Noise"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/sec4"
-                    android:layout_alignLeft="@+id/sec0Noise"
-                    android:layout_below="@+id/sec3Noise"
-                    android:layout_toRightOf="@+id/sec4SmallNoiseImage"
-                     android:paddingBottom="10dp"
-                    android:text="" />
+            <TextView
+                android:id="@+id/sec4Noise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/sec4"
+                android:layout_alignLeft="@+id/sec0Noise"
+                android:layout_below="@+id/sec3Noise"
+                android:layout_toRightOf="@+id/sec4SmallNoiseImage"
+                android:paddingBottom="10dp"
+                android:text="" />
 
-                <TextView
-                    android:id="@+id/textView2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/sec0SmallCrowdImage"
-                    android:layout_below="@+id/sec4"
-                    android:text="@string/exception"
-                    android:visibility="invisible"/>
-
-             </RelativeLayout>   
-               
-        </TableLayout>
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/sec0SmallCrowdImage"
+                android:layout_below="@+id/sec4"
+                android:text="@string/exception"
+                android:visibility="invisible" />
+        </RelativeLayout>
+    </TableLayout>
 
 </FrameLayout>

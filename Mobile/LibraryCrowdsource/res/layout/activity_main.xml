@@ -31,6 +31,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:padding="8dp"
                 android:text="@string/makePost" />
 
             <Button
@@ -38,23 +41,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:padding="8dp"
                 android:text="@string/studySearch" />
-            
+
             <Button
-                  android:id="@+id/studyPostButton"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center_horizontal"
-                  android:text="@string/submitStudyGroup" />
-            
+                android:id="@+id/studyPostButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:padding="8dp"
+                android:text="@string/submitStudyGroup" />
         </LinearLayout>
-</LinearLayout>
 
         <TableLayout
             android:id="@+id/ChooseLibraryEditText"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="1"
             android:paddingBottom="@dimen/activity_vertical_margin"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin" >
@@ -63,7 +69,8 @@
                 android:id="@+id/textView1"
                 android:layout_width="25dp"
                 android:layout_height="110dp"
-                android:gravity="center"
+                android:paddingTop="30dp"
+                android:layout_marginLeft="110dp"
                 android:text="@string/main_title"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="40sp" />
@@ -74,43 +81,55 @@
                 android:layout_height="wrap_content" >
 
                 <TextView
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="135dp"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/libraryLabel" /> />
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="45dp"
+                    android:text="@string/libraryLabel"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" >
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="130dp"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="@string/crowdLabel" />
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:text="@string/crowd"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="130dp"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="@string/noiseLabel" />
-                </LinearLayout>
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/level"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:text="@string/noise"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/level"
+                    android:textAppearance="?android:attr/textAppearanceLarge" />
             </TableRow>
 
-            <RelativeLayout
+            <TableRow
+                android:id="@+id/tableRow2"
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent" >
+                android:layout_height="wrap_content" >
 
                 <Button
                     android:id="@+id/buttonAlderman"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="200dp"
-                    android:layout_marginRight="80dp"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
                     android:text="@string/alderman"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -118,9 +137,8 @@
                     android:id="@+id/aldermanOpenImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonAlderman"
-                    android:layout_marginRight="55dp"
-                    android:layout_toRightOf="@+id/buttonAlderman"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/open"
                     android:visibility="invisible" />
 
@@ -128,43 +146,46 @@
                     android:id="@+id/aldermanSmallCrowdImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonAlderman"
-                    android:layout_marginRight="25dp"
-                    android:layout_toRightOf="@id/aldermanOpenImage"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/aldermanCrowdImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonAlderman"
-                    android:layout_marginRight="150dp"
-                    android:layout_toRightOf="@id/aldermanSmallCrowdImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="20dp"
                     android:text="@string/defaultData" />
 
                 <ImageView
                     android:id="@+id/aldermanSmallNoiseImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonAlderman"
-                    android:layout_marginRight="25dp"
-                    android:layout_toRightOf="@id/aldermanCrowdImage"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="19dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/aldermanNoise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonAlderman"
-                    android:layout_toRightOf="@id/aldermanSmallNoiseImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/defaultData" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
                 <Button
                     android:id="@+id/buttonClark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/buttonAlderman"
-                    android:layout_below="@id/buttonAlderman"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
                     android:text="@string/clark"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -172,10 +193,8 @@
                     android:id="@+id/clarkOpenImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonClark"
-                    android:layout_alignLeft="@+id/aldermanOpenImage"
-                    android:layout_below="@+id/aldermanOpenImage"
-                    android:layout_toRightOf="@+id/buttonClark"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/open"
                     android:visibility="invisible" />
 
@@ -183,48 +202,46 @@
                     android:id="@+id/clarkSmallCrowdImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonClark"
-                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
-                    android:layout_below="@+id/aldermanSmallCrowdImage"
-                    android:layout_toRightOf="@+id/clarkOpenImage"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/clarkCrowd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonClark"
-                    android:layout_alignLeft="@+id/aldermanCrowdImage"
-                    android:layout_below="@+id/aldermanCrowdImage"
-                    android:layout_toRightOf="@+id/clarkSmallCrowdImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="20dp"
                     android:text="@string/defaultData" />
 
                 <ImageView
                     android:id="@+id/clarkSmallNoiseImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonClark"
-                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
-                    android:layout_below="@+id/aldermanSmallNoiseImage"
-                    android:layout_toRightOf="@+id/clarkCrowd"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="19dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/clarkNoise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonClark"
-                    android:layout_alignLeft="@+id/aldermanNoise"
-                    android:layout_below="@+id/aldermanNoise"
-                    android:layout_toRightOf="@+id/clarkSmallNoiseImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/defaultData" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
                 <Button
                     android:id="@+id/buttonClemons"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/buttonAlderman"
-                    android:layout_below="@+id/buttonClark"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
                     android:text="@string/clemons"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -232,10 +249,8 @@
                     android:id="@+id/clemonsOpenImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonClemons"
-                    android:layout_alignLeft="@+id/aldermanOpenImage"
-                    android:layout_below="@+id/clarkOpenImage"
-                    android:layout_toRightOf="@+id/buttonClemons"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/open"
                     android:visibility="invisible" />
 
@@ -243,48 +258,48 @@
                     android:id="@+id/clemonsSmallCrowdImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonClemons"
-                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
-                    android:layout_below="@+id/clarkSmallCrowdImage"
-                    android:layout_toRightOf="@+id/clemonsOpenImage"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/clemonsCrowd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonClemons"
-                    android:layout_alignLeft="@+id/aldermanCrowdImage"
-                    android:layout_below="@+id/clarkCrowd"
-                    android:layout_toRightOf="@+id/clemonsSmallCrowdImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="20dp"
                     android:text="@string/defaultData" />
 
                 <ImageView
                     android:id="@+id/clemonsSmallNoiseImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonClemons"
-                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
-                    android:layout_below="@+id/clarkSmallNoiseImage"
-                    android:layout_toRightOf="@+id/clemonsCrowd"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="19dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/clemonsNoise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonClemons"
-                    android:layout_alignLeft="@+id/aldermanNoise"
-                    android:layout_below="@+id/clarkNoise"
-                    android:layout_toRightOf="@+id/clemonsSmallNoiseImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/defaultData" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
                 <Button
                     android:id="@+id/buttonCommerce"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/buttonAlderman"
-                    android:layout_below="@+id/buttonClemons"
+                    android:layout_margin="5dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:background="@drawable/button_selector"
                     android:text="@string/commerce"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -292,10 +307,8 @@
                     android:id="@+id/commerceOpenImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonCommerce"
-                    android:layout_alignLeft="@+id/aldermanOpenImage"
-                    android:layout_below="@+id/clemonsOpenImage"
-                    android:layout_toRightOf="@+id/buttonCommerce"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/open"
                     android:visibility="invisible" />
 
@@ -303,49 +316,46 @@
                     android:id="@+id/commerceSmallCrowdImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonCommerce"
-                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
-                    android:layout_below="@+id/clemonsSmallCrowdImage"
-                    android:layout_toRightOf="@+id/commerceOpenImage"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/commerceCrowd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonCommerce"
-                    android:layout_alignLeft="@+id/aldermanCrowdImage"
-                    android:layout_below="@+id/clemonsCrowd"
-                    android:layout_toRightOf="@+id/commerceSmallCrowdImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="20dp"
                     android:text="@string/defaultData" />
 
                 <ImageView
                     android:id="@+id/commerceSmallNoiseImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonCommerce"
-                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
-                    android:layout_below="@+id/clemonsSmallNoiseImage"
-                    android:layout_toRightOf="@+id/commerceCrowd"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="19dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/commerceNoise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonCommerce"
-                    android:layout_alignLeft="@+id/aldermanNoise"
-                    android:layout_below="@+id/clemonsNoise"
-                    android:layout_toRightOf="@+id/commerceSmallNoiseImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/defaultData" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
                 <Button
                     android:id="@+id/buttonRice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonRice"
-                    android:layout_alignLeft="@+id/buttonAlderman"
-                    android:layout_below="@+id/buttonCommerce"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
                     android:text="@string/rice"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -353,9 +363,8 @@
                     android:id="@+id/riceOpenImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonRice"
-                    android:layout_below="@+id/commerceOpenImage"
-                    android:layout_toRightOf="@+id/buttonRice"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/open"
                     android:visibility="invisible" />
 
@@ -363,48 +372,46 @@
                     android:id="@+id/riceSmallCrowdImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonRice"
-                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
-                    android:layout_below="@+id/commerceSmallCrowdImage"
-                    android:layout_toRightOf="@+id/riceOpenImage"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/riceCrowd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonRice"
-                    android:layout_alignLeft="@+id/aldermanCrowdImage"
-                    android:layout_below="@+id/commerceCrowd"
-                    android:layout_toRightOf="@+id/riceSmallCrowdImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="20dp"
                     android:text="@string/defaultData" />
 
                 <ImageView
                     android:id="@+id/riceSmallNoiseImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonRice"
-                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
-                    android:layout_below="@+id/commerceSmallNoiseImage"
-                    android:layout_toRightOf="@+id/riceCrowd"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="19dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/riceNoise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonRice"
-                    android:layout_alignLeft="@+id/aldermanNoise"
-                    android:layout_below="@+id/commerceNoise"
-                    android:layout_toRightOf="@+id/riceSmallNoiseImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/defaultData" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
                 <Button
                     android:id="@+id/buttonThornton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/buttonAlderman"
-                    android:layout_below="@+id/buttonRice"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
                     android:text="@string/thornton"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -412,10 +419,8 @@
                     android:id="@+id/thorntonOpenImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonThornton"
-                    android:layout_alignLeft="@+id/aldermanOpenImage"
-                    android:layout_below="@+id/riceOpenImage"
-                    android:layout_toRightOf="@+id/buttonThornton"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/open"
                     android:visibility="invisible" />
 
@@ -423,48 +428,46 @@
                     android:id="@+id/thorntonSmallCrowdImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonThornton"
-                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
-                    android:layout_below="@+id/riceSmallCrowdImage"
-                    android:layout_toRightOf="@+id/thorntonOpenImage"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/thorntonCrowd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonThornton"
-                    android:layout_alignLeft="@+id/aldermanCrowdImage"
-                    android:layout_below="@+id/riceCrowd"
-                    android:layout_toRightOf="@+id/thorntonSmallCrowdImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="20dp"
                     android:text="@string/defaultData" />
 
                 <ImageView
                     android:id="@+id/thorntonSmallNoiseImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonThornton"
-                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
-                    android:layout_below="@+id/riceSmallNoiseImage"
-                    android:layout_toRightOf="@+id/thorntonCrowd"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="19dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/thorntonNoise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonThornton"
-                    android:layout_alignLeft="@+id/aldermanNoise"
-                    android:layout_below="@+id/riceNoise"
-                    android:layout_toRightOf="@+id/thorntonSmallNoiseImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/defaultData" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
 
                 <Button
                     android:id="@+id/buttonWilsdorf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/buttonAlderman"
-                    android:layout_below="@+id/buttonThornton"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/button_selector"
                     android:text="@string/wilsdorf"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -472,10 +475,8 @@
                     android:id="@+id/wilsdorfOpenImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonWilsdorf"
-                    android:layout_alignLeft="@+id/aldermanOpenImage"
-                    android:layout_below="@+id/thorntonOpenImage"
-                    android:layout_toRightOf="@+id/buttonWilsdorf"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/open"
                     android:visibility="invisible" />
 
@@ -483,53 +484,43 @@
                     android:id="@+id/wilsdorfSmallCrowdImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonWilsdorf"
-                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
-                    android:layout_below="@+id/thorntonSmallCrowdImage"
-                    android:layout_toRightOf="@+id/wilsdorfOpenImage"
+                    android:layout_marginLeft="30dp"
+                    android:paddingTop="17dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/wilsdorfCrowd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonWilsdorf"
-                    android:layout_alignLeft="@+id/aldermanCrowdImage"
-                    android:layout_below="@+id/thorntonCrowd"
-                    android:layout_toRightOf="@+id/wilsdorfSmallCrowdImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="20dp"
                     android:text="@string/defaultData" />
 
                 <ImageView
                     android:id="@+id/wilsdorfSmallNoiseImage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBottom="@+id/buttonWilsdorf"
-                    android:layout_alignLeft="@+id/aldermanSmallNoiseImage"
-                    android:layout_below="@+id/thorntonSmallNoiseImage"
-                    android:layout_toRightOf="@+id/wilsdorfCrowd"
+                    android:layout_marginLeft="45dp"
+                    android:paddingTop="19dp"
                     android:src="@drawable/nodata" />
 
                 <TextView
                     android:id="@+id/wilsdorfNoise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/buttonWilsdorf"
-                    android:layout_alignLeft="@+id/aldermanNoise"
-                    android:layout_below="@+id/thorntonNoise"
-                    android:layout_toRightOf="@+id/wilsdorfSmallNoiseImage"
+                    android:layout_marginBottom="17dp"
+                    android:layout_marginLeft="10dp"
                     android:text="@string/defaultData" />
-                
-                
+            </TableRow>
+
                 <TextView
                     android:id="@+id/textView2"
+                    android:layout_marginLeft="300dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/aldermanSmallCrowdImage"
-                    android:layout_below="@+id/buttonWilsdorf"
                     android:text="@string/exception"
-                    android:visibility="invisible"/>
+                    android:visibility="invisible" />
 
-             </RelativeLayout>   
             <TableRow
                 android:id="@+id/LibraryDatascrollView"
                 android:layout_width="match_parent"
@@ -555,9 +546,7 @@
                     </TableLayout>
                 </ScrollView>
             </TableRow>
-
-           
-               
         </TableLayout>
+    </LinearLayout>
 
 </FrameLayout>

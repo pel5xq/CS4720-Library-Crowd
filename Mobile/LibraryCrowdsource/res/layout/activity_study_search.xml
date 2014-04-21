@@ -25,15 +25,17 @@
                 android:layout_height="400dp"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/bookmark" />
-        
 
             <Button
-                  android:id="@+id/homeButton"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="center_horizontal"
-                  android:text="@string/home" />
-          </LinearLayout>
+                android:id="@+id/homeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="5dp"
+                android:background="@drawable/button_selector"
+                android:padding="8dp"
+                android:text="@string/home" />
+        </LinearLayout>
 
         <TableLayout
             android:id="@+id/ChooseLibraryEditText"
@@ -102,14 +104,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:background="@drawable/button_selector"
+                android:padding="8dp"
                 android:text="@string/submit" />
 
-            <!--  <Button
+            <!--
+                  <Button
                 android:id="@+id/createGroupButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:text="@string/submitStudyGroup" /> -->
+                android:text="@string/submitStudyGroup" />
+            -->
 
             <TableLayout
                 android:id="@+id/searchTable"

@@ -9,6 +9,9 @@
     <string name="libraryLabel">Library</string>
     <string name="crowdLabel">Crowd Level</string>
     <string name="noiseLabel">Noise Level</string>
+    <string name="level">Level</string>
+    <string name="crowd">Crowd</string>
+    <string name="noise">Noise</string>
     <string name="sectionLabel">Section</string>
     <string name="one">1</string>
     <string name="two">2</string>
@@ -93,7 +96,6 @@
         <item>STS</item>
         <item>SYS</item>
     </string-array>
-    
     <string-array name="library_array">
         <item>Alderman</item>
         <item>Clark</item>
@@ -103,33 +105,28 @@
         <item>Thornton</item>
         <item>Wilsdorf</item>
     </string-array>
-    
     <string-array name="alderman_section_array">
         <item>West Wing</item>
         <item>East Wing</item>
         <item>McGregor Room</item>
         <item>Cafe</item>
     </string-array>
-    
     <string-array name="clark_section_array">
         <item>West Wing</item>
         <item>East Wing</item>
         <item>Reading Room</item>
         <item>Stacks</item>
     </string-array>
-    
     <string-array name="clemons_section_array">
         <item>1st Floor</item>
         <item>2nd Floor</item>
         <item>3rd Floor</item>
         <item>4th Floor</item>
     </string-array>
-    
     <string-array name="commerce_section_array">
         <item>4th Floor</item>
         <item>Computer Lab</item>
     </string-array>
-    
     <string-array name="rice_section_array">
         <item>1st Floor</item>
         <item>2nd Floor</item>
@@ -137,11 +134,9 @@
         <item>4th Floor</item>
         <item>5th Floor</item>
     </string-array>
-    
     <string-array name="thornton_section_array">
         <item>Stacks</item>
     </string-array>
-    
     <string-array name="wilsdorf_section_array">
         <item>Cafe</item>
     </string-array>

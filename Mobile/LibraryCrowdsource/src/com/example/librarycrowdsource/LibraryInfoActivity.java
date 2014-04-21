@@ -287,7 +287,7 @@ public class LibraryInfoActivity extends Activity {
 			} else if (isPattern == false) {
 
 				if (doubleNoise <= 2) {
-					((TextView) findViewById(noiseId)).setText("Sparse");
+					((TextView) findViewById(noiseId)).setText("Quiet");
 					ImageView img = (ImageView) findViewById(noiseImageId);
 					img.setImageResource(R.drawable.small_noise);
 					img.setVisibility(View.VISIBLE);
@@ -304,7 +304,7 @@ public class LibraryInfoActivity extends Activity {
 			} else {
 
 				if (doubleNoise <= 2) {
-					((TextView) findViewById(noiseId)).setText("Sparse *");
+					((TextView) findViewById(noiseId)).setText("Quiet *");
 					ImageView img = (ImageView) findViewById(noiseImageId);
 					img.setImageResource(R.drawable.small_noise);
 					img.setVisibility(View.VISIBLE);
